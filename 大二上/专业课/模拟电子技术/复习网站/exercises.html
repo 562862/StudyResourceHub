@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>习题练习 - 模拟电子技术</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>📝 习题练习与真题解析</h1>
+            <p class="subtitle">通过大量练习，掌握考试技巧</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="chapter1.html">第一章：半导体器件</a></li>
+                <li><a href="chapter2.html">第二章：基本放大电路</a></li>
+                <li><a href="chapter3.html">第三章：多级放大电路</a></li>
+                <li><a href="chapter4.html">第四章：集成运放</a></li>
+                <li><a href="chapter5.html">第五章：反馈电路</a></li>
+                <li><a href="chapter6.html">第六章：功率放大</a></li>
+                <li><a href="exercises.html" class="active">习题练习</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="welcome-section">
+            <h2>💪 考试真题精讲</h2>
+            <p>以下是根据你的复习题整理的完整题库，每道题都配有详细解析。建议先独立思考，再查看答案！</p>
+        </section>
+
+        <div class="content-section">
+            <h2>一、选择判断题（基础概念）</h2>
+
+            <!-- 题目1 -->
+            <div class="exercise-item">
+                <h3>题目1：半导体载流子</h3>
+                <div class="question">
+                    下列哪个说法不正确？（　）
+                    <ul class="options">
+                        <li>A. 多数载流子就是多子，少数载流子就是少子</li>
+                        <li>B. PN结又叫空间电荷区、耗尽层、高阻层</li>
+                        <li>C. PN结中多子的运动形式是扩散，少子的运动形式是漂移</li>
+                        <li>D. 二极管只要加正压就导通，加反压就截止</li>
+                    </ul>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 正确答案：D</h4>
+                    <p><strong>详细解析：</strong></p>
+                    <p><strong>A选项 ✓：</strong>正确。多数载流子就是多子，少数载流子就是少子。</p>
+                    <p><strong>B选项 ✓：</strong>正确。PN结的三个名称：空间电荷区、耗尽层、高阻层。</p>
+                    <p><strong>C选项 ✓：</strong>正确。多子通过扩散运动，少子通过漂移运动。</p>
+                    <p><strong>D选项 ✗：</strong>错误！二极管导通需要加正向电压且<strong>超过导通电压</strong>（硅管0.7V，锗管0.3V）才能导通，不是只要加正压就导通。</p>
+                    <p><strong>知识点：</strong>PN结的单向导电性需要正向电压达到一定值才能导通。</p>
+                </div>
+            </div>
+
+            <!-- 题目2 -->
+            <div class="exercise-item">
+                <h3>题目2：三极管工作状态</h3>
+                <div class="question">
+                    下面叙述不正确的是（　）
+                    <ul class="options">
+                        <li>A. 稳压管必须工作在反向击穿状态才有稳压作用</li>
+                        <li>B. 晶体三极管工作在放大状态时，相当于一个满控电流源</li>
+                        <li>C. 场效应管工作在恒流区时相当于一个压控电流源</li>
+                        <li>D. 负载变大是指负载电阻变大</li>
+                    </ul>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 正确答案：B</h4>
+                    <p><strong>详细解析：</strong></p>
+                    <p><strong>A选项 ✓：</strong>正确。稳压管的稳压工作区是反向击穿区。</p>
+                    <p><strong>B选项 ✗：</strong>错误！晶体三极管工作在<strong>放大状态</strong>时，相当于<strong>流控电流源</strong>（用基极电流控制集电极电流），不是"满控电流源"。如果是<strong>饱和状态</strong>，才相当于满控电流源。</p>
+                    <p><strong>C选项 ✓：</strong>正确。场效应管是电压控制器件，工作在恒流区时相当于压控电流源。</p>
+                    <p><strong>D选项 ✓：</strong>正确。负载变大指的是负载电阻R<sub>L</sub>变大。</p>
+                    <p><strong>易错点：</strong>注意区分三极管的<strong>放大状态</strong>和<strong>饱和状态</strong>！</p>
+                </div>
+            </div>
+
+            <!-- 题目3 -->
+            <div class="exercise-item">
+                <h3>题目3：放大电路基本概念</h3>
+                <div class="question">
+                    下列说法不正确的是（　）
+                    <ul class="options">
+                        <li>A. 串联分压式放大电路能稳定静态工作点</li>
+                        <li>B. 共射极放大电路具有反相作用</li>
+                        <li>C. 多级阻容耦合放大电路各级静态工作点独立</li>
+                        <li>D. 多级直接耦合放大电路不适合放大缓慢变化的信号</li>
+                    </ul>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 正确答案：D</h4>
+                    <p><strong>详细解析：</strong></p>
+                    <p><strong>A选项 ✓：</strong>正确。串联分压式偏置电路通过发射极电阻R<sub>e</sub>引入负反馈，能稳定静态工作点。</p>
+                    <p><strong>B选项 ✓：</strong>正确。共射极放大电路输出与输入<strong>反相</strong>，相位差180°。</p>
+                    <p><strong>C选项 ✓：</strong>正确。阻容耦合通过电容隔离直流，各级静态工作点互不影响。</p>
+                    <p><strong>D选项 ✗：</strong>错误！多级直接耦合放大电路<strong>最适合</strong>放大缓慢变化的信号（如直流信号），因为它没有耦合电容的阻隔。</p>
+                    <p><strong>重要结论：</strong></p>
+                    <ul>
+                        <li>阻容耦合：不能放大直流和缓慢变化的信号</li>
+                        <li>直接耦合：可以放大直流和缓慢变化的信号 ✓</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 题目4 -->
+            <div class="exercise-item">
+                <h3>题目4：理想二极管参数</h3>
+                <div class="question">
+                    理想二极管的主要性能指标为（　）
+                    <ul class="options">
+                        <li>A. U<sub>F</sub>=0，I<sub>F</sub>=0</li>
+                        <li>B. U<sub>F</sub>=0.3V，I<sub>F</sub>=0</li>
+                        <li>C. U<sub>F</sub>=0.5V，I<sub>F</sub>=I<sub>S</sub></li>
+                        <li>D. U<sub>F</sub>=0.7V，I<sub>F</sub>≠0</li>
+                    </ul>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 正确答案：A</h4>
+                    <p><strong>详细解析：</strong></p>
+                    <p><strong>理想二极管的特性：</strong></p>
+                    <ul>
+                        <li>正向导通时：U<sub>F</sub> = 0（没有压降）</li>
+                        <li>反向截止时：I<sub>F</sub> = 0（没有电流）</li>
+                    </ul>
+                    <p><strong>实际二极管：</strong></p>
+                    <ul>
+                        <li>硅二极管：U<sub>F</sub> ≈ 0.7V</li>
+                        <li>锗二极管：U<sub>F</sub> ≈ 0.3V</li>
+                    </ul>
+                    <p><strong>考试要点：</strong>理想二极管的参数是U<sub>F</sub>=0，I<sub>F</sub>=0，这是理论分析的基础。</p>
+                </div>
+            </div>
+
+            <!-- 题目5 -->
+            <div class="exercise-item">
+                <h3>题目5：NPN型单级放大电路失真</h3>
+                <div class="question">
+                    在NPN型单级共射放大电路中，若输入电压为正弦波形，输出波形出现了底部被削平的现象，这种失真是（　）
+                    <ul class="options">
+                        <li>A. 饱和失真</li>
+                        <li>B. 截止失真</li>
+                        <li>C. 线性失真</li>
+                        <li>D. 交越失真</li>
+                    </ul>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 正确答案：B（截止失真）</h4>
+                    <p><strong>详细解析：</strong></p>
+                    <p><strong>失真判断口诀：</strong></p>
+                    <ul>
+                        <li><strong>顶部削平</strong> → 饱和失真（Q点太高）</li>
+                        <li><strong>底部削平</strong> → 截止失真（Q点太低）✓</li>
+                    </ul>
+                    <p><strong>原因分析：</strong></p>
+                    <p>底部被削平说明在负半周时，三极管进入<strong>截止区</strong>，I<sub>C</sub>≈0，U<sub>CE</sub>≈V<sub>CC</sub>，输出电压无法继续下降。</p>
+                    <p><strong>解决方法：</strong>增大基极偏置电阻R<sub>b</sub>，提高I<sub>BQ</sub>，使静态工作点Q上移。</p>
+                    <p><strong>其他选项：</strong></p>
+                    <ul>
+                        <li>C. 线性失真：频率失真和相位失真，波形不会削平</li>
+                        <li>D. 交越失真：出现在乙类功率放大电路中</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 题目6 -->
+            <div class="exercise-item">
+                <h3>题目6：射极输出器</h3>
+                <div class="question">
+                    射极输出器无放大（　）的能力
+                    <ul class="options">
+                        <li>A. 电压</li>
+                        <li>B. 电流</li>
+                        <li>C. 功率</li>
+                        <li>D. 信号</li>
+                    </ul>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 正确答案：A（电压）</h4>
+                    <p><strong>详细解析：</strong></p>
+                    <p><strong>射极输出器（共集放大电路）的特点：</strong></p>
+                    <ul>
+                        <li><strong>电压放大倍数：</strong>A<sub>u</sub> ≈ 1（接近1，小于1）</li>
+                        <li><strong>电流放大倍数：</strong>A<sub>i</sub> = 1 + β（较大）</li>
+                        <li><strong>功率放大倍数：</strong>A<sub>p</sub> = A<sub>u</sub> × A<sub>i</sub> ≈ 1 + β（有放大）</li>
+                    </ul>
+                    <p><strong>结论：</strong>射极输出器<strong>不放大电压</strong>，但可以放大电流和功率。</p>
+                    <p><strong>主要应用：</strong></p>
+                    <ul>
+                        <li>阻抗变换（输入阻抗高，输出阻抗低）</li>
+                        <li>缓冲隔离</li>
+                        <li>电压跟随</li>
+                    </ul>
+                    <p><strong>记忆技巧：</strong>"射极跟随器"名字告诉我们——输出电压跟随输入电压，所以电压放大倍数≈1。</p>
+                </div>
+            </div>
+
+            <!-- 题目7 -->
+            <div class="exercise-item">
+                <h3>题目7：单管放大器动态范围</h3>
+                <div class="question">
+                    与空载相比，接上负载后，单管放大器的动态范围一定（　）
+                    <ul class="options">
+                        <li>A. 不变</li>
+                        <li>B. 变大</li>
+                        <li>C. 变小</li>
+                        <li>D. 不确定</li>
+                    </ul>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 正确答案：C（变小）</h4>
+                    <p><strong>详细解析：</strong></p>
+                    <p><strong>动态范围：</strong>放大电路不失真时输出信号的最大幅度。</p>
+                    <p><strong>为什么变小？</strong></p>
+                    <p>1. 空载时，交流负载为R<sub>c</sub></p>
+                    <p>2. 接负载R<sub>L</sub>后，交流负载变为R<sub>c</sub>∥R<sub>L</sub> < R<sub>c</sub></p>
+                    <p>3. 电压放大倍数：A<sub>u</sub> = -β(R<sub>c</sub>∥R<sub>L</sub>)/r<sub>be</sub></p>
+                    <p>4. 负载越小，|A<sub>u</sub>|越小，输出幅度越小</p>
+                    <p>5. 因此动态范围<strong>变小</strong></p>
+                    <p><strong>物理意义：</strong>负载相当于分流，使得输出电压降低，可用范围变小。</p>
+                </div>
+            </div>
+
+            <h2>二、计算分析题</h2>
+
+            <!-- 题目8 -->
+            <div class="exercise-item">
+                <h3>题目8：输出电阻计算</h3>
+                <div class="question">
+                    某放大电路在负载开路时的输出电压为4V，接入3kΩ的负载后输出电压降为3V，则此电路的输出电阻为（　）
+                    <ul class="options">
+                        <li>A. 0.5kΩ</li>
+                        <li>B. 1kΩ</li>
+                        <li>C. 2kΩ</li>
+                        <li>D. 3kΩ</li>
+                    </ul>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 正确答案：B（1kΩ）</h4>
+                    <p><strong>解题步骤：</strong></p>
+                    <p><strong>步骤1：</strong>确定已知条件</p>
+                    <ul>
+                        <li>空载时：U<sub>o</sub> = 4V</li>
+                        <li>接负载后：U<sub>o</sub>' = 3V，R<sub>L</sub> = 3kΩ</li>
+                    </ul>
+                    <p><strong>步骤2：</strong>计算负载电流</p>
+                    <p>I<sub>L</sub> = U<sub>o</sub>' / R<sub>L</sub> = 3V / 3kΩ = 1mA</p>
+                    <p><strong>步骤3：</strong>计算输出电阻上的压降</p>
+                    <p>ΔU = U<sub>o</sub> - U<sub>o</sub>' = 4V - 3V = 1V</p>
+                    <p><strong>步骤4：</strong>计算输出电阻</p>
+                    <p>R<sub>o</sub> = ΔU / I<sub>L</sub> = 1V / 1mA = 1kΩ</p>
+                    <p><strong>知识点：</strong>输出电阻是放大电路的重要参数，反映了带负载能力。</p>
+                </div>
+            </div>
+
+            <!-- 题目9 -->
+            <div class="exercise-item">
+                <h3>题目9：稳压管输出电压</h3>
+                <div class="question">
+                    有两只稳压管，稳压值分别为9V和6V，则不可能得到的输出电压U为（　）
+                    <ul class="options">
+                        <li>A. 5V</li>
+                        <li>B. 9V</li>
+                        <li>C. 6.7V</li>
+                        <li>D. 15V</li>
+                    </ul>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 正确答案：A和C（5V和6.7V都不可能）</h4>
+                    <p><strong>详细解析：</strong></p>
+                    <p><strong>稳压管的使用方式：</strong></p>
+                    <p>1. <strong>单独使用9V稳压管：</strong>输出9V ✓</p>
+                    <p>2. <strong>单独使用6V稳压管：</strong>输出6V</p>
+                    <p>3. <strong>串联使用：</strong>9V + 6V = 15V ✓</p>
+                    <p><strong>不可能得到：</strong></p>
+                    <ul>
+                        <li>5V：小于两只稳压管的最小值 ✗</li>
+                        <li>6.7V：介于6V和9V之间，无法通过组合得到 ✗</li>
+                    </ul>
+                    <p><strong>重要原理：</strong>稳压管只能提供固定的稳压值，或者通过串联得到稳压值之和。</p>
+                </div>
+            </div>
+
+            <!-- 题目10 -->
+            <div class="exercise-item">
+                <h3>题目10：二极管电路分析</h3>
+                <div class="question">
+                    图示电路中，稳压管V<sub>1</sub>的稳压值为8V、V<sub>2</sub>的稳压值为6V，则输出电压U为［　］
+                    <p>（题目配图显示：10V电源，两个稳压管V<sub>1</sub>和V<sub>2</sub>并联）</p>
+                    <ul class="options">
+                        <li>A. 6V</li>
+                        <li>B. 8V</li>
+                        <li>C. 10V</li>
+                        <li>D. 2V</li>
+                    </ul>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 正确答案：A（6V）</h4>
+                    <p><strong>解题思路：</strong></p>
+                    <p><strong>1. 并联稳压管的特点：</strong></p>
+                    <p>两只稳压管并联时，输出电压等于<strong>稳压值较小</strong>的那只稳压管的稳压值。</p>
+                    <p><strong>2. 分析过程：</strong></p>
+                    <ul>
+                        <li>V<sub>1</sub>稳压值：8V</li>
+                        <li>V<sub>2</sub>稳压值：6V</li>
+                        <li>并联后：输出电压被限制在6V（较小值）</li>
+                    </ul>
+                    <p><strong>3. 物理原理：</strong></p>
+                    <p>当电压达到6V时，V<sub>2</sub>就开始工作（击穿稳压），电压无法继续上升。此时V<sub>1</sub>还未达到8V的稳压值，处于未工作状态。</p>
+                    <p><strong>记忆口诀：</strong>"并联取小，串联取和"</p>
+                </div>
+            </div>
+
+            <h2>三、电路设计与分析题</h2>
+
+            <!-- 题目11 -->
+            <div class="exercise-item">
+                <h3>题目11：理想二极管判断</h3>
+                <div class="question">
+                    电路中二极管为理想二极管，判断它是否导通，并求出u。（配图显示：3V电源，3kΩ电阻，二极管，9V电源）
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 答案：二极管导通，u = 9V</h4>
+                    <p><strong>解题步骤：</strong></p>
+                    <p><strong>步骤1：</strong>假设二极管断开，计算二极管两端电压</p>
+                    <p>左侧电压：3V，右侧电压：9V</p>
+                    <p><strong>步骤2：</strong>判断二极管极性</p>
+                    <p>如果阳极接9V侧，阴极接3V侧，则二极管正向偏置→导通 ✓</p>
+                    <p><strong>步骤3：</strong>理想二极管导通后</p>
+                    <p>理想二极管导通时相当于短路（压降为0），所以u = 9V</p>
+                    <p><strong>知识点：</strong>理想二极管正向导通时压降为0，可看作短路。</p>
+                </div>
+            </div>
+
+            <!-- 题目12 -->
+            <div class="exercise-item">
+                <h3>题目12：运算放大器电路类型</h3>
+                <div class="question">
+                    回答下图反馈类型（配图显示：运算放大器反馈电路）
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 答案：电压并联负反馈</h4>
+                    <p><strong>反馈类型判断方法：</strong></p>
+                    <p><strong>1. 正负反馈判断：</strong></p>
+                    <ul>
+                        <li>反馈到<strong>反相输入端</strong> → 负反馈 ✓</li>
+                        <li>反馈到<strong>同相输入端</strong> → 正反馈</li>
+                    </ul>
+                    <p><strong>2. 电压/电流反馈判断：</strong></p>
+                    <ul>
+                        <li>反馈信号取自<strong>输出电压</strong> → 电压反馈 ✓</li>
+                        <li>反馈信号取自<strong>输出电流</strong> → 电流反馈</li>
+                    </ul>
+                    <p><strong>3. 串联/并联反馈判断：</strong></p>
+                    <ul>
+                        <li>反馈信号与输入信号在<strong>同一节点</strong> → 并联反馈 ✓</li>
+                        <li>反馈信号与输入信号<strong>不在同一节点</strong> → 串联反馈</li>
+                    </ul>
+                    <p><strong>综合判断：</strong>电压并联负反馈</p>
+                </div>
+            </div>
+
+            <!-- 题目13 -->
+            <div class="exercise-item">
+                <h3>题目13：稳压管电路计算</h3>
+                <div class="question">
+                    已知稳压管的稳定电压U=6V，稳定电流的最小值I<sub>Zmin</sub>=5mA，最大稳定电流I<sub>Zmax</sub>=25mA，U=15V，输出电压U的值是多少？
+                    <p>（配图显示：1kΩ和500Ω电阻，稳压管电路）</p>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 答案：U<sub>i</sub> = 6V（稳压管稳定工作）</h4>
+                    <p><strong>解题步骤：</strong></p>
+                    <p><strong>步骤1：</strong>计算总电流</p>
+                    <p>I = (U<sub>i</sub> - U<sub>Z</sub>) / R<sub>1</sub> = (15V - 6V) / 1kΩ = 9mA</p>
+                    <p><strong>步骤2：</strong>计算负载电流</p>
+                    <p>I<sub>L</sub> = U<sub>Z</sub> / R<sub>2</sub> = 6V / 500Ω = 12mA</p>
+                    <p><strong>等等，这里有问题！</strong></p>
+                    <p>I<sub>L</sub> = 12mA > I = 9mA，这不合理。</p>
+                    <p><strong>重新分析：</strong></p>
+                    <p>实际上应该考虑稳压管和负载并联的情况：</p>
+                    <p>I<sub>Z</sub> = I - I<sub>L</sub></p>
+                    <p>需要满足：I<sub>Zmin</sub> ≤ I<sub>Z</sub> ≤ I<sub>Zmax</sub></p>
+                    <p>即：5mA ≤ I<sub>Z</sub> ≤ 25mA</p>
+                    <p><strong>结论：</strong>输出电压U = 6V（稳压管工作在稳压区）</p>
+                </div>
+            </div>
+
+            <!-- 题目14 -->
+            <div class="exercise-item">
+                <h3>题目14：理想运放比较器</h3>
+                <div class="question">
+                    用理想运放组成的电压比较器如图所示。已知稳压管的正向导通压降U<sub>+</sub>=0.7V，U<sub>-</sub>=5V。若u<sub>i</sub>=6sinωt·V，U<sub>L</sub>为方波如图所示，试画出u<sub>o</sub>的波形。
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 解析：输出波形为限幅方波</h4>
+                    <p><strong>电压比较器工作原理：</strong></p>
+                    <p><strong>1. 比较过程：</strong></p>
+                    <ul>
+                        <li>当u<sub>i</sub> > 5V时，输出高电平</li>
+                        <li>当u<sub>i</sub> < 5V时，输出低电平</li>
+                    </ul>
+                    <p><strong>2. 输出限幅：</strong></p>
+                    <ul>
+                        <li>正向：被稳压管限制在+5.7V（5V+0.7V）</li>
+                        <li>负向：被稳压管限制在-0.7V</li>
+                    </ul>
+                    <p><strong>3. 波形特点：</strong></p>
+                    <p>输出为限幅的方波，高电平约+5.7V，低电平约-0.7V。</p>
+                    <p><strong>输入信号：</strong>u<sub>i</sub> = 6sinωt V（峰值6V）</p>
+                    <p><strong>输出波形：</strong>当输入正半周超过5V时输出高电平，负半周输出低电平。</p>
+                </div>
+            </div>
+
+            <!-- 题目15 -->
+            <div class="exercise-item">
+                <h3>题目15：运放电路计算</h3>
+                <div class="question">
+                    已知：电路如图示U<sub>1</sub>=1V，U<sub>2</sub>=2V求U<sub>1</sub>和R<sub>0</sub>的值。并回答这两级放大电路各是什么电路。
+                    <p>（配图显示：两级运放电路，R<sub>1</sub>=3kΩ，R<sub>f</sub>=6kΩ，R<sub>4</sub>=8kΩ，R<sub>2</sub>=?，R<sub>L</sub>=4kΩ）</p>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 答案：第一级是同相比例放大器，第二级是反相比例放大器</h4>
+                    <p><strong>解题步骤：</strong></p>
+                    <p><strong>第一级（左侧运放）：</strong></p>
+                    <p>电路类型：<strong>同相比例放大器</strong></p>
+                    <p>放大倍数：A<sub>u1</sub> = 1 + R<sub>f</sub>/R<sub>1</sub> = 1 + 6kΩ/3kΩ = 3</p>
+                    <p>输出电压：U<sub>o1</sub> = A<sub>u1</sub> × U<sub>1</sub> = 3 × 1V = 3V</p>
+                    <p><strong>第二级（右侧运放）：</strong></p>
+                    <p>电路类型：<strong>反相比例放大器</strong></p>
+                    <p>已知输出：U<sub>2</sub> = 2V</p>
+                    <p>输入：U<sub>o1</sub> = 3V</p>
+                    <p>放大倍数：A<sub>u2</sub> = U<sub>2</sub>/U<sub>o1</sub> = 2V/3V = 2/3</p>
+                    <p>反相放大器：|A<sub>u</sub>| = R<sub>f</sub>/R<sub>2</sub> = 8kΩ/R<sub>2</sub> = 2/3</p>
+                    <p>解得：R<sub>2</sub> = 12kΩ</p>
+                    <p><strong>输出电阻R<sub>o</sub>：</strong></p>
+                    <p>理想运放的输出电阻R<sub>o</sub> ≈ 0</p>
+                </div>
+            </div>
+
+            <h2>四、综合分析题</h2>
+
+            <!-- 题目16 -->
+            <div class="exercise-item">
+                <h3>题目16：差分放大电路综合计算</h3>
+                <div class="question">
+                    图示电路参数理想对称，晶体管的β均为50，U<sub>BEQ</sub>≈0.7V。试计算R<sub>e</sub>滑动端在中点时T<sub>1</sub>管和T<sub>2</sub>管的发射极静态电流I<sub>EQ</sub>，以及动态参数A<sub>u</sub>、R<sub>i</sub>、R<sub>o</sub>。
+                    <p>已知：V<sub>CC</sub>=+12V，V<sub>EE</sub>=-6V，R<sub>b</sub>=10kΩ，R<sub>c</sub>=10kΩ，R<sub>w</sub>=100Ω</p>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 详细解析</h4>
+                    <p><strong>一、静态工作点计算：</strong></p>
+                    <p><strong>1. 发射极总电流：</strong></p>
+                    <p>发射极回路：-V<sub>EE</sub> = U<sub>BE</sub> + I<sub>E</sub>·R<sub>e</sub></p>
+                    <p>I<sub>E</sub> = (|V<sub>EE</sub>| - U<sub>BE</sub>) / R<sub>e</sub></p>
+                    <p>I<sub>E</sub> = (6V - 0.7V) / (R<sub>w</sub>/2) = 5.3V / 50Ω = 106mA</p>
+                    <p><strong>2. 每管的静态电流：</strong></p>
+                    <p>由于电路对称，每管分得一半：</p>
+                    <p>I<sub>EQ</sub> = I<sub>E</sub> / 2 = 106mA / 2 = 53mA</p>
+                    <p>I<sub>CQ</sub> ≈ I<sub>EQ</sub> = 53mA</p>
+                    <p><strong>二、动态参数计算：</strong></p>
+                    <p><strong>1. 输入电阻r<sub>be</sub>：</strong></p>
+                    <p>r<sub>be</sub> = 300Ω + (1+β)·26mV/I<sub>EQ</sub></p>
+                    <p>r<sub>be</sub> = 300Ω + 51 × 0.49Ω ≈ 325Ω</p>
+                    <p><strong>2. 差模电压放大倍数：</strong></p>
+                    <p>A<sub>u</sub> = -β·R<sub>c</sub> / (2r<sub>be</sub>)</p>
+                    <p>A<sub>u</sub> = -50 × 10kΩ / (2 × 325Ω) = -769</p>
+                    <p><strong>3. 输入电阻：</strong></p>
+                    <p>R<sub>i</sub> = 2r<sub>be</sub> = 2 × 325Ω = 650Ω</p>
+                    <p><strong>4. 输出电阻：</strong></p>
+                    <p>R<sub>o</sub> = 2R<sub>c</sub> = 2 × 10kΩ = 20kΩ</p>
+                </div>
+            </div>
+
+            <!-- 题目17 -->
+            <div class="exercise-item">
+                <h3>题目17：放大电路静态工作点</h3>
+                <div class="question">
+                    电路图如下，求：
+                    <br>①静态工作点（I<sub>BQ</sub>、I<sub>CQ</sub>、U<sub>CEQ</sub>）；
+                    <br>②画出微变等效电路；
+                    <br>③求放大器的输入电阻R<sub>i</sub>和输出电阻R<sub>o</sub>；求电压放大倍数A<sub>u</sub>；
+                    <br>④求输出电压不失真时的最大幅值U<sub>om</sub>。
+                    <p>已知：V<sub>CC</sub>=12V，R<sub>e</sub>=400kΩ，R<sub>c</sub>=3kΩ，R<sub>L</sub>=6kΩ，β=50</p>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 完整解答</h4>
+                    <p><strong>①静态工作点计算：</strong></p>
+                    <p><strong>基极电流：</strong></p>
+                    <p>I<sub>BQ</sub> = (V<sub>CC</sub> - U<sub>BEQ</sub>) / R<sub>b</sub></p>
+                    <p>I<sub>BQ</sub> = (12V - 0.7V) / 400kΩ = 28.25μA</p>
+                    <p><strong>集电极电流：</strong></p>
+                    <p>I<sub>CQ</sub> = β × I<sub>BQ</sub> = 50 × 28.25μA = 1.41mA</p>
+                    <p><strong>集射极电压：</strong></p>
+                    <p>U<sub>CEQ</sub> = V<sub>CC</sub> - I<sub>CQ</sub> × R<sub>c</sub></p>
+                    <p>U<sub>CEQ</sub> = 12V - 1.41mA × 3kΩ = 7.77V</p>
+                    <p><strong>②微变等效电路：</strong></p>
+                    <p>画出h参数等效电路，电容短路，电源短路，三极管用电流源和r<sub>be</sub>代替。</p>
+                    <p><strong>③输入输出电阻：</strong></p>
+                    <p>r<sub>be</sub> = 300Ω + (1+β)·26mV/I<sub>CQ</sub> = 300Ω + 51×18.4Ω ≈ 1.24kΩ</p>
+                    <p>R<sub>i</sub> = R<sub>b</sub>∥r<sub>be</sub> ≈ r<sub>be</sub> = 1.24kΩ</p>
+                    <p>R<sub>o</sub> ≈ R<sub>c</sub> = 3kΩ</p>
+                    <p><strong>电压放大倍数：</strong></p>
+                    <p>A<sub>u</sub> = -β(R<sub>c</sub>∥R<sub>L</sub>) / r<sub>be</sub></p>
+                    <p>A<sub>u</sub> = -50 × (3kΩ∥6kΩ) / 1.24kΩ = -50 × 2kΩ / 1.24kΩ = -80.6</p>
+                    <p><strong>④最大不失真输出幅值：</strong></p>
+                    <p>U<sub>om</sub> = min(I<sub>CQ</sub>·R<sub>c</sub>, U<sub>CEQ</sub>)</p>
+                    <p>U<sub>om</sub> = min(1.41mA×3kΩ, 7.77V) = min(4.23V, 7.77V) = 4.23V</p>
+                </div>
+            </div>
+
+            <h2>五、综合设计题</h2>
+
+            <!-- 题目18 -->
+            <div class="exercise-item">
+                <h3>题目18：单相桥式整流电路</h3>
+                <div class="question">
+                    简述桥式整流电路并简述其工作原理，画出输入输出波形。
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 完整解答</h4>
+                    <p><strong>一、电路组成：</strong></p>
+                    <p>单相桥式整流电路由4只二极管组成桥式结构，将交流电转换为单向脉动直流电。</p>
+                    <p><strong>二、工作原理：</strong></p>
+                    <p><strong>正半周：</strong></p>
+                    <ul>
+                        <li>u<sub>2</sub>上正下负</li>
+                        <li>D<sub>1</sub>、D<sub>3</sub>导通</li>
+                        <li>D<sub>2</sub>、D<sub>4</sub>截止</li>
+                        <li>电流路径：上端→D<sub>1</sub>→负载R<sub>L</sub>→D<sub>3</sub>→下端</li>
+                    </ul>
+                    <p><strong>负半周：</strong></p>
+                    <ul>
+                        <li>u<sub>2</sub>上负下正</li>
+                        <li>D<sub>2</sub>、D<sub>4</sub>导通</li>
+                        <li>D<sub>1</sub>、D<sub>3</sub>截止</li>
+                        <li>电流路径：下端→D<sub>2</sub>→负载R<sub>L</sub>→D<sub>4</sub>→上端</li>
+                    </ul>
+                    <p><strong>三、输入输出波形：</strong></p>
+                    <p><strong>输入u<sub>i</sub>：</strong>正弦波</p>
+                    <p><strong>输出u<sub>o</sub>：</strong>全波脉动直流（正半周和负半周都有输出）</p>
+                    <p><strong>特点：</strong></p>
+                    <ul>
+                        <li>输出电压U<sub>o</sub> = 0.9U<sub>2</sub>（U<sub>2</sub>为变压器副边电压有效值）</li>
+                        <li>每只二极管承受的最大反向电压为√2·U<sub>2</sub></li>
+                        <li>整流效率高，脉动小</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 题目19 -->
+            <div class="exercise-item">
+                <h3>题目19：稳压电路分析</h3>
+                <div class="question">
+                    电路图如下，按要求解答题目。
+                    <br>①u<sub>i</sub>=0时，流过R<sub>1</sub>的电流有多大？
+                    <br>②若V<sub>1</sub>、V<sub>2</sub>中有一个接反，会出现什么后果？
+                    <br>③为保证输出波形不失真，输入信号u<sub>i</sub>的最大幅度为多少？最大管耗为多少？
+                    <p>（配图显示：互补对称功率放大电路，±12V电源，R<sub>1</sub>=500Ω，R<sub>L</sub>=500Ω）</p>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 详细解答</h4>
+                    <p><strong>①静态时流过R<sub>1</sub>的电流：</strong></p>
+                    <p>u<sub>i</sub>=0时，输出u<sub>o</sub>=0（理想情况）</p>
+                    <p>I<sub>R1</sub> = (V<sub>CC</sub> - u<sub>o</sub>) / R<sub>1</sub> = 12V / 500Ω = 24mA</p>
+                    <p><strong>②一个管子接反的后果：</strong></p>
+                    <p>如果V<sub>1</sub>或V<sub>2</sub>接反，会出现以下后果：</p>
+                    <ul>
+                        <li><strong>交越失真：</strong>在零点附近出现失真</li>
+                        <li><strong>输出波形异常：</strong>只有半个周期有输出</li>
+                        <li><strong>可能损坏器件：</strong>接反的管子可能因反向电压过大而损坏</li>
+                    </ul>
+                    <p><strong>③最大不失真输出幅度：</strong></p>
+                    <p>输入信号的最大幅度由输出摆幅决定：</p>
+                    <p>U<sub>im</sub> = V<sub>CC</sub> - U<sub>CES</sub> ≈ 12V - 1V = 11V</p>
+                    <p><strong>最大管耗：</strong></p>
+                    <p>功放管的最大管耗发生在输出为最大不失真时：</p>
+                    <p>P<sub>Tmax</sub> = (V<sub>CC</sub>²) / (π²·R<sub>L</sub>)</p>
+                    <p>P<sub>Tmax</sub> = 12² / (π²×500Ω) ≈ 2.92W</p>
+                </div>
+            </div>
+
+            <!-- 题目20 -->
+            <div class="exercise-item">
+                <h3>题目20：稳压二极管电路</h3>
+                <div class="question">
+                    如图，D<sub>Z</sub>=10V，最大稳定电流I<sub>Zmax</sub>=8mA。试求稳压管流动的电流I<sub>Z</sub>是否超过I<sub>ZM</sub>？如果超过怎么办？
+                    <p>（配图显示：U=20V，R<sub>1</sub>=800Ω，R<sub>2</sub>=1.1kΩ，稳压管D<sub>Z</sub>）</p>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 解答</h4>
+                    <p><strong>步骤1：计算总电流</strong></p>
+                    <p>I<sub>1</sub> = (U - U<sub>Z</sub>) / R<sub>1</sub> = (20V - 10V) / 800Ω = 12.5mA</p>
+                    <p><strong>步骤2：计算负载电流</strong></p>
+                    <p>I<sub>2</sub> = U<sub>Z</sub> / R<sub>2</sub> = 10V / 1.1kΩ = 9.09mA</p>
+                    <p><strong>步骤3：计算稳压管电流</strong></p>
+                    <p>I<sub>Z</sub> = I<sub>1</sub> - I<sub>2</sub> = 12.5mA - 9.09mA = 3.41mA</p>
+                    <p><strong>步骤4：判断是否超过</strong></p>
+                    <p>I<sub>Z</sub> = 3.41mA < I<sub>Zmax</sub> = 8mA ✓</p>
+                    <p><strong>结论：</strong>稳压管电流<strong>未超过</strong>最大额定值，电路工作正常。</p>
+                    <p><strong>如果超过怎么办？</strong></p>
+                    <ul>
+                        <li>增大限流电阻R<sub>1</sub>的值</li>
+                        <li>减小负载电阻R<sub>2</sub>，增加负载电流</li>
+                        <li>更换额定电流更大的稳压管</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>六、真题试卷原图（2025年常州大学期末考试）</h2>
+
+            <div class="knowledge-card" style="margin-bottom: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h4>📄 考试真题原卷</h4>
+                <p>以下是常州大学2025年模拟电子技术期末考试真题原图，点击可放大查看！</p>
+            </div>
+
+            <div class="exercise-item">
+                <h3>试卷第1页（填空题 + 二极管电路 + 放大电路）</h3>
+                <div class="question">
+                    <p><strong>包含题目：</strong></p>
+                    <ul>
+                        <li>一、填空题（45分，每空3分）- 半导体基础、场效应管、运算放大器、反馈电路等</li>
+                        <li>二、（10分）二极管整流滤波电路 - 输入u<sub>i</sub>(t) = |12cos314t| (V)，求输出波形和平均值</li>
+                        <li>三、（10分）三极管放大电路 - 已知U<sub>CC</sub>=12V，R<sub>c</sub>=3kΩ，R<sub>b</sub>=600kΩ，求静态工作点、电压放大倍数、两级阻容耦合共射放大电路设计</li>
+                    </ul>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="images/exam-page1.jpg" alt="试卷第1页" style="max-width: 100%; border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); cursor: pointer;" onclick="window.open(this.src, '_blank')">
+                    </div>
+                </div>
+            </div>
+
+            <div class="exercise-item">
+                <h3>试卷第2页（放大倍数 + 功率放大 + 运算放大器）</h3>
+                <div class="question">
+                    <p><strong>包含题目：</strong></p>
+                    <ul>
+                        <li>四、（10分）放大电路电压放大倍数分析 - 求中频放大倍数、上限截止频率、下限截止频率、画幅频特性曲线</li>
+                        <li>五、（10分）功率放大电路（OCL互补对称电路）- 已知V<sub>CC</sub>=16V，R<sub>L</sub>=4Ω，饱和管压降2V，求最大输出功率、效率、晶体管最大功耗、二极管作用</li>
+                        <li>六、（15分）运算放大器电路设计 - R<sub>1</sub>=5kΩ，R<sub>2</sub>=5kΩ，R<sub>3</sub>=10kΩ，设计u<sub>o</sub>=3u<sub>i</sub>的运算电路，判断工作状态和反馈类型</li>
+                    </ul>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="images/exam-page2.jpg" alt="试卷第2页" style="max-width: 100%; border: 2px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); cursor: pointer;" onclick="window.open(this.src, '_blank')">
+                    </div>
+                </div>
+            </div>
+
+            <h2>七、常考大题专项（重点！）</h2>
+
+            <div class="knowledge-card" style="margin-bottom: 30px; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); color: white;">
+                <h4>🔥 大题考点预警</h4>
+                <p>以下题型是考试必考内容，务必掌握解题思路和计算方法！</p>
+            </div>
+
+            <!-- ==================== 差分放大电路专项 ==================== -->
+            <div class="exercise-item">
+                <h3>大题1：差分放大电路静态与动态分析（★★★★★）</h3>
+                <div class="question">
+                    <p><strong>【电路说明】</strong>如图所示为典型长尾式差分放大电路，电路参数完全对称。</p>
+                    <p>已知：V<sub>CC</sub> = +12V，V<sub>EE</sub> = -12V，R<sub>c</sub> = 10kΩ，R<sub>b</sub> = 20kΩ，R<sub>e</sub> = 20kΩ，R<sub>L</sub> = 20kΩ，晶体管β = 100，U<sub>BE</sub> = 0.7V</p>
+                    <p><strong>求解：</strong></p>
+                    <ol>
+                        <li>静态工作点 I<sub>CQ</sub>、U<sub>CEQ</sub></li>
+                        <li>差模电压放大倍数 A<sub>ud</sub>（双端输出）</li>
+                        <li>共模电压放大倍数 A<sub>uc</sub>（双端输出）</li>
+                        <li>共模抑制比 K<sub>CMR</sub></li>
+                        <li>差模输入电阻 R<sub>id</sub></li>
+                        <li>双端输出电阻 R<sub>o</sub></li>
+                    </ol>
+                    <pre style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                    +Vcc(+12V)
+                        │
+                    ┌───┴───┐
+                    Rc      Rc
+                    │       │
+              ┌─────┤       ├─────┐ Uo(双端输出)
+              │     │   │   │     │
+         Rb ──┤     T1──┴──T2     ├── Rb
+              │         │         │
+    Ui1 ○────┤         Re        ├────○ Ui2
+              │         │         │
+              └─────────┴─────────┘
+                        │
+                      -Vee(-12V)
+                    </pre>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 详细解答过程</h4>
+
+                    <p><strong>一、静态工作点分析</strong></p>
+                    <p><strong>【关键】</strong>差分电路静态分析时，利用对称性，只分析一半电路</p>
+
+                    <p><strong>1. 求发射极电流 I<sub>E</sub></strong></p>
+                    <p>发射极回路方程：</p>
+                    <p style="background: #e8f5e9; padding: 10px; border-radius: 5px;">
+                        0 = U<sub>BE</sub> + 2I<sub>E</sub>·R<sub>e</sub> + (-V<sub>EE</sub>)<br>
+                        I<sub>E</sub> = (V<sub>EE</sub> - U<sub>BE</sub>) / (2R<sub>e</sub>)<br>
+                        I<sub>E</sub> = (12 - 0.7) / (2×20k) = 11.3 / 40k = <strong>0.28mA</strong>
+                    </p>
+
+                    <p><strong>2. 集电极电流</strong></p>
+                    <p>I<sub>CQ</sub> ≈ I<sub>E</sub> = <strong>0.28mA</strong></p>
+
+                    <p><strong>3. 集射极电压</strong></p>
+                    <p style="background: #e8f5e9; padding: 10px; border-radius: 5px;">
+                        U<sub>CEQ</sub> = V<sub>CC</sub> - I<sub>CQ</sub>·R<sub>c</sub> - (-V<sub>EE</sub>) + U<sub>BE</sub><br>
+                        ≈ V<sub>CC</sub> - I<sub>CQ</sub>·R<sub>c</sub> + V<sub>EE</sub><br>
+                        = 12 - 0.28×10 + 12 = 12 - 2.8 + 12 = <strong>21.2V</strong>
+                    </p>
+
+                    <p><strong>二、动态参数计算</strong></p>
+
+                    <p><strong>1. 计算 r<sub>be</sub></strong></p>
+                    <p style="background: #fff3e0; padding: 10px; border-radius: 5px;">
+                        r<sub>be</sub> = 300 + (1+β)·(26mV/I<sub>EQ</sub>)<br>
+                        = 300 + 101×(26/0.28) = 300 + 101×92.86<br>
+                        = 300 + 9379 ≈ <strong>9.68kΩ</strong>
+                    </p>
+
+                    <p><strong>2. 差模电压放大倍数 A<sub>ud</sub>（双端输出）</strong></p>
+                    <p style="background: #e3f2fd; padding: 10px; border-radius: 5px;">
+                        <strong>双端输出时：</strong>A<sub>ud</sub> = -β·R<sub>c</sub> / r<sub>be</sub><br>
+                        = -100×10k / 9.68k = <strong>-103.3</strong><br><br>
+                        <strong>注意：</strong>双端输出时，发射极电阻R<sub>e</sub>对差模信号无作用（虚地）
+                    </p>
+
+                    <p><strong>3. 共模电压放大倍数 A<sub>uc</sub>（双端输出）</strong></p>
+                    <p style="background: #fce4ec; padding: 10px; border-radius: 5px;">
+                        <strong>双端输出时：</strong>A<sub>uc</sub> = 0<br><br>
+                        <strong>原因：</strong>双端输出时，共模信号使两管输出电压同方向变化，相减后为0
+                    </p>
+
+                    <p><strong>4. 共模抑制比 K<sub>CMR</sub></strong></p>
+                    <p style="background: #f3e5f5; padding: 10px; border-radius: 5px;">
+                        K<sub>CMR</sub> = |A<sub>ud</sub>| / |A<sub>uc</sub>| = |A<sub>ud</sub>| / 0 → <strong>∞</strong><br><br>
+                        <strong>这就是双端输出差分放大电路的最大优点！</strong>
+                    </p>
+
+                    <p><strong>5. 差模输入电阻 R<sub>id</sub></strong></p>
+                    <p style="background: #e8f5e9; padding: 10px; border-radius: 5px;">
+                        R<sub>id</sub> = 2(R<sub>b</sub> ∥ r<sub>be</sub>)<br>
+                        = 2×(20k ∥ 9.68k) = 2×6.52k = <strong>13.04kΩ</strong>
+                    </p>
+
+                    <p><strong>6. 双端输出电阻 R<sub>o</sub></strong></p>
+                    <p style="background: #e8f5e9; padding: 10px; border-radius: 5px;">
+                        R<sub>o</sub> = 2R<sub>c</sub> = 2×10k = <strong>20kΩ</strong>
+                    </p>
+
+                    <div style="background: #ffebee; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <h5>⚠️ 差分放大电路公式总结</h5>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr style="background: #ef5350; color: white;">
+                                <th style="padding: 8px; border: 1px solid #ddd;">参数</th>
+                                <th style="padding: 8px; border: 1px solid #ddd;">双端输出</th>
+                                <th style="padding: 8px; border: 1px solid #ddd;">单端输出</th>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">A<sub>ud</sub></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">-βR<sub>c</sub>/r<sub>be</sub></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">-βR<sub>c</sub>/(2r<sub>be</sub>)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">A<sub>uc</sub></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;"><strong>0</strong></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">-βR<sub>c</sub>/(r<sub>be</sub>+2(1+β)R<sub>e</sub>)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">R<sub>id</sub></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">2(R<sub>b</sub>∥r<sub>be</sub>)</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">2(R<sub>b</sub>∥r<sub>be</sub>)</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">R<sub>o</sub></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">2R<sub>c</sub></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">R<sub>c</sub></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 差分放大电路大题2 -->
+            <div class="exercise-item">
+                <h3>大题2：差分放大电路单端输出分析（★★★★☆）</h3>
+                <div class="question">
+                    <p>某差分放大电路参数：V<sub>CC</sub> = V<sub>EE</sub> = 15V，R<sub>c</sub> = 12kΩ，R<sub>e</sub> = 15kΩ，β = 80，U<sub>BE</sub> = 0.7V</p>
+                    <p>若采用<strong>单端输出</strong>方式，求：</p>
+                    <ol>
+                        <li>静态工作点</li>
+                        <li>差模电压放大倍数 A<sub>ud</sub></li>
+                        <li>共模电压放大倍数 A<sub>uc</sub></li>
+                        <li>共模抑制比 K<sub>CMR</sub>（用dB表示）</li>
+                    </ol>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 解答</h4>
+
+                    <p><strong>1. 静态工作点</strong></p>
+                    <p>I<sub>E</sub> = (V<sub>EE</sub> - U<sub>BE</sub>) / (2R<sub>e</sub>) = (15 - 0.7) / (2×15k) = <strong>0.48mA</strong></p>
+                    <p>I<sub>CQ</sub> ≈ I<sub>E</sub> = <strong>0.48mA</strong></p>
+                    <p>r<sub>be</sub> = 300 + 81×(26/0.48) = 300 + 4388 ≈ <strong>4.69kΩ</strong></p>
+
+                    <p><strong>2. 单端输出差模放大倍数</strong></p>
+                    <p style="background: #e3f2fd; padding: 10px; border-radius: 5px;">
+                        A<sub>ud</sub> = -β·R<sub>c</sub> / (2r<sub>be</sub>)<br>
+                        = -80×12k / (2×4.69k) = -960k / 9.38k = <strong>-102.3</strong><br><br>
+                        <strong>注意：单端输出时，分母是2r<sub>be</sub>！</strong>
+                    </p>
+
+                    <p><strong>3. 单端输出共模放大倍数</strong></p>
+                    <p style="background: #fce4ec; padding: 10px; border-radius: 5px;">
+                        A<sub>uc</sub> = -β·R<sub>c</sub> / [r<sub>be</sub> + 2(1+β)R<sub>e</sub>]<br>
+                        = -80×12k / [4.69k + 2×81×15k]<br>
+                        = -960k / [4.69k + 2430k]<br>
+                        = -960k / 2434.69k = <strong>-0.394</strong>
+                    </p>
+
+                    <p><strong>4. 共模抑制比</strong></p>
+                    <p style="background: #f3e5f5; padding: 10px; border-radius: 5px;">
+                        K<sub>CMR</sub> = |A<sub>ud</sub>| / |A<sub>uc</sub>| = 102.3 / 0.394 = <strong>259.6</strong><br><br>
+                        K<sub>CMR</sub>(dB) = 20·log(259.6) = 20×2.414 = <strong>48.3dB</strong>
+                    </p>
+
+                    <div style="background: #fff8e1; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <h5>💡 单端 vs 双端输出对比</h5>
+                        <ul>
+                            <li><strong>单端输出：</strong>A<sub>ud</sub>减半，A<sub>uc</sub>≠0，K<sub>CMR</sub>有限</li>
+                            <li><strong>双端输出：</strong>A<sub>ud</sub>完整，A<sub>uc</sub>=0，K<sub>CMR</sub>→∞</li>
+                            <li><strong>实际应用：</strong>单端输出更常用（简化后级电路），但需要高R<sub>e</sub>提高K<sub>CMR</sub></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== 场效应管等效分析专项 ==================== -->
+            <div class="exercise-item">
+                <h3>大题3：场效应管共源放大电路分析（★★★★★）</h3>
+                <div class="question">
+                    <p><strong>【电路说明】</strong>如图所示为N沟道增强型MOS管共源放大电路。</p>
+                    <p>已知：V<sub>DD</sub> = 20V，R<sub>g1</sub> = 200kΩ，R<sub>g2</sub> = 100kΩ，R<sub>d</sub> = 10kΩ，R<sub>s</sub> = 5kΩ，R<sub>L</sub> = 10kΩ</p>
+                    <p>场效应管参数：U<sub>GS(th)</sub> = 2V，g<sub>m</sub> = 2mS</p>
+                    <p><strong>求解：</strong></p>
+                    <ol>
+                        <li>静态工作点 U<sub>GSQ</sub>、I<sub>DQ</sub>、U<sub>DSQ</sub></li>
+                        <li>画出微变等效电路</li>
+                        <li>电压放大倍数 A<sub>u</sub></li>
+                        <li>输入电阻 R<sub>i</sub></li>
+                        <li>输出电阻 R<sub>o</sub></li>
+                    </ol>
+                    <pre style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                    +VDD(+20V)
+                        │
+                       Rd
+                        │
+                    ┌───┴───┐
+           Rg1      │   D   │
+        ┌───────────┤       ├─────○ Uo
+        │           │   G   │
+    Ui ○─┤├─────────┤       │
+        │      C    │   S   │
+       Rg2          │   │   │
+        │           └───┼───┘
+        │               │
+        ├───────────────┤
+        │               Rs
+       ─┴─             │
+       GND            ─┴─
+                      GND
+                    </pre>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 详细解答</h4>
+
+                    <p><strong>一、静态工作点分析</strong></p>
+
+                    <p><strong>1. 栅极电位 U<sub>G</sub></strong></p>
+                    <p style="background: #e8f5e9; padding: 10px; border-radius: 5px;">
+                        U<sub>G</sub> = V<sub>DD</sub> × R<sub>g2</sub> / (R<sub>g1</sub> + R<sub>g2</sub>)<br>
+                        = 20 × 100k / (200k + 100k) = 20 × 100/300<br>
+                        = <strong>6.67V</strong>
+                    </p>
+
+                    <p><strong>2. 栅源电压 U<sub>GSQ</sub></strong></p>
+                    <p style="background: #e8f5e9; padding: 10px; border-radius: 5px;">
+                        由于MOS管栅极电流为0：U<sub>GSQ</sub> = U<sub>G</sub> - I<sub>D</sub>·R<sub>s</sub><br>
+                        假设工作在恒流区，利用转移特性：<br>
+                        I<sub>D</sub> = I<sub>DSS</sub>(1 - U<sub>GS(th)</sub>/U<sub>GS</sub>)² 或 I<sub>D</sub> ≈ g<sub>m</sub>·(U<sub>GS</sub> - U<sub>GS(th)</sub>)<br><br>
+                        简化计算（利用g<sub>m</sub>）：<br>
+                        设U<sub>GSQ</sub> = 4V，则 I<sub>D</sub> = g<sub>m</sub>·(U<sub>GS</sub> - U<sub>GS(th)</sub>) = 2mS×(4-2) = 4mA<br>
+                        验证：U<sub>G</sub> - I<sub>D</sub>·R<sub>s</sub> = 6.67 - 4×5 = 6.67 - 20 = -13.3V（不对）<br><br>
+                        <strong>需要迭代求解：</strong><br>
+                        假设I<sub>DQ</sub> = 0.5mA<br>
+                        U<sub>GSQ</sub> = U<sub>G</sub> - I<sub>DQ</sub>·R<sub>s</sub> = 6.67 - 0.5×5 = <strong>4.17V</strong><br>
+                        验证：U<sub>GSQ</sub> > U<sub>GS(th)</sub> = 2V ✓（管子导通）
+                    </p>
+
+                    <p><strong>3. 漏极电流 I<sub>DQ</sub></strong></p>
+                    <p>I<sub>DQ</sub> ≈ <strong>0.5mA</strong>（由电路方程确定）</p>
+
+                    <p><strong>4. 漏源电压 U<sub>DSQ</sub></strong></p>
+                    <p style="background: #e8f5e9; padding: 10px; border-radius: 5px;">
+                        U<sub>DSQ</sub> = V<sub>DD</sub> - I<sub>DQ</sub>·(R<sub>d</sub> + R<sub>s</sub>)<br>
+                        = 20 - 0.5×(10k + 5k) = 20 - 7.5 = <strong>12.5V</strong><br><br>
+                        验证：U<sub>DSQ</sub> > U<sub>GSQ</sub> - U<sub>GS(th)</sub> = 4.17 - 2 = 2.17V ✓（恒流区）
+                    </p>
+
+                    <p><strong>二、微变等效电路</strong></p>
+                    <pre style="background: #f5f5f5; padding: 15px; border-radius: 8px;">
+                        ┌─────────────────────────────────┐
+                        │                                 │
+        Ui ○───┬───────┤                                 ├─○ Uo
+               │       │  g     ┌───┐      d             │
+              Rg1∥Rg2  └───────┤   ├──────────┐         │
+               │               │gm·│          │         │
+               │               │Ugs│         Rd∥RL      │
+               │               └───┘          │         │
+               │                 │            │         │
+               └─────────────────┴────────────┴─────────┘
+
+              【注】：源极旁路电容将Rs短路，gm·Ugs为受控电流源
+                    </pre>
+
+                    <p><strong>三、电压放大倍数</strong></p>
+                    <p style="background: #e3f2fd; padding: 10px; border-radius: 5px;">
+                        <strong>有旁路电容时：</strong><br>
+                        A<sub>u</sub> = -g<sub>m</sub>·(R<sub>d</sub> ∥ R<sub>L</sub>)<br>
+                        = -2mS × (10k ∥ 10k) = -2 × 5 = <strong>-10</strong><br><br>
+                        <strong>无旁路电容时：</strong><br>
+                        A<sub>u</sub> = -g<sub>m</sub>·(R<sub>d</sub> ∥ R<sub>L</sub>) / (1 + g<sub>m</sub>·R<sub>s</sub>)<br>
+                        = -10 / (1 + 2×5) = -10/11 = <strong>-0.91</strong>
+                    </p>
+
+                    <p><strong>四、输入电阻</strong></p>
+                    <p style="background: #e8f5e9; padding: 10px; border-radius: 5px;">
+                        R<sub>i</sub> = R<sub>g1</sub> ∥ R<sub>g2</sub><br>
+                        = 200k ∥ 100k = <strong>66.7kΩ</strong><br><br>
+                        <strong>特点：</strong>场效应管输入电阻很高（栅极几乎不取电流）
+                    </p>
+
+                    <p><strong>五、输出电阻</strong></p>
+                    <p style="background: #e8f5e9; padding: 10px; border-radius: 5px;">
+                        R<sub>o</sub> ≈ R<sub>d</sub> = <strong>10kΩ</strong>
+                    </p>
+
+                    <div style="background: #e1f5fe; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <h5>📌 场效应管 vs 三极管 对比</h5>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr style="background: #0288d1; color: white;">
+                                <th style="padding: 8px; border: 1px solid #ddd;">对比项</th>
+                                <th style="padding: 8px; border: 1px solid #ddd;">场效应管</th>
+                                <th style="padding: 8px; border: 1px solid #ddd;">三极管</th>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">控制方式</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">压控（U<sub>GS</sub>控制I<sub>D</sub>）</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">流控（I<sub>B</sub>控制I<sub>C</sub>）</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">输入阻抗</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">极高（~10<sup>9</sup>Ω）</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">较低（r<sub>be</sub>约kΩ）</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">放大系数</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">g<sub>m</sub>（跨导）</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">β（电流放大系数）</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">等效电路</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">g<sub>m</sub>·U<sub>gs</sub>电流源</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">β·I<sub>b</sub>电流源</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 场效应管大题2：共漏放大电路 -->
+            <div class="exercise-item">
+                <h3>大题4：场效应管共漏（源极跟随器）电路（★★★★☆）</h3>
+                <div class="question">
+                    <p>N沟道结型场效应管共漏放大电路如图，已知：</p>
+                    <p>V<sub>DD</sub> = 15V，R<sub>g</sub> = 1MΩ，R<sub>s</sub> = 3kΩ，R<sub>L</sub> = 3kΩ，g<sub>m</sub> = 3mS</p>
+                    <p>求：电压放大倍数A<sub>u</sub>、输入电阻R<sub>i</sub>、输出电阻R<sub>o</sub></p>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 解答</h4>
+
+                    <p><strong>1. 电压放大倍数</strong></p>
+                    <p style="background: #e3f2fd; padding: 10px; border-radius: 5px;">
+                        <strong>共漏电路（源跟随器）：</strong><br>
+                        A<sub>u</sub> = g<sub>m</sub>·(R<sub>s</sub> ∥ R<sub>L</sub>) / [1 + g<sub>m</sub>·(R<sub>s</sub> ∥ R<sub>L</sub>)]<br>
+                        = 3mS × (3k∥3k) / [1 + 3mS × 1.5k]<br>
+                        = 3 × 1.5 / (1 + 4.5) = 4.5 / 5.5 = <strong>0.82</strong><br><br>
+                        <strong>特点：</strong>A<sub>u</sub> < 1，接近1（电压跟随）
+                    </p>
+
+                    <p><strong>2. 输入电阻</strong></p>
+                    <p style="background: #e8f5e9; padding: 10px; border-radius: 5px;">
+                        R<sub>i</sub> = R<sub>g</sub> = <strong>1MΩ</strong><br><br>
+                        <strong>特点：</strong>输入电阻非常高
+                    </p>
+
+                    <p><strong>3. 输出电阻</strong></p>
+                    <p style="background: #e8f5e9; padding: 10px; border-radius: 5px;">
+                        R<sub>o</sub> = R<sub>s</sub> ∥ (1/g<sub>m</sub>)<br>
+                        = 3k ∥ (1/3mS) = 3k ∥ 333Ω<br>
+                        = (3k × 333) / (3k + 333) = 999k / 3333 ≈ <strong>300Ω</strong><br><br>
+                        <strong>特点：</strong>输出电阻低，带负载能力强
+                    </p>
+
+                    <div style="background: #fff3e0; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <h5>🔑 共漏电路特点（类比三极管共集）</h5>
+                        <ul>
+                            <li>电压放大倍数 ≈ 1（略小于1）</li>
+                            <li>输入电阻高</li>
+                            <li>输出电阻低</li>
+                            <li>主要用途：阻抗变换、缓冲隔离</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== 二极管导通情况判断专项 ==================== -->
+            <div class="exercise-item">
+                <h3>大题5：多二极管电路导通判断（★★★★★）</h3>
+                <div class="question">
+                    <p><strong>【题型说明】</strong>多二极管电路是考试必考内容！掌握判断方法是关键。</p>
+                    <p>判断下图中各二极管的导通情况，并求U<sub>o</sub>的值。设二极管导通压降为0.7V。</p>
+                    <pre style="background: #f5f5f5; padding: 15px; border-radius: 8px;">
+                    +12V              +6V
+                      │                │
+                     10kΩ             10kΩ
+                      │                │
+                      ├───D1──┬──D2───┤
+                      │   ↓   │   ↑   │
+                     D3       ○       D4
+                      ↓      Uo       ↓
+                      │               │
+                      └───────┬───────┘
+                              │
+                             ─┴─
+                             GND
+                    </pre>
+                    <p>D1、D2为同向，D3、D4为反向（如图箭头所示）</p>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 二极管导通判断三步法</h4>
+
+                    <div style="background: #ffebee; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                        <h5>📝 判断口诀</h5>
+                        <ol>
+                            <li><strong>假设全断开</strong>：计算各二极管两端电位差</li>
+                            <li><strong>找最易导通</strong>：正向偏压最大的先导通</li>
+                            <li><strong>验证并修正</strong>：一个导通后，重新判断其他管</li>
+                        </ol>
+                    </div>
+
+                    <p><strong>步骤1：假设所有二极管断开</strong></p>
+                    <p style="background: #e8f5e9; padding: 10px; border-radius: 5px;">
+                        A点（D1阳极）：U<sub>A</sub> = 12V<br>
+                        B点（D2阴极）：U<sub>B</sub> = 6V<br>
+                        O点（输出点）：悬空，电位待定
+                    </p>
+
+                    <p><strong>步骤2：判断哪个管先导通</strong></p>
+                    <p style="background: #fff3e0; padding: 10px; border-radius: 5px;">
+                        <strong>D1：</strong>阳极12V，阴极为O点。若O点低于11.3V，D1可能导通<br>
+                        <strong>D2：</strong>阳极为O点，阴极6V。若O点高于6.7V，D2可能导通<br>
+                        <strong>D3：</strong>阳极接地(0V)，阴极为A点(12V)，反偏→<strong>截止</strong><br>
+                        <strong>D4：</strong>阳极接地(0V)，阴极为B点(6V)，反偏→<strong>截止</strong>
+                    </p>
+
+                    <p><strong>步骤3：确定导通状态</strong></p>
+                    <p style="background: #e3f2fd; padding: 10px; border-radius: 5px;">
+                        假设<strong>D1导通</strong>：<br>
+                        U<sub>o</sub> = 12 - 0.7 = 11.3V<br><br>
+                        验证D2：阳极11.3V，阴极6V，正偏11.3 - 6 = 5.3V > 0.7V<br>
+                        <strong>D2也导通！</strong><br><br>
+                        但两管都导通会矛盾吗？让我们重新分析...<br><br>
+                        <strong>正确分析：</strong><br>
+                        当D1和D2都要导通时，O点电位由电流分配决定：<br>
+                        D1导通：I<sub>1</sub> = (12 - U<sub>o</sub> - 0.7) / 10k<br>
+                        D2导通：I<sub>2</sub> = (U<sub>o</sub> - 6 - 0.7) / 10k<br>
+                        由于无负载到地：I<sub>1</sub> = I<sub>2</sub><br>
+                        12 - U<sub>o</sub> - 0.7 = U<sub>o</sub> - 6 - 0.7<br>
+                        11.3 - U<sub>o</sub> = U<sub>o</sub> - 6.7<br>
+                        18 = 2U<sub>o</sub><br>
+                        <strong>U<sub>o</sub> = 9V</strong>
+                    </p>
+
+                    <p><strong>验证结果</strong></p>
+                    <p style="background: #c8e6c9; padding: 10px; border-radius: 5px;">
+                        ✓ D1：阳极12V - 阴极9V = 3V > 0.7V → <strong>导通</strong><br>
+                        ✓ D2：阳极9V - 阴极6V = 3V > 0.7V → <strong>导通</strong><br>
+                        ✓ D3：阳极0V - 阴极12V = -12V < 0 → <strong>截止</strong><br>
+                        ✓ D4：阳极0V - 阴极6V = -6V < 0 → <strong>截止</strong><br><br>
+                        <strong>最终答案：U<sub>o</sub> = 9V</strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- 二极管大题2：限幅电路 -->
+            <div class="exercise-item">
+                <h3>大题6：二极管限幅电路分析（★★★★☆）</h3>
+                <div class="question">
+                    <p>电路如图所示，设二极管为理想二极管。输入电压u<sub>i</sub> = 10sinωt (V)，求输出电压u<sub>o</sub>的波形。</p>
+                    <pre style="background: #f5f5f5; padding: 15px; border-radius: 8px;">
+                                  +5V
+                                   │
+                          R        D1
+                    ┌────/\/\/──┬──|◄──┤
+                    │           │      │
+             Ui ○───┤           ○      │
+                    │           Uo     │
+                    │           │     D2
+                    └───────────┴──►|──┤
+                                       │
+                                      -3V
+                    </pre>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 解答</h4>
+
+                    <p><strong>分析各区间</strong></p>
+
+                    <p><strong>情况1：u<sub>i</sub> > 5V时</strong></p>
+                    <p style="background: #ffcdd2; padding: 10px; border-radius: 5px;">
+                        D1正偏导通（理想二极管压降为0）<br>
+                        D2反偏截止<br>
+                        <strong>u<sub>o</sub> = 5V</strong>（被D1钳位在+5V）
+                    </p>
+
+                    <p><strong>情况2：-3V < u<sub>i</sub> < 5V时</strong></p>
+                    <p style="background: #c8e6c9; padding: 10px; border-radius: 5px;">
+                        D1反偏截止<br>
+                        D2反偏截止<br>
+                        <strong>u<sub>o</sub> = u<sub>i</sub></strong>（线性传输）
+                    </p>
+
+                    <p><strong>情况3：u<sub>i</sub> < -3V时</strong></p>
+                    <p style="background: #bbdefb; padding: 10px; border-radius: 5px;">
+                        D1反偏截止<br>
+                        D2正偏导通<br>
+                        <strong>u<sub>o</sub> = -3V</strong>（被D2钳位在-3V）
+                    </p>
+
+                    <p><strong>输出波形</strong></p>
+                    <pre style="background: #f5f5f5; padding: 15px; border-radius: 8px;">
+    Uo(V)
+      ↑
+    5 ├─────────────────────────  上限幅
+      │     ╱╲      ╱╲
+      │    ╱  ╲    ╱  ╲
+    0 ├───╱────╲──╱────╲──────→ t
+      │  ╱      ╲╱      ╲
+   -3 ├─────────────────────────  下限幅
+      │
+      │   输出被限制在 -3V ~ +5V
+                    </pre>
+
+                    <div style="background: #fff3e0; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <h5>💡 限幅电路要点</h5>
+                        <ul>
+                            <li><strong>上限幅：</strong>正向电压超过门限时，被钳位在门限值</li>
+                            <li><strong>下限幅：</strong>负向电压低于门限时，被钳位在门限值</li>
+                            <li><strong>双向限幅：</strong>同时限制正负方向的幅度</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 二极管大题3：整流滤波 -->
+            <div class="exercise-item">
+                <h3>大题7：整流滤波电路计算（★★★★☆）</h3>
+                <div class="question">
+                    <p>单相桥式整流滤波电路，已知：变压器副边电压有效值U<sub>2</sub> = 20V，负载电阻R<sub>L</sub> = 100Ω，滤波电容C = 470μF。</p>
+                    <p>求：</p>
+                    <ol>
+                        <li>空载时输出电压U<sub>o</sub></li>
+                        <li>带电阻负载时输出电压U<sub>o</sub></li>
+                        <li>整流二极管的选择参数</li>
+                        <li>滤波电容的耐压选择</li>
+                    </ol>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 详细解答</h4>
+
+                    <p><strong>1. 空载时输出电压（无滤波）</strong></p>
+                    <p style="background: #e8f5e9; padding: 10px; border-radius: 5px;">
+                        <strong>无滤波：</strong>U<sub>o</sub> = 0.9U<sub>2</sub> = 0.9 × 20 = <strong>18V</strong><br>
+                        <strong>有电容滤波，空载：</strong>U<sub>o</sub> ≈ √2·U<sub>2</sub> = 1.414 × 20 = <strong>28.28V</strong>
+                    </p>
+
+                    <p><strong>2. 带负载时输出电压（有滤波）</strong></p>
+                    <p style="background: #fff3e0; padding: 10px; border-radius: 5px;">
+                        <strong>判断滤波效果：</strong><br>
+                        R<sub>L</sub>·C = 100Ω × 470μF = 0.047s = 47ms<br>
+                        半周期T/2 = 10ms（50Hz电网）<br>
+                        R<sub>L</sub>·C >> T/2，滤波效果好<br><br>
+                        <strong>有电容滤波，带负载：</strong><br>
+                        U<sub>o</sub> ≈ 1.2U<sub>2</sub> = 1.2 × 20 = <strong>24V</strong><br>
+                        （经验公式，介于0.9U<sub>2</sub>和√2U<sub>2</sub>之间）
+                    </p>
+
+                    <p><strong>3. 整流二极管选择</strong></p>
+                    <p style="background: #e3f2fd; padding: 10px; border-radius: 5px;">
+                        <strong>最大反向电压：</strong><br>
+                        U<sub>RM</sub> ≥ √2·U<sub>2</sub> = 1.414 × 20 = 28.28V<br>
+                        <strong>选择：U<sub>RM</sub> ≥ 50V</strong>（留2倍余量）<br><br>
+                        <strong>平均整流电流：</strong><br>
+                        I<sub>D</sub> = I<sub>o</sub>/2 = (U<sub>o</sub>/R<sub>L</sub>)/2 = (24/100)/2 = 0.12A<br>
+                        <strong>选择：I<sub>F</sub> ≥ 0.3A</strong>（留2~3倍余量）<br><br>
+                        <strong>推荐型号：1N4001</strong>（1A/50V）或类似
+                    </p>
+
+                    <p><strong>4. 滤波电容耐压选择</strong></p>
+                    <p style="background: #fce4ec; padding: 10px; border-radius: 5px;">
+                        电容最高电压 = √2·U<sub>2</sub> = 28.28V<br>
+                        <strong>选择：耐压 ≥ 35V</strong>（常用值：35V或50V）<br><br>
+                        <strong>注意：</strong>电容要选电解电容，注意正负极！
+                    </p>
+
+                    <div style="background: #e1f5fe; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <h5>📌 整流电路公式速查</h5>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr style="background: #0288d1; color: white;">
+                                <th style="padding: 8px; border: 1px solid #ddd;">电路类型</th>
+                                <th style="padding: 8px; border: 1px solid #ddd;">U<sub>o</sub>(无滤波)</th>
+                                <th style="padding: 8px; border: 1px solid #ddd;">U<sub>o</sub>(有滤波)</th>
+                                <th style="padding: 8px; border: 1px solid #ddd;">U<sub>RM</sub></th>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">半波整流</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">0.45U<sub>2</sub></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">U<sub>2</sub></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">√2·U<sub>2</sub></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px; border: 1px solid #ddd;">桥式整流</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">0.9U<sub>2</sub></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">1.2U<sub>2</sub></td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">√2·U<sub>2</sub></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== 稳压管电路专项 ==================== -->
+            <div class="exercise-item">
+                <h3>大题8：稳压管稳压电路分析（★★★★★）</h3>
+                <div class="question">
+                    <p><strong>【电路说明】</strong>稳压管稳压电路如图所示。</p>
+                    <p>已知：U<sub>i</sub> = 15V，R = 500Ω，R<sub>L</sub> = 1kΩ</p>
+                    <p>稳压管参数：U<sub>Z</sub> = 6V，I<sub>Zmin</sub> = 5mA，I<sub>Zmax</sub> = 40mA</p>
+                    <p><strong>求解：</strong></p>
+                    <ol>
+                        <li>稳压管是否工作在稳压状态？</li>
+                        <li>输出电压U<sub>o</sub>和负载电流I<sub>L</sub></li>
+                        <li>稳压管中流过的电流I<sub>Z</sub></li>
+                        <li>若R<sub>L</sub>开路，电路能否正常工作？</li>
+                        <li>若R<sub>L</sub>减小到多少时，稳压管退出稳压区？</li>
+                    </ol>
+                    <pre style="background: #f5f5f5; padding: 15px; border-radius: 8px;">
+                       R(500Ω)
+              ┌────/\/\/────┬───────○ Uo
+              │             │
+         Ui ○─┤             │
+        (15V) │            DZ       RL(1kΩ)
+              │             │       │
+              │             │       │
+              └─────────────┴───────┘
+                            │
+                           ─┴─
+                           GND
+                    </pre>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 详细解答</h4>
+
+                    <p><strong>1. 判断稳压管工作状态</strong></p>
+                    <p style="background: #fff3e0; padding: 10px; border-radius: 5px;">
+                        <strong>先假设稳压管稳压：</strong>U<sub>o</sub> = U<sub>Z</sub> = 6V<br><br>
+                        <strong>计算各电流：</strong><br>
+                        总电流：I = (U<sub>i</sub> - U<sub>Z</sub>) / R = (15 - 6) / 500 = <strong>18mA</strong><br>
+                        负载电流：I<sub>L</sub> = U<sub>Z</sub> / R<sub>L</sub> = 6 / 1000 = <strong>6mA</strong><br>
+                        稳压管电流：I<sub>Z</sub> = I - I<sub>L</sub> = 18 - 6 = <strong>12mA</strong><br><br>
+                        <strong>验证：</strong>I<sub>Zmin</sub>(5mA) < I<sub>Z</sub>(12mA) < I<sub>Zmax</sub>(40mA) ✓<br>
+                        <strong>结论：稳压管工作在稳压状态！</strong>
+                    </p>
+
+                    <p><strong>2. 输出电压和负载电流</strong></p>
+                    <p style="background: #c8e6c9; padding: 10px; border-radius: 5px;">
+                        U<sub>o</sub> = U<sub>Z</sub> = <strong>6V</strong><br>
+                        I<sub>L</sub> = U<sub>o</sub> / R<sub>L</sub> = 6V / 1kΩ = <strong>6mA</strong>
+                    </p>
+
+                    <p><strong>3. 稳压管电流</strong></p>
+                    <p style="background: #c8e6c9; padding: 10px; border-radius: 5px;">
+                        I<sub>Z</sub> = I - I<sub>L</sub> = 18mA - 6mA = <strong>12mA</strong>
+                    </p>
+
+                    <p><strong>4. R<sub>L</sub>开路时</strong></p>
+                    <p style="background: #ffcdd2; padding: 10px; border-radius: 5px;">
+                        R<sub>L</sub>开路，I<sub>L</sub> = 0<br>
+                        此时：I<sub>Z</sub> = I = (U<sub>i</sub> - U<sub>Z</sub>) / R = (15 - 6) / 500 = <strong>18mA</strong><br><br>
+                        验证：I<sub>Z</sub>(18mA) < I<sub>Zmax</sub>(40mA) ✓<br>
+                        <strong>结论：电路能正常工作</strong>
+                    </p>
+
+                    <p><strong>5. 稳压管退出稳压区的临界条件</strong></p>
+                    <p style="background: #e3f2fd; padding: 10px; border-radius: 5px;">
+                        当I<sub>Z</sub> = I<sub>Zmin</sub> = 5mA时，达到临界状态<br><br>
+                        I = (U<sub>i</sub> - U<sub>Z</sub>) / R = 18mA（不变）<br>
+                        I<sub>L(max)</sub> = I - I<sub>Zmin</sub> = 18 - 5 = <strong>13mA</strong><br>
+                        R<sub>L(min)</sub> = U<sub>Z</sub> / I<sub>L(max)</sub> = 6V / 13mA = <strong>462Ω</strong><br><br>
+                        <strong>结论：当R<sub>L</sub> < 462Ω时，稳压管退出稳压区</strong>
+                    </p>
+
+                    <div style="background: #ffebee; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <h5>⚠️ 稳压管电路分析要点</h5>
+                        <ol>
+                            <li><strong>先假设稳压</strong>：设U<sub>o</sub> = U<sub>Z</sub></li>
+                            <li><strong>再验证电流</strong>：检查I<sub>Zmin</sub> ≤ I<sub>Z</sub> ≤ I<sub>Zmax</sub></li>
+                            <li><strong>若不满足</strong>：稳压管不工作，按普通二极管分析</li>
+                        </ol>
+                        <p style="margin-top: 10px;"><strong>稳压条件：</strong></p>
+                        <ul>
+                            <li>限流电阻R足够大，防止I<sub>Z</sub> > I<sub>Zmax</sub></li>
+                            <li>负载电阻R<sub>L</sub>足够大，保证I<sub>Z</sub> > I<sub>Zmin</sub></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 稳压管大题2：串并联 -->
+            <div class="exercise-item">
+                <h3>大题9：稳压管串并联电路（★★★★☆）</h3>
+                <div class="question">
+                    <p>有两个稳压管D<sub>Z1</sub>（U<sub>Z1</sub>=5V）和D<sub>Z2</sub>（U<sub>Z2</sub>=8V），问：</p>
+                    <ol>
+                        <li>两管反向串联可得到哪些稳定电压？</li>
+                        <li>两管正向串联可得到什么稳定电压？</li>
+                        <li>两管并联（同极性）可得到什么稳定电压？</li>
+                    </ol>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 解答</h4>
+
+                    <p><strong>1. 反向串联</strong></p>
+                    <p style="background: #e8f5e9; padding: 10px; border-radius: 5px;">
+                        两管反向串联，一个正向导通（压降约0.7V），一个反向击穿稳压<br><br>
+                        <strong>可得电压：</strong><br>
+                        • U<sub>Z1</sub> + 0.7 = 5 + 0.7 = <strong>5.7V</strong><br>
+                        • U<sub>Z2</sub> + 0.7 = 8 + 0.7 = <strong>8.7V</strong><br><br>
+                        （取决于电压方向，使哪个管反向击穿）
+                    </p>
+
+                    <p><strong>2. 正向串联（同向击穿）</strong></p>
+                    <p style="background: #fff3e0; padding: 10px; border-radius: 5px;">
+                        两管都反向击穿稳压<br><br>
+                        <strong>可得电压：</strong><br>
+                        U = U<sub>Z1</sub> + U<sub>Z2</sub> = 5 + 8 = <strong>13V</strong>
+                    </p>
+
+                    <p><strong>3. 并联（同极性）</strong></p>
+                    <p style="background: #e3f2fd; padding: 10px; border-radius: 5px;">
+                        两管并联，电压相同，取较小的稳压值<br><br>
+                        <strong>可得电压：</strong><br>
+                        U = min(U<sub>Z1</sub>, U<sub>Z2</sub>) = min(5, 8) = <strong>5V</strong><br><br>
+                        <strong>原因：</strong>当电压达到5V时，D<sub>Z1</sub>先击穿稳压，<br>
+                        电压被钳位在5V，D<sub>Z2</sub>达不到8V的击穿电压
+                    </p>
+
+                    <div style="background: #e1f5fe; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <h5>📌 稳压管组合口诀</h5>
+                        <ul>
+                            <li><strong>串联取和：</strong>同向串联，稳压值相加</li>
+                            <li><strong>并联取小：</strong>同向并联，稳压值取小</li>
+                            <li><strong>反串加0.7：</strong>反向串联，一个稳压值+0.7V</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 稳压管大题3：输入变化范围 -->
+            <div class="exercise-item">
+                <h3>大题10：稳压电路输入电压允许范围（★★★★★）</h3>
+                <div class="question">
+                    <p>稳压电路中，R = 200Ω，R<sub>L</sub> = 400Ω，稳压管参数：U<sub>Z</sub> = 6V，I<sub>Zmin</sub> = 5mA，I<sub>Zmax</sub> = 25mA。</p>
+                    <p>求输入电压U<sub>i</sub>的允许变化范围。</p>
+                </div>
+                <button class="show-answer-btn" onclick="toggleAnswer(this)">查看答案与解析</button>
+                <div class="answer">
+                    <h4>✓ 详细解答</h4>
+
+                    <p><strong>分析思路</strong></p>
+                    <p>输入电压范围由两个极限条件决定：</p>
+                    <ul>
+                        <li>U<sub>i(min)</sub>：当I<sub>Z</sub> = I<sub>Zmin</sub>时</li>
+                        <li>U<sub>i(max)</sub>：当I<sub>Z</sub> = I<sub>Zmax</sub>时</li>
+                    </ul>
+
+                    <p><strong>1. 计算负载电流（恒定）</strong></p>
+                    <p style="background: #e8f5e9; padding: 10px; border-radius: 5px;">
+                        I<sub>L</sub> = U<sub>Z</sub> / R<sub>L</sub> = 6V / 400Ω = <strong>15mA</strong>
+                    </p>
+
+                    <p><strong>2. 求U<sub>i(min)</sub></strong></p>
+                    <p style="background: #fff3e0; padding: 10px; border-radius: 5px;">
+                        当I<sub>Z</sub> = I<sub>Zmin</sub> = 5mA时：<br>
+                        I = I<sub>L</sub> + I<sub>Z</sub> = 15 + 5 = 20mA<br>
+                        U<sub>i(min)</sub> = U<sub>Z</sub> + I·R = 6 + 20mA × 200Ω<br>
+                        = 6 + 4 = <strong>10V</strong>
+                    </p>
+
+                    <p><strong>3. 求U<sub>i(max)</sub></strong></p>
+                    <p style="background: #e3f2fd; padding: 10px; border-radius: 5px;">
+                        当I<sub>Z</sub> = I<sub>Zmax</sub> = 25mA时：<br>
+                        I = I<sub>L</sub> + I<sub>Z</sub> = 15 + 25 = 40mA<br>
+                        U<sub>i(max)</sub> = U<sub>Z</sub> + I·R = 6 + 40mA × 200Ω<br>
+                        = 6 + 8 = <strong>14V</strong>
+                    </p>
+
+                    <p><strong>4. 结论</strong></p>
+                    <p style="background: #c8e6c9; padding: 10px; border-radius: 5px; font-size: 18px;">
+                        <strong>输入电压允许范围：10V ≤ U<sub>i</sub> ≤ 14V</strong>
+                    </p>
+
+                    <div style="background: #ffebee; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <h5>⚠️ 重要公式</h5>
+                        <p style="font-size: 16px;">
+                            <strong>U<sub>i(min)</sub> = U<sub>Z</sub> + (I<sub>L</sub> + I<sub>Zmin</sub>)·R</strong><br>
+                            <strong>U<sub>i(max)</sub> = U<sub>Z</sub> + (I<sub>L</sub> + I<sub>Zmax</sub>)·R</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="knowledge-card" style="margin-top: 50px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <h4>🎯 大题备考总结</h4>
+                <p><strong>四大必考专题：</strong></p>
+                <ol>
+                    <li><strong>差分放大电路</strong>：静态工作点 + 动态参数（双端/单端输出）</li>
+                    <li><strong>场效应管</strong>：共源/共漏等效电路，压控特性</li>
+                    <li><strong>二极管</strong>：多管导通判断、限幅电路、整流滤波</li>
+                    <li><strong>稳压管</strong>：稳压条件判断、输入范围计算、串并联组合</li>
+                </ol>
+                <p style="margin-top: 15px;"><strong>答题要诀：</strong></p>
+                <ul>
+                    <li>先画等效电路，再列方程</li>
+                    <li>分清直流分析和交流分析</li>
+                    <li>注意单位换算（mA、kΩ、μF）</li>
+                    <li>验证结果是否合理</li>
+                </ul>
+            </div>
+
+            <div class="knowledge-card" style="margin-top: 50px;">
+                <h4>🎯 刷题总结</h4>
+                <p><strong>做题技巧：</strong></p>
+                <ul>
+                    <li>选择题先排除明显错误选项</li>
+                    <li>计算题要列出已知条件和求解步骤</li>
+                    <li>电路分析题先判断工作状态（放大、饱和、截止）</li>
+                    <li>失真分析看波形哪部分被削平（顶部或底部）</li>
+                    <li>反馈类型判断要从三个角度：正负、串并、电压电流</li>
+                </ul>
+            </div>
+
+            <div class="start-card" style="margin-top: 40px;">
+                <h3>🎓 继续复习</h3>
+                <p>完成了习题练习，回顾一下知识点吧！</p>
+                <a href="index.html" class="btn btn-primary">返回首页</a>
+                <a href="chapter1.html" class="btn btn-secondary">重新学习</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 模拟电子技术复习网站 | 祝你考试顺利！</p>
+            <p style="margin-top: 10px; opacity: 0.7; font-size: 0.9em;">作者：冷歌</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

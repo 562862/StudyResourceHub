@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第二章：基本放大电路 - 模拟电子技术</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>📚 第二章：基本放大电路</h1>
+            <p class="subtitle">掌握三种基本放大电路的分析方法</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="chapter1.html">第一章：半导体器件</a></li>
+                <li><a href="chapter2.html" class="active">第二章：基本放大电路</a></li>
+                <li><a href="chapter3.html">第三章：多级放大电路</a></li>
+                <li><a href="chapter4.html">第四章：集成运放</a></li>
+                <li><a href="chapter5.html">第五章：反馈电路</a></li>
+                <li><a href="chapter6.html">第六章：功率放大</a></li>
+                <li><a href="exercises.html">习题练习</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="content-section">
+            <h2>一、放大电路的基本概念</h2>
+
+            <div class="knowledge-card">
+                <h4>🔹 什么是放大？</h4>
+                <p><strong>放大</strong>是指在输入信号的控制下，将直流电源的能量转换为按输入信号变化规律变化的较大能量的过程。</p>
+                <p><strong>注意：</strong>放大的不是能量（能量来自电源），而是<strong>信号</strong>！</p>
+            </div>
+
+            <div class="knowledge-card">
+                <h4>🔹 放大的本质</h4>
+                <p><strong>关键要素：</strong></p>
+                <ul>
+                    <li>需要<strong>直流电源</strong>提供能量</li>
+                    <li>需要<strong>放大器件</strong>（三极管或场效应管）</li>
+                    <li>输出信号的能量 > 输入信号的能量</li>
+                    <li>放大的是<strong>电压</strong>、<strong>电流</strong>或<strong>功率</strong></li>
+                </ul>
+            </div>
+
+            <h2>二、静态工作点</h2>
+
+            <h3>2.1 什么是静态工作点？</h3>
+            <div class="knowledge-card">
+                <h4>🔹 静态与动态</h4>
+                <p><strong>静态：</strong>没有输入信号时，电路中各点的直流电压和电流</p>
+                <p><strong>动态：</strong>有输入信号时，电路中各点的电压和电流会在静态值基础上变化</p>
+                <p><strong>静态工作点（Q点）：</strong>用I<sub>BQ</sub>、I<sub>CQ</sub>、U<sub>CEQ</sub>表示</p>
+            </div>
+
+            <h3>2.2 静态工作点的计算</h3>
+            <div class="formula-box">
+                <strong>静态工作点计算公式：</strong><br>
+                I<sub>BQ</sub> = (V<sub>CC</sub> - U<sub>BEQ</sub>) / R<sub>b</sub><br>
+                I<sub>CQ</sub> = β · I<sub>BQ</sub><br>
+                U<sub>CEQ</sub> = V<sub>CC</sub> - I<sub>CQ</sub> · R<sub>c</sub>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 例题1：静态工作点计算</h4>
+                <p><strong>题目：</strong>某放大电路在负载开路时的输出电压为4V，接入3kΩ的负载后输出电压降为3V，则此电路的输出电阻为（）。</p>
+                <p>A. 0.5kΩ　　B. 1kΩ　　C. 2kΩ　　D. 3kΩ</p>
+                <div class="solution">
+                    <p><strong>解析：</strong></p>
+                    <p>1. 负载开路时：U<sub>o</sub> = 4V（此时输出电阻上无电流）</p>
+                    <p>2. 接负载后：U<sub>o</sub>' = 3V，负载R<sub>L</sub> = 3kΩ</p>
+                    <p>3. 负载电流：I<sub>L</sub> = U<sub>o</sub>' / R<sub>L</sub> = 3V / 3kΩ = 1mA</p>
+                    <p>4. 输出电阻上的压降：ΔU = 4V - 3V = 1V</p>
+                    <p>5. 输出电阻：R<sub>o</sub> = ΔU / I<sub>L</sub> = 1V / 1mA = 1kΩ</p>
+                    <p><strong>答案：B</strong></p>
+                </div>
+            </div>
+
+            <h2>三、三种基本放大电路</h2>
+
+            <h3>3.1 共射放大电路（CE）</h3>
+            <div class="knowledge-card">
+                <h4>🔹 共射放大电路的特点</h4>
+                <p><strong>电路特征：</strong>输入信号加在基极，输出信号从集电极取出，<strong>发射极公共接地</strong></p>
+                <p><strong>性能特点：</strong></p>
+                <ul>
+                    <li><strong>电压放大倍数：</strong>较大（A<sub>u</sub> = -β·R<sub>c</sub>/r<sub>be</sub>）</li>
+                    <li><strong>输入电阻：</strong>中等（几kΩ）</li>
+                    <li><strong>输出电阻：</strong>较大（约等于R<sub>c</sub>）</li>
+                    <li><strong>相位关系：</strong>输出与输入<strong>反相</strong>（相位差180°）</li>
+                </ul>
+            </div>
+
+            <div class="important-note">
+                <h4>⚠️ 共射放大电路的输出电阻</h4>
+                <p><strong>重要结论：</strong>与空载相比，接上负载后，单管放大器的动态范围一定<strong>变小</strong>。</p>
+                <p>原因：负载分流使得输出电压降低，输出范围变小。</p>
+            </div>
+
+            <h3>3.2 共集放大电路（CC）- 射极跟随器</h3>
+            <div class="knowledge-card">
+                <h4>🔹 共集放大电路的特点</h4>
+                <p><strong>电路特征：</strong>输入信号加在基极，输出信号从发射极取出，<strong>集电极公共接地</strong></p>
+                <p><strong>性能特点：</strong></p>
+                <ul>
+                    <li><strong>电压放大倍数：</strong>接近1（A<sub>u</sub> ≈ 1）</li>
+                    <li><strong>输入电阻：</strong>很大</li>
+                    <li><strong>输出电阻：</strong>很小</li>
+                    <li><strong>相位关系：</strong>输出与输入<strong>同相</strong></li>
+                </ul>
+            </div>
+
+            <div class="important-note">
+                <h4>⚠️ 射极跟随器的应用</h4>
+                <p><strong>射极输出器无放大（）的能力：</strong></p>
+                <p>答案：<strong>电压</strong></p>
+                <p>• 射极跟随器电压放大倍数接近1，几乎不放大电压<br>
+                • 但可以放大电流和功率<br>
+                • 主要用于<strong>阻抗匹配</strong>和<strong>缓冲隔离</strong></p>
+            </div>
+
+            <h3>3.3 共基放大电路（CB）</h3>
+            <div class="knowledge-card">
+                <h4>🔹 共基放大电路的特点</h4>
+                <p><strong>电路特征：</strong>输入信号加在发射极，输出信号从集电极取出，<strong>基极公共接地</strong></p>
+                <p><strong>性能特点：</strong></p>
+                <ul>
+                    <li><strong>电压放大倍数：</strong>较大（与共射相近）</li>
+                    <li><strong>输入电阻：</strong>很小</li>
+                    <li><strong>输出电阻：</strong>较大</li>
+                    <li><strong>相位关系：</strong>输出与输入<strong>同相</strong></li>
+                </ul>
+            </div>
+
+            <h3>3.4 三种组态对比</h3>
+            <table class="comparison-table">
+                <tr>
+                    <th>组态</th>
+                    <th>电压放大倍数</th>
+                    <th>输入电阻</th>
+                    <th>输出电阻</th>
+                    <th>相位关系</th>
+                    <th>应用</th>
+                </tr>
+                <tr>
+                    <td><strong>共射(CE)</strong></td>
+                    <td>大</td>
+                    <td>中</td>
+                    <td>大</td>
+                    <td>反相</td>
+                    <td>通用放大</td>
+                </tr>
+                <tr>
+                    <td><strong>共集(CC)</strong></td>
+                    <td>≈1</td>
+                    <td>大</td>
+                    <td>小</td>
+                    <td>同相</td>
+                    <td>阻抗变换</td>
+                </tr>
+                <tr>
+                    <td><strong>共基(CB)</strong></td>
+                    <td>大</td>
+                    <td>小</td>
+                    <td>大</td>
+                    <td>同相</td>
+                    <td>高频放大</td>
+                </tr>
+            </table>
+
+            <h2>四、放大电路的分析方法</h2>
+
+            <h3>4.1 图解法</h3>
+            <div class="knowledge-card">
+                <h4>🔹 图解法的应用</h4>
+                <p><strong>适用范围：</strong>分析非线性失真、确定最大不失真输出幅度</p>
+                <p><strong>两条线：</strong></p>
+                <ul>
+                    <li><strong>直流负载线：</strong>用于确定静态工作点Q</li>
+                    <li><strong>交流负载线：</strong>用于分析动态特性</li>
+                </ul>
+            </div>
+
+            <h3>4.2 微变等效电路法</h3>
+            <div class="knowledge-card">
+                <h4>🔹 微变等效电路法的步骤</h4>
+                <p><strong>步骤1：</strong>画出微变等效电路</p>
+                <ul>
+                    <li>电容开路→短路（交流分析时）</li>
+                    <li>直流电源短路</li>
+                    <li>三极管用h参数等效电路代替</li>
+                </ul>
+                <p><strong>步骤2：</strong>计算性能指标</p>
+                <ul>
+                    <li>电压放大倍数 A<sub>u</sub></li>
+                    <li>输入电阻 R<sub>i</sub></li>
+                    <li>输出电阻 R<sub>o</sub></li>
+                </ul>
+            </div>
+
+            <div class="formula-box">
+                <strong>共射放大电路的关键公式：</strong><br>
+                A<sub>u</sub> = -β·(R<sub>c</sub>∥R<sub>L</sub>) / r<sub>be</sub><br>
+                R<sub>i</sub> = R<sub>b</sub>∥r<sub>be</sub><br>
+                R<sub>o</sub> ≈ R<sub>c</sub>
+            </div>
+
+            <h2>五、失真问题</h2>
+
+            <h3>5.1 饱和失真</h3>
+            <div class="knowledge-card">
+                <h4>🔹 饱和失真的特征</h4>
+                <p><strong>原因：</strong>静态工作点Q设置过高，三极管进入饱和区</p>
+                <p><strong>现象：</strong>输出波形<strong>顶部</strong>被削平</p>
+                <p><strong>解决：</strong>减小R<sub>b</sub>，降低I<sub>BQ</sub>，使Q点下移</p>
+            </div>
+
+            <h3>5.2 截止失真</h3>
+            <div class="knowledge-card">
+                <h4>🔹 截止失真的特征</h4>
+                <p><strong>原因：</strong>静态工作点Q设置过低，三极管进入截止区</p>
+                <p><strong>现象：</strong>输出波形<strong>底部</strong>被削平</p>
+                <p><strong>解决：</strong>增大R<sub>b</sub>，提高I<sub>BQ</sub>，使Q点上移</p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 例题2：失真分析</h4>
+                <p><strong>题目：</strong>在NPN型单级共射放大电路中，若输入电压为正弦波形，输出波形出现了底部被削平的现象，这种失真是（）。</p>
+                <p>A. 饱和失真　　B. 截止失真　　C. 线性失真　　D. 交越失真</p>
+                <div class="solution">
+                    <p><strong>解析：</strong></p>
+                    <p>1. 观察失真位置：<strong>底部</strong>被削平</p>
+                    <p>2. 判断失真类型：</p>
+                    <ul>
+                        <li>顶部失真 → 饱和失真</li>
+                        <li>底部失真 → 截止失真 ✓</li>
+                    </ul>
+                    <p>3. 失真原因：静态工作点太低，三极管在负半周进入截止区</p>
+                    <p><strong>答案：B（截止失真）</strong></p>
+                </div>
+            </div>
+
+            <h2>六、共模抑制比（CMRR）</h2>
+
+            <div class="knowledge-card">
+                <h4>🔹 差分放大电路</h4>
+                <p><strong>作用：</strong>抑制零点漂移，放大差模信号，抑制共模信号</p>
+                <p><strong>共模抑制比：</strong>CMRR = A<sub>d</sub> / A<sub>c</sub></p>
+                <p>• A<sub>d</sub>：差模电压放大倍数<br>
+                • A<sub>c</sub>：共模电压放大倍数<br>
+                • CMRR越大，电路性能越好</p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 例题3：差分放大电路</h4>
+                <p><strong>题目：</strong>图示电路参数理想对称，晶体管的β均为50，U<sub>BEQ</sub>≈0.7V。试计算R<sub>e</sub>滑动端在中点时T<sub>1</sub>管和T<sub>2</sub>管的发射极静态电流I<sub>EQ</sub>，以及动态参数A<sub>u</sub>、R<sub>i</sub>、R<sub>o</sub>。</p>
+                <p>已知：V<sub>CC</sub> = +12V，V<sub>EE</sub> = -6V，R<sub>b</sub> = 10kΩ，R<sub>c</sub> = 10kΩ，R<sub>w</sub> = 100Ω</p>
+                <div class="solution">
+                    <p><strong>解析：</strong></p>
+                    <p>1. 静态分析：</p>
+                    <p>   发射极总电流：I<sub>E</sub> = (|V<sub>EE</sub>| - U<sub>BE</sub>) / R<sub>e</sub></p>
+                    <p>   每管的静态电流：I<sub>EQ</sub> = I<sub>E</sub> / 2</p>
+                    <p>2. 动态分析：</p>
+                    <p>   差模电压放大倍数：A<sub>u</sub> = -β·R<sub>c</sub> / (2r<sub>be</sub>)</p>
+                    <p>   输入电阻：R<sub>i</sub> = 2r<sub>be</sub></p>
+                    <p>   输出电阻：R<sub>o</sub> = 2R<sub>c</sub></p>
+                </div>
+            </div>
+
+            <h2>七、本章小结</h2>
+            <div class="knowledge-card">
+                <h4>🎯 核心知识点总结</h4>
+                <ul>
+                    <li><strong>静态工作点：</strong>决定放大电路的工作状态，影响失真</li>
+                    <li><strong>共射电路：</strong>电压放大倍数大，输出反相</li>
+                    <li><strong>共集电路：</strong>电压放大倍数≈1，用于阻抗匹配</li>
+                    <li><strong>共基电路：</strong>输入电阻小，适合高频放大</li>
+                    <li><strong>失真类型：</strong>饱和失真（顶部）和截止失真（底部）</li>
+                </ul>
+            </div>
+
+            <div class="important-note">
+                <h4>⚠️ 常见易错点</h4>
+                <ul>
+                    <li>混淆三种组态的性能特点</li>
+                    <li>不能正确判断失真类型</li>
+                    <li>静态工作点计算时忘记U<sub>BE</sub>的值</li>
+                    <li>微变等效电路分析时电容处理错误</li>
+                </ul>
+            </div>
+
+            <div class="start-card" style="margin-top: 40px;">
+                <h3>📚 继续学习</h3>
+                <p>掌握了基本放大电路，让我们学习多级放大电路！</p>
+                <a href="chapter3.html" class="btn btn-primary">进入第三章：多级放大电路 →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 模拟电子技术复习网站 | 祝你考试顺利！</p>
+            <p style="margin-top: 10px; opacity: 0.7; font-size: 0.9em;">作者：冷歌</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

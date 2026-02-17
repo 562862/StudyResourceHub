@@ -1,0 +1,565 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', 'Segoe UI', Tahoma, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 头部样式 */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px 0;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    color: #667eea;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header .subtitle {
+    color: #666;
+    font-size: 1.1em;
+}
+
+/* 导航栏样式 */
+.main-nav {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+.main-nav li {
+    margin: 0 5px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 15px;
+    display: block;
+    border-radius: 5px;
+    transition: all 0.3s;
+    font-size: 0.95em;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    background: #667eea;
+    color: white;
+}
+
+/* 主内容区域 */
+main {
+    background: white;
+    margin: 30px auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* 欢迎区域 */
+.welcome-section {
+    margin-bottom: 50px;
+}
+
+.welcome-section h2 {
+    color: #667eea;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.welcome-section > p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.tips-box {
+    background: #f8f9ff;
+    border-left: 4px solid #667eea;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.tips-box h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.tips-box ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tips-box li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+}
+
+.tips-box li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* 章节卡片网格 */
+.course-overview h2 {
+    color: #667eea;
+    font-size: 2em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.chapters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.chapter-card {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 30px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.chapter-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+    border-color: #667eea;
+}
+
+.chapter-number {
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    font-size: 5em;
+    font-weight: bold;
+    color: rgba(102, 126, 234, 0.1);
+}
+
+.chapter-card h3 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.chapter-card > p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.95em;
+}
+
+.topic-list {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.topic-list li {
+    padding: 8px 0;
+    padding-left: 20px;
+    position: relative;
+    color: #555;
+    font-size: 0.9em;
+}
+
+.topic-list li:before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #667eea;
+}
+
+/* 按钮样式 */
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background: #667eea;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s;
+    margin-top: 10px;
+    font-size: 0.95em;
+}
+
+.btn:hover {
+    background: #5568d3;
+    transform: translateX(5px);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.btn-secondary:hover {
+    transform: scale(1.05);
+}
+
+/* 考试题型预览 */
+.exam-preview {
+    margin: 60px 0;
+}
+
+.exam-preview h2 {
+    color: #667eea;
+    font-size: 2em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.exam-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.exam-type {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.exam-type h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.exam-type p {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+.exam-type .weight {
+    display: block;
+    margin-top: 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* 快速开始区域 */
+.quick-start {
+    margin: 60px 0;
+}
+
+.quick-start h2 {
+    color: #667eea;
+    font-size: 2em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.start-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.start-card {
+    background: linear-gradient(135deg, #f8f9ff 0%, #e8e9ff 100%);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid #667eea;
+}
+
+.start-card h3 {
+    color: #667eea;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.start-card p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* 内容页面样式 */
+.content-section {
+    margin: 40px 0;
+}
+
+.content-section h2 {
+    color: #667eea;
+    font-size: 1.8em;
+    margin: 30px 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #667eea;
+}
+
+.content-section h3 {
+    color: #555;
+    font-size: 1.3em;
+    margin: 25px 0 15px 0;
+}
+
+.content-section p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* 知识卡片 */
+.knowledge-card {
+    background: #f8f9ff;
+    border-left: 4px solid #667eea;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.knowledge-card h4 {
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+/* 公式盒子 */
+.formula-box {
+    background: #fff8e1;
+    border: 2px dashed #ffa726;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+/* 例题样式 */
+.example-box {
+    background: #e8f5e9;
+    border-left: 4px solid #4caf50;
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 5px;
+}
+
+.example-box h4 {
+    color: #4caf50;
+    margin-bottom: 15px;
+}
+
+.example-box .solution {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #4caf50;
+}
+
+/* 重点提示 */
+.important-note {
+    background: #ffebee;
+    border-left: 4px solid #f44336;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.important-note h4 {
+    color: #f44336;
+    margin-bottom: 10px;
+}
+
+/* 对比表格 */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.comparison-table th,
+.comparison-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.comparison-table th {
+    background: #667eea;
+    color: white;
+    font-weight: bold;
+}
+
+.comparison-table tr:nth-child(even) {
+    background: #f8f9ff;
+}
+
+/* 习题样式 */
+.exercise-item {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 20px 0;
+}
+
+.exercise-item h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.exercise-item .question {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.exercise-item .options {
+    list-style: none;
+    padding: 0;
+}
+
+.exercise-item .options li {
+    padding: 10px;
+    margin: 8px 0;
+    background: #f8f9ff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.exercise-item .options li:hover {
+    background: #e8e9ff;
+    transform: translateX(5px);
+}
+
+.exercise-item .answer {
+    background: #e8f5e9;
+    border-left: 4px solid #4caf50;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    display: none;
+}
+
+.exercise-item .answer.show {
+    display: block;
+}
+
+.show-answer-btn {
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s;
+}
+
+.show-answer-btn:hover {
+    background: #45a049;
+}
+
+/* 页脚 */
+footer {
+    background: rgba(255, 255, 255, 0.95);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    color: #666;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-nav li {
+        margin: 5px 0;
+    }
+
+    .chapters-grid {
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        padding: 20px;
+    }
+}
+
+/* 图片样式 */
+.circuit-diagram {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 10px;
+    background: white;
+}
+
+/* 进度指示器 */
+.progress-indicator {
+    background: #f8f9ff;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.3s;
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第六章：功率放大电路 - 模拟电子技术</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>📚 第六章：功率放大电路</h1>
+            <p class="subtitle">掌握功率放大电路的工作原理</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="chapter1.html">第一章：半导体器件</a></li>
+                <li><a href="chapter2.html">第二章：基本放大电路</a></li>
+                <li><a href="chapter3.html">第三章：多级放大电路</a></li>
+                <li><a href="chapter4.html">第四章：集成运放</a></li>
+                <li><a href="chapter5.html">第五章：反馈电路</a></li>
+                <li><a href="chapter6.html" class="active">第六章：功率放大</a></li>
+                <li><a href="exercises.html">习题练习</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="content-section">
+            <h2>一、功率放大电路的特点</h2>
+
+            <div class="knowledge-card">
+                <h4>🔹 与电压放大电路的区别</h4>
+                <table class="comparison-table">
+                    <tr>
+                        <th>项目</th>
+                        <th>电压放大电路</th>
+                        <th>功率放大电路</th>
+                    </tr>
+                    <tr>
+                        <td><strong>主要任务</strong></td>
+                        <td>放大电压</td>
+                        <td>输出足够大的功率</td>
+                    </tr>
+                    <tr>
+                        <td><strong>关注重点</strong></td>
+                        <td>电压放大倍数</td>
+                        <td>输出功率、效率</td>
+                    </tr>
+                    <tr>
+                        <td><strong>静态功耗</strong></td>
+                        <td>较小</td>
+                        <td>较大</td>
+                    </tr>
+                    <tr>
+                        <td><strong>失真要求</strong></td>
+                        <td>尽量小</td>
+                        <td>在允许范围内</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h2>二、三种工作状态</h2>
+
+            <h3>2.1 甲类功率放大</h3>
+            <div class="knowledge-card">
+                <h4>🔹 甲类（A类）放大</h4>
+                <p><strong>特点：</strong></p>
+                <ul>
+                    <li>晶体管在整个周期内都导通</li>
+                    <li>静态工作点Q设置在交流负载线中点</li>
+                    <li>失真小，但效率低（理论最大效率50%）</li>
+                </ul>
+                <p><strong>缺点：</strong>不适合做功率放大器</p>
+            </div>
+
+            <h3>2.2 乙类功率放大</h3>
+            <div class="knowledge-card">
+                <h4>🔹 乙类（B类）放大</h4>
+                <p><strong>特点：</strong></p>
+                <ul>
+                    <li>晶体管只在半个周期导通</li>
+                    <li>静态工作点在截止点（I<sub>CQ</sub>=0）</li>
+                    <li>效率高（理论最大效率78.5%）</li>
+                    <li>但有<strong>交越失真</strong></li>
+                </ul>
+            </div>
+
+            <div class="important-note">
+                <h4>⚠️ 交越失真</h4>
+                <p><strong>产生原因：</strong>输入信号小于导通电压时，管子不导通，输出为零</p>
+                <p><strong>现象：</strong>输出波形在零点附近失真</p>
+                <p><strong>解决：</strong>采用甲乙类功率放大</p>
+            </div>
+
+            <h3>2.3 甲乙类功率放大</h3>
+            <div class="knowledge-card">
+                <h4>🔹 甲乙类（AB类）放大</h4>
+                <p><strong>特点：</strong></p>
+                <ul>
+                    <li>静态工作点略高于截止点</li>
+                    <li>导通角大于180°但小于360°</li>
+                    <li>既克服了交越失真，效率又较高</li>
+                </ul>
+                <p><strong>实现方法：</strong>通过二极管提供偏置电压</p>
+            </div>
+
+            <h2>三、互补对称功率放大电路</h2>
+
+            <div class="knowledge-card">
+                <h4>🔹 OTL电路</h4>
+                <p><strong>电路组成：</strong>采用一对NPN和PNP管组成互补对称电路</p>
+                <p><strong>工作原理：</strong></p>
+                <ul>
+                    <li>正半周：NPN管导通，PNP管截止</li>
+                    <li>负半周：PNP管导通，NPN管截止</li>
+                    <li>两管轮流工作，共同完成信号放大</li>
+                </ul>
+            </div>
+
+            <div class="knowledge-card">
+                <h4>🔹 OCL电路</h4>
+                <p><strong>与OTL的区别：</strong></p>
+                <ul>
+                    <li>OTL：单电源供电，需要耦合电容</li>
+                    <li>OCL：双电源供电，无需耦合电容</li>
+                </ul>
+                <p><strong>优点：</strong>可以采用复合型三极管（达林顿结构）增大输出功率</p>
+            </div>
+
+            <div class="important-note">
+                <h4>⚠️ 考点提醒</h4>
+                <p><strong>关于功率放大电路，不正确的是（）</strong></p>
+                <ul>
+                    <li>A. 甲类放大电路不适合做功率放大器 ✓</li>
+                    <li>B. 乙类放大电路存在交越失真 ✓</li>
+                    <li>C. 为了增大功率输出电流的能力可以采用复合型三极管（这林顿结构） ✓</li>
+                    <li>D. OCL功率放大器可以采用单电源供电 ✗（错误！OCL需要双电源）</li>
+                </ul>
+            </div>
+
+            <h2>四、本章小结</h2>
+            <div class="knowledge-card">
+                <h4>🎯 核心知识点总结</h4>
+                <ul>
+                    <li><strong>甲类：</strong>失真小但效率低（≤50%）</li>
+                    <li><strong>乙类：</strong>效率高但有交越失真（≈78.5%）</li>
+                    <li><strong>甲乙类：</strong>综合两者优点，实用性强</li>
+                    <li><strong>互补对称：</strong>OTL单电源，OCL双电源</li>
+                </ul>
+            </div>
+
+            <div class="start-card" style="margin-top: 40px;">
+                <h3>📚 开始练习</h3>
+                <p>恭喜你完成了所有章节的学习！现在去习题库检验一下吧！</p>
+                <a href="exercises.html" class="btn btn-primary">进入习题练习 →</a>
+                <a href="index.html" class="btn btn-secondary">返回首页</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 模拟电子技术复习网站 | 祝你考试顺利！</p>
+            <p style="margin-top: 10px; opacity: 0.7; font-size: 0.9em;">作者：冷歌</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

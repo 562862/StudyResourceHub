@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复变函数与积分变换 - 期末复习宝典</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card .number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-card .label {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            padding: 0 30px;
+            border-bottom: 2px solid #e0e0e0;
+            overflow-x: auto;
+        }
+
+        .nav-tab {
+            padding: 15px 25px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 1.05em;
+            color: #666;
+            transition: all 0.3s;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .nav-tab:hover {
+            color: #667eea;
+        }
+
+        .nav-tab.active {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .nav-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #667eea;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .topic-section {
+            margin-bottom: 40px;
+        }
+
+        .topic-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
+        .topic-header:hover {
+            transform: translateX(5px);
+        }
+
+        .topic-header h2 {
+            font-size: 1.6em;
+        }
+
+        .topic-header .score {
+            background: rgba(255,255,255,0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .topic-body {
+            padding: 0 15px;
+        }
+
+        .question-card {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .question-card:hover {
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+            transform: translateX(5px);
+        }
+
+        .question-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .question-content {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .question-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .tag {
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .tag-difficulty {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .tag-type {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .tag-method {
+            background: #f3e5f5;
+            color: #6a1b9a;
+        }
+
+        .tag-score {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .key-formula {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .key-formula h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+        }
+
+        .formula-display {
+            font-family: 'Courier New', monospace;
+            font-size: 1.05em;
+            color: #333;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .warning-box {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .warning-box h4 {
+            color: #c62828;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .warning-box h4::before {
+            content: '⚠️';
+        }
+
+        .tip-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .tip-box h4 {
+            color: #2e7d32;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tip-box h4::before {
+            content: '💡';
+        }
+
+        .knowledge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .knowledge-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+
+        .knowledge-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.15);
+        }
+
+        .knowledge-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .knowledge-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .knowledge-card li {
+            padding: 8px 0;
+            color: #555;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .knowledge-card li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .collapsible {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        .collapsible.open {
+            max-height: 5000px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .knowledge-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .search-box {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 复变函数与积分变换</h1>
+            <div class="subtitle">期末复习知识点全解析 | 常州大学 2024-2025学年</div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="number">6</div>
+                <div class="label">核心考点模块</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">100</div>
+                <div class="label">总分值</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">90</div>
+                <div class="label">考试时长(分钟)</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">17</div>
+                <div class="label">真题总数</div>
+            </div>
+        </div>
+
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="🔍 搜索知识点、题目类型..." id="searchInput">
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="switchTab(0)">📋 考点总览</button>
+            <button class="nav-tab" onclick="switchTab(1)">💯 填空题库</button>
+            <button class="nav-tab" onclick="switchTab(2)">✅ 选择题库</button>
+            <button class="nav-tab" onclick="switchTab(3)">📝 计算题库</button>
+            <button class="nav-tab" onclick="switchTab(4)">📖 核心公式</button>
+            <button class="nav-tab" onclick="switchTab(5)">⚠️ 易错点</button>
+        </div>
+
+        <div class="content">
+            <!-- 考点总览 -->
+            <div class="tab-content active">
+                <h2 style="color: #667eea; margin-bottom: 30px;">📊 六大核心考点分布</h2>
+
+                <div class="knowledge-grid">
+                    <div class="knowledge-card">
+                        <h3>1️⃣ 复数基础运算</h3>
+                        <p style="color: #999; margin-bottom: 15px;">分值占比: 8-12分</p>
+                        <ul>
+                            <li>辐角计算 (arg z)</li>
+                            <li>复数的幂 (z^w)</li>
+                            <li>根式运算 (∛z)</li>
+                            <li>模的计算 (|z|)</li>
+                        </ul>
+                    </div>
+
+                    <div class="knowledge-card">
+                        <h3>2️⃣ 解析函数理论</h3>
+                        <p style="color: #999; margin-bottom: 15px;">分值占比: 12-16分</p>
+                        <ul>
+                            <li>C-R方程验证</li>
+                            <li>调和函数</li>
+                            <li>解析函数求导</li>
+                            <li>共轭调和函数</li>
+                        </ul>
+                    </div>
+
+                    <div class="knowledge-card">
+                        <h3>3️⃣ 复积分计算</h3>
+                        <p style="color: #999; margin-bottom: 15px;">分值占比: 16-20分</p>
+                        <ul>
+                            <li>柯西积分定理</li>
+                            <li>柯西积分公式</li>
+                            <li>积分路径判断</li>
+                            <li>原函数法</li>
+                        </ul>
+                    </div>
+
+                    <div class="knowledge-card">
+                        <h3>4️⃣ 级数展开</h3>
+                        <p style="color: #999; margin-bottom: 15px;">分值占比: 20-24分</p>
+                        <ul>
+                            <li>泰勒级数展开</li>
+                            <li>罗朗级数展开</li>
+                            <li>收敛半径计算</li>
+                            <li>收敛域判定</li>
+                        </ul>
+                    </div>
+
+                    <div class="knowledge-card">
+                        <h3>5️⃣ 留数理论</h3>
+                        <p style="color: #999; margin-bottom: 15px;">分值占比: 16-20分</p>
+                        <ul>
+                            <li>奇点类型判定</li>
+                            <li>留数计算</li>
+                            <li>留数定理应用</li>
+                            <li>围道积分</li>
+                        </ul>
+                    </div>
+
+                    <div class="knowledge-card">
+                        <h3>6️⃣ 积分变换</h3>
+                        <p style="color: #999; margin-bottom: 15px;">分值占比: 10-12分</p>
+                        <ul>
+                            <li>傅里叶变换</li>
+                            <li>拉普拉斯变换</li>
+                            <li>逆变换</li>
+                            <li>变换性质</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 填空题库 -->
+            <div class="tab-content">
+                <h2 style="color: #667eea; margin-bottom: 30px;">💯 填空题专项训练 (36分)</h2>
+
+                <div class="topic-section">
+                    <div class="topic-header" onclick="toggleSection(this)">
+                        <h2>📐 复数运算类 (12分)</h2>
+                        <span class="score">3题 × 4分</span>
+                    </div>
+                    <div class="collapsible open">
+                        <div class="topic-body">
+                            <div class="question-card">
+                                <div class="question-title">题型1: 辐角计算</div>
+                                <div class="question-content">
+                                    <strong>例题:</strong> 设 z = (1-√3i)(1+i) / [(-2+2i)(1-i)]，则 arg z = ______
+                                </div>
+                                <div class="question-tags">
+                                    <span class="tag tag-difficulty">⭐⭐⭐ 中等</span>
+                                    <span class="tag tag-type">辐角性质</span>
+                                    <span class="tag tag-method">分子分母法</span>
+                                    <span class="tag tag-score">4分</span>
+                                </div>
+                                <div class="tip-box">
+                                    <h4>解题技巧</h4>
+                                    <p><strong>方法一:</strong> 利用 arg(z₁z₂) = arg z₁ + arg z₂<br>
+                                    <strong>方法二:</strong> 直接计算化简为 a+bi 形式，判断象限</p>
+                                </div>
+                            </div>
+
+                            <div class="question-card">
+                                <div class="question-title">题型2: 复数的幂</div>
+                                <div class="question-content">
+                                    <strong>例题:</strong> 设 z = i^i，则 z 的代数形式为 ______
+                                </div>
+                                <div class="question-tags">
+                                    <span class="tag tag-difficulty">⭐⭐⭐⭐ 较难</span>
+                                    <span class="tag tag-type">复数幂运算</span>
+                                    <span class="tag tag-method">指数定义法</span>
+                                    <span class="tag tag-score">4分</span>
+                                </div>
+                                <div class="key-formula">
+                                    <h4>核心公式</h4>
+                                    <div class="formula-display">
+                                        a^b = e^(b·ln a)<br>
+                                        ln i = i·π/2 (主值)<br>
+                                        i^i = e^(-π/2) ≈ 0.2079
+                                    </div>
+                                </div>
+                                <div class="warning-box">
+                                    <h4>易错点</h4>
+                                    <p>复数的幂运算结果可能是<strong>实数</strong>！不要想当然认为一定是复数形式。</p>
+                                </div>
+                            </div>
+
+                            <div class="question-card">
+                                <div class="question-title">题型3: 根式计算</div>
+                                <div class="question-content">
+                                    <strong>例题:</strong> 根式 ∛[-8(1+i)] = ______
+                                </div>
+                                <div class="question-tags">
+                                    <span class="tag tag-difficulty">⭐⭐⭐⭐ 较难</span>
+                                    <span class="tag tag-type">复数根式</span>
+                                    <span class="tag tag-method">指数形式展开</span>
+                                    <span class="tag tag-score">4分</span>
+                                </div>
+                                <div class="tip-box">
+                                    <h4>解题步骤</h4>
+                                    <p>1. 化为指数形式 z = r·e^(iθ)<br>
+                                    2. 应用公式 ∛z = ∛r · e^(i(θ+2kπ)/3), k=0,1,2<br>
+                                    3. 写出所有三个根</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topic-section">
+                    <div class="topic-header" onclick="toggleSection(this)">
+                        <h2>🔍 复积分类 (8分)</h2>
+                        <span class="score">2题 × 4分</span>
+                    </div>
+                    <div class="collapsible">
+                        <div class="topic-body">
+                            <div class="question-card">
+                                <div class="question-title">题型1: 柯西定理应用</div>
+                                <div class="question-content">
+                                    <strong>例题:</strong> ∮_{|z|=1} sin(2z+1)/(z-2)² dz = ______
+                                </div>
+                                <div class="question-tags">
+                                    <span class="tag tag-difficulty">⭐⭐ 简单</span>
+                                    <span class="tag tag-type">柯西定理</span>
+                                    <span class="tag tag-method">奇点判断</span>
+                                    <span class="tag tag-score">4分</span>
+                                </div>
+                                <div class="tip-box">
+                                    <h4>关键判断</h4>
+                                    <p>1. 找出奇点位置: z = 2<br>
+                                    2. 判断奇点是否在围道内: |2| = 2 > 1 (在外部)<br>
+                                    3. 函数在围道内解析 → 积分为 0</p>
+                                </div>
+                            </div>
+
+                            <div class="question-card">
+                                <div class="question-title">题型2: 原函数法</div>
+                                <div class="question-content">
+                                    <strong>例题:</strong> ∫₀^(1+i) (3z + 2)dz = ______
+                                </div>
+                                <div class="question-tags">
+                                    <span class="tag tag-difficulty">⭐ 容易</span>
+                                    <span class="tag tag-type">解析函数积分</span>
+                                    <span class="tag tag-method">牛顿-莱布尼茨公式</span>
+                                    <span class="tag tag-score">4分</span>
+                                </div>
+                                <div class="key-formula">
+                                    <h4>解题要点</h4>
+                                    <div class="formula-display">
+                                        F(z) = (3z²/2) + 2z<br>
+                                        积分 = F(1+i) - F(0)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topic-section">
+                    <div class="topic-header" onclick="toggleSection(this)">
+                        <h2>📊 级数与留数类 (16分)</h2>
+                        <span class="score">4题 × 4分</span>
+                    </div>
+                    <div class="collapsible">
+                        <div class="topic-body">
+                            <div class="question-card">
+                                <div class="question-title">题型1: 奇点类型判定</div>
+                                <div class="question-content">
+                                    <strong>例题:</strong> z = 0 是函数 (sin z - z)/z² 的 ______ 奇点
+                                </div>
+                                <div class="question-tags">
+                                    <span class="tag tag-difficulty">⭐⭐⭐ 中等</span>
+                                    <span class="tag tag-type">奇点分类</span>
+                                    <span class="tag tag-method">泰勒展开</span>
+                                    <span class="tag tag-score">4分</span>
+                                </div>
+                                <div class="tip-box">
+                                    <h4>判定方法</h4>
+                                    <p><strong>可去奇点:</strong> 洛朗展开无负幂项<br>
+                                    <strong>极点:</strong> 有限个负幂项<br>
+                                    <strong>本性奇点:</strong> 无限个负幂项</p>
+                                </div>
+                            </div>
+
+                            <div class="question-card">
+                                <div class="question-title">题型2: 级数收敛范围</div>
+                                <div class="question-content">
+                                    <strong>例题:</strong> 级数 Σ(n+1)(z+1)ⁿ/2ⁿ 的收敛范围为 ______
+                                </div>
+                                <div class="question-tags">
+                                    <span class="tag tag-difficulty">⭐⭐⭐ 中等</span>
+                                    <span class="tag tag-type">幂级数收敛</span>
+                                    <span class="tag tag-method">比值判别法</span>
+                                    <span class="tag tag-score">4分</span>
+                                </div>
+                            </div>
+
+                            <div class="question-card">
+                                <div class="question-title">题型3: 留数计算</div>
+                                <div class="question-content">
+                                    <strong>例题:</strong> Res[1/(z(e^z-1)), 0] = ______
+                                </div>
+                                <div class="question-tags">
+                                    <span class="tag tag-difficulty">⭐⭐⭐⭐ 较难</span>
+                                    <span class="tag tag-type">留数计算</span>
+                                    <span class="tag tag-method">洛朗级数</span>
+                                    <span class="tag tag-score">4分</span>
+                                </div>
+                                <div class="key-formula">
+                                    <h4>核心步骤</h4>
+                                    <div class="formula-display">
+                                        1. e^z - 1 = z(1 + z/2 + z²/6 + ...)<br>
+                                        2. 展开为洛朗级数<br>
+                                        3. 找 z^(-1) 项系数
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="question-card">
+                                <div class="question-title">题型4: 留数定理积分</div>
+                                <div class="question-content">
+                                    <strong>例题:</strong> ∮_{|z|=1} (z²+1)/z⁴ dz = ______
+                                </div>
+                                <div class="question-tags">
+                                    <span class="tag tag-difficulty">⭐⭐ 简单</span>
+                                    <span class="tag tag-type">留数定理</span>
+                                    <span class="tag tag-method">展开观察</span>
+                                    <span class="tag tag-score">4分</span>
+                                </div>
+                                <div class="warning-box">
+                                    <h4>关键提示</h4>
+                                    <p>展开后没有 z^(-1) 项时，留数 = 0，积分 = 0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 选择题库 -->
+            <div class="tab-content">
+                <h2 style="color: #667eea; margin-bottom: 30px;">✅ 选择题专项训练 (12分)</h2>
+
+                <div class="question-card">
+                    <div class="question-title">题型1: C-R方程与解析函数</div>
+                    <div class="question-content">
+                        <strong>例题:</strong> x² - y² + x 是解析函数 f(z)=u(x,y)+iv(x,y) 的实部，则 ( )<br>
+                        A. f'(z) = 2(x-iy)<br>
+                        B. f'(z) = 2x+1+2yi ✓<br>
+                        C. f'(z) = 2(y+ix)<br>
+                        D. f'(z) = 2x+2(y+1)i
+                    </div>
+                    <div class="question-tags">
+                        <span class="tag tag-difficulty">⭐⭐⭐ 中等</span>
+                        <span class="tag tag-type">C-R方程</span>
+                        <span class="tag tag-score">3分</span>
+                    </div>
+                    <div class="tip-box">
+                        <h4>解题步骤</h4>
+                        <p>1. 利用 C-R 方程求 v<br>
+                        2. 使用公式 f'(z) = ∂u/∂x + i·∂v/∂x<br>
+                        3. 验证结果</p>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-title">题型2: 留数定理判断</div>
+                    <div class="question-content">
+                        <strong>例题:</strong> C 是正向圆周 |z|=2，如果函数 f(z)= ( )，则 ∮_C f(z)dz ≠ 0<br>
+                        A. 1/(z-1) ✓<br>
+                        B. sin z/z<br>
+                        C. 1/(z-3)²<br>
+                        D. e^z/(z-1)²
+                    </div>
+                    <div class="question-tags">
+                        <span class="tag tag-difficulty">⭐⭐⭐ 中等</span>
+                        <span class="tag tag-type">留数定理</span>
+                        <span class="tag tag-score">3分</span>
+                    </div>
+                    <div class="warning-box">
+                        <h4>判断要点</h4>
+                        <p>1. 奇点必须在围道内<br>
+                        2. 留数不为 0<br>
+                        3. 可去奇点留数为 0</p>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-title">题型3: 幂级数收敛性</div>
+                    <div class="question-content">
+                        <strong>例题:</strong> 如果级数 Σcₙzⁿ 在 z=1+2i 点收敛，则级数在 ( )<br>
+                        A. z=1+2i 点条件收敛<br>
+                        B. z=2i 点绝对收敛 ✓<br>
+                        C. z=2+i 点绝对收敛<br>
+                        D. z=1-2i 点一定发散
+                    </div>
+                    <div class="question-tags">
+                        <span class="tag tag-difficulty">⭐⭐⭐ 中等</span>
+                        <span class="tag tag-type">阿贝尔定理</span>
+                        <span class="tag tag-score">3分</span>
+                    </div>
+                    <div class="key-formula">
+                        <h4>阿贝尔定理</h4>
+                        <div class="formula-display">
+                            收敛圆内: 绝对收敛<br>
+                            收敛圆上: 可能条件收敛或发散<br>
+                            收敛圆外: 发散
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-card">
+                    <div class="question-title">题型4: 复变函数性质</div>
+                    <div class="question-content">
+                        <strong>例题:</strong> 下列结论不正确的是 ( )<br>
+                        A. Ln z 是复平面上的多值函数<br>
+                        B. cos z 是无界函数<br>
+                        C. sin z 是复平面上的有界函数 ✗<br>
+                        D. e^z 是解析函数
+                    </div>
+                    <div class="question-tags">
+                        <span class="tag tag-difficulty">⭐⭐ 简单</span>
+                        <span class="tag tag-type">函数性质</span>
+                        <span class="tag tag-score">3分</span>
+                    </div>
+                    <div class="warning-box">
+                        <h4>重要提醒</h4>
+                        <p>复变函数 sin z, cos z 是<strong>无界</strong>的！这与实函数不同。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 计算题库 -->
+            <div class="tab-content">
+                <h2 style="color: #667eea; margin-bottom: 30px;">📝 计算题专项训练 (52分)</h2>
+
+                <div class="topic-section">
+                    <div class="topic-header" onclick="toggleSection(this)">
+                        <h2>📈 罗朗级数展开 (10分)</h2>
+                        <span class="score">必考题型</span>
+                    </div>
+                    <div class="collapsible open">
+                        <div class="topic-body">
+                            <div class="question-card">
+                                <div class="question-content">
+                                    <strong>典型题:</strong> 求函数 f(z) = 1/[z²(2+z)] 在 2 < |z| < ∞ 内展为罗朗级数
+                                </div>
+                                <div class="question-tags">
+                                    <span class="tag tag-difficulty">⭐⭐⭐⭐ 较难</span>
+                                    <span class="tag tag-type">罗朗展开</span>
+                                    <span class="tag tag-method">部分分式法</span>
+                                    <span class="tag tag-score">10分</span>
+                                </div>
+                                <div class="tip-box">
+                                    <h4>解题流程</h4>
+                                    <p><strong>步骤1:</strong> 部分分式分解<br>
+                                    <strong>步骤2:</strong> 根据区域选择展开方式 (|z|>2 时用 1/(1+2/z))<br>
+                                    <strong>步骤3:</strong> 应用几何级数展开<br>
+                                    <strong>步骤4:</strong> 合并同类项</p>
+                                </div>
+                                <div class="key-formula">
+                                    <h4>核心技巧</h4>
+                                    <div class="formula-display">
+                                        |z| > a 时: 1/(a+z) = (1/z)·1/(1+a/z)<br>
+                                        = (1/z)·Σ(-a/z)ⁿ = Σ(-1)ⁿaⁿ/z^(n+1)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topic-section">
+                    <div class="topic-header" onclick="toggleSection(this)">
+                        <h2>🎯 泰勒级数展开 (10分)</h2>
+                        <span class="score">必考题型</span>
+                    </div>
+                    <div class="collapsible">
+                        <div class="topic-body">
+                            <div class="question-card">
+                                <div class="question-content">
+                                    <strong>典型题:</strong> 设 f(z) = (z-1)/[(z-2)(2z+1)]，求 f(z) 在 z₀=0 处的泰勒展开式，并指出收敛半径
+                                </div>
+                                <div class="question-tags">
+                                    <span class="tag tag-difficulty">⭐⭐⭐⭐ 较难</span>
+                                    <span class="tag tag-type">泰勒展开</span>
+                                    <span class="tag tag-method">部分分式法</span>
+                                    <span class="tag tag-score">10分</span>
+                                </div>
+                                <div class="tip-box">
+                                    <h4>解题要点</h4>
+                                    <p><strong>收敛半径:</strong> 等于到最近奇点的距离<br>
+                                    <strong>展开方式:</strong> 部分分式 → 几何级数<br>
+                                    <strong>注意:</strong> 取两个展开式的公共收敛域</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topic-section">
+                    <div class="topic-header" onclick="toggleSection(this)">
+                        <h2>🔄 求共轭调和函数 (10分)</h2>
+                        <span class="score">必考题型</span>
+                    </div>
+                    <div class="collapsible">
+                        <div class="topic-body">
+                            <div class="question-card">
+                                <div class="question-content">
+                                    <strong>典型题:</strong> 已知调和函数 u(x,y) = 2xy - 3y - 2x，求函数 v(x,y)，使 f(z)=u+iv 为解析函数，且满足 f(0)=1
+                                </div>
+                                <div class="question-tags">
+                                    <span class="tag tag-difficulty">⭐⭐⭐ 中等</span>
+                                    <span class="tag tag-type">C-R方程</span>
+                                    <span class="tag tag-method">积分法</span>
+                                    <span class="tag tag-score">10分</span>
+                                </div>
+                                <div class="key-formula">
+                                    <h4>C-R方程组</h4>
+                                    <div class="formula-display">
+                                        ∂v/∂y = ∂u/∂x<br>
+                                        ∂v/∂x = -∂u/∂y
+                                    </div>
+                                </div>
+                                <div class="tip-box">
+                                    <h4>解题步骤</h4>
+                                    <p>1. 验证 u 是调和函数 (∇²u = 0)<br>
+                                    2. 利用 C-R 方程求 v 的偏导数<br>
+                                    3. 对其中一个方程积分得 v<br>
+                                    4. 代入另一个方程确定待定函数<br>
+                                    5. 利用初值条件确定常数</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topic-section">
+                    <div class="topic-header" onclick="toggleSection(this)">
+                        <h2>⭕ 留数定理计算积分 (10分)</h2>
+                        <span class="score">必考题型</span>
+                    </div>
+                    <div class="collapsible">
+                        <div class="topic-body">
+                            <div class="question-card">
+                                <div class="question-content">
+                                    <strong>典型题:</strong> 利用留数定理计算 ∮_C cos z/[(z+2)²(z-1)] dz，其中 C 是正向圆周 |z|=3
+                                </div>
+                                <div class="question-tags">
+                                    <span class="tag tag-difficulty">⭐⭐⭐⭐ 较难</span>
+                                    <span class="tag tag-type">留数定理</span>
+                                    <span class="tag tag-method">留数公式</span>
+                                    <span class="tag tag-score">10分</span>
+                                </div>
+                                <div class="key-formula">
+                                    <h4>留数计算公式</h4>
+                                    <div class="formula-display">
+                                        一阶极点: Res[f,z₀] = lim(z→z₀) (z-z₀)f(z)<br>
+                                        二阶极点: Res[f,z₀] = lim(z→z₀) d/dz[(z-z₀)²f(z)]<br>
+                                        留数定理: ∮f(z)dz = 2πi·ΣRes[f,zₖ]
+                                    </div>
+                                </div>
+                                <div class="tip-box">
+                                    <h4>解题步骤</h4>
+                                    <p>1. 确定围道内的所有奇点<br>
+                                    2. 判断每个奇点的类型和阶数<br>
+                                    3. 用相应公式计算各奇点的留数<br>
+                                    4. 应用留数定理求和</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topic-section">
+                    <div class="topic-header" onclick="toggleSection(this)">
+                        <h2>🌊 傅里叶变换 (12分)</h2>
+                        <span class="score">必考题型</span>
+                    </div>
+                    <div class="collapsible">
+                        <div class="topic-body">
+                            <div class="question-card">
+                                <div class="question-content">
+                                    <strong>典型题:</strong> 已知函数 f(t) = (t+1)e^(-2t)·u(t)，求 f(t) 的傅里叶变换及其积分表达式
+                                </div>
+                                <div class="question-tags">
+                                    <span class="tag tag-difficulty">⭐⭐⭐⭐ 较难</span>
+                                    <span class="tag tag-type">傅里叶变换</span>
+                                    <span class="tag tag-method">分部积分</span>
+                                    <span class="tag tag-score">12分</span>
+                                </div>
+                                <div class="key-formula">
+                                    <h4>傅里叶变换定义</h4>
+                                    <div class="formula-display">
+                                        F(ω) = ∫_{-∞}^{∞} f(t)e^(-iωt) dt<br>
+                                        f(t) = (1/2π)∫_{-∞}^{∞} F(ω)e^(iωt) dω
+                                    </div>
+                                </div>
+                                <div class="tip-box">
+                                    <h4>解题技巧</h4>
+                                    <p><strong>分部积分法:</strong><br>
+                                    ∫t·e^(-αt)dt 令 u=t, dv=e^(-αt)dt<br>
+                                    <strong>结果化简:</strong><br>
+                                    注意合并同类项，整理为标准形式</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 核心公式 -->
+            <div class="tab-content">
+                <h2 style="color: #667eea; margin-bottom: 30px;">📖 核心公式速查手册</h2>
+
+                <div class="knowledge-grid">
+                    <div class="knowledge-card">
+                        <h3>复数基本公式</h3>
+                        <div class="formula-display">
+                            z = x + iy = r·e^(iθ)<br>
+                            |z| = √(x²+y²)<br>
+                            arg z = arctan(y/x)<br>
+                            z^w = e^(w·ln z)<br>
+                            ln z = ln|z| + i(arg z + 2kπ)
+                        </div>
+                    </div>
+
+                    <div class="knowledge-card">
+                        <h3>C-R方程</h3>
+                        <div class="formula-display">
+                            ∂u/∂x = ∂v/∂y<br>
+                            ∂u/∂y = -∂v/∂x<br>
+                            <br>
+                            f'(z) = ∂u/∂x + i·∂v/∂x<br>
+                            f'(z) = ∂v/∂y - i·∂u/∂y
+                        </div>
+                    </div>
+
+                    <div class="knowledge-card">
+                        <h3>柯西积分公式</h3>
+                        <div class="formula-display">
+                            ∮_C f(z)dz = 0  (f解析)<br>
+                            <br>
+                            f(z₀) = (1/2πi)∮_C f(z)/(z-z₀) dz<br>
+                            <br>
+                            f^(n)(z₀) = (n!/2πi)∮_C f(z)/(z-z₀)^(n+1) dz
+                        </div>
+                    </div>
+
+                    <div class="knowledge-card">
+                        <h3>常用级数展开</h3>
+                        <div class="formula-display">
+                            e^z = 1 + z + z²/2! + z³/3! + ...<br>
+                            sin z = z - z³/3! + z⁵/5! - ...<br>
+                            cos z = 1 - z²/2! + z⁴/4! - ...<br>
+                            1/(1-z) = 1 + z + z² + ..., |z|<1<br>
+                            1/(1+z) = 1 - z + z² - ..., |z|<1
+                        </div>
+                    </div>
+
+                    <div class="knowledge-card">
+                        <h3>留数计算</h3>
+                        <div class="formula-display">
+                            ∮_C f(z)dz = 2πi·ΣRes[f,zₖ]<br>
+                            <br>
+                            一阶极点:<br>
+                            Res[f,z₀] = lim(z→z₀)(z-z₀)f(z)<br>
+                            <br>
+                            m阶极点:<br>
+                            Res[f,z₀] = [1/(m-1)!]·lim(z→z₀)<br>
+                            d^(m-1)/dz^(m-1)[(z-z₀)^m f(z)]
+                        </div>
+                    </div>
+
+                    <div class="knowledge-card">
+                        <h3>傅里叶变换</h3>
+                        <div class="formula-display">
+                            F(ω) = ∫_{-∞}^{∞} f(t)e^(-iωt) dt<br>
+                            <br>
+                            f(t) = (1/2π)∫_{-∞}^{∞} F(ω)e^(iωt) dω<br>
+                            <br>
+                            F[e^(-at)u(t)] = 1/(a+iω)<br>
+                            F[te^(-at)u(t)] = 1/(a+iω)²
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 易错点 -->
+            <div class="tab-content">
+                <h2 style="color: #667eea; margin-bottom: 30px;">⚠️ 考试易错点全梳理</h2>
+
+                <div class="warning-box">
+                    <h4>复数运算易错点</h4>
+                    <ul style="margin-top: 10px; line-height: 2;">
+                        <li>辐角计算忘记判断象限，尤其是第三、四象限</li>
+                        <li>i^i = e^(-π/2) 是<strong>实数</strong>，不是复数！</li>
+                        <li>复数的 n 次方根有 n 个值，不要漏掉</li>
+                        <li>ln z 是多值函数: ln z = ln|z| + i(arg z + 2kπ)</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <h4>解析函数易错点</h4>
+                    <ul style="margin-top: 10px; line-height: 2;">
+                        <li>C-R方程第二式有<strong>负号</strong>: ∂u/∂y = -∂v/∂x</li>
+                        <li>调和函数的实部和虚部可互换，但反之不一定</li>
+                        <li>e^z 整个平面解析，但 e^(z̄) 处处<strong>不解析</strong></li>
+                        <li>解析必连续，但连续不一定解析</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <h4>复积分易错点</h4>
+                    <ul style="margin-top: 10px; line-height: 2;">
+                        <li>柯西定理仅对<strong>单连通区域</strong>内的解析函数成立</li>
+                        <li>计算前必须先判断奇点是否在围道内</li>
+                        <li>积分方向：正向 = 逆时针</li>
+                        <li>奇点在围道外 → 积分为 0</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <h4>级数展开易错点</h4>
+                    <ul style="margin-top: 10px; line-height: 2;">
+                        <li>泰勒级数收敛半径 = 到<strong>最近奇点</strong>的距离</li>
+                        <li>罗朗级数的展开方式取决于<strong>区域</strong></li>
+                        <li>|z| > a 时: 1/(a+z) = (1/z)·1/(1+a/z)</li>
+                        <li>|z| < a 时: 1/(a+z) = (1/a)·1/(1+z/a)</li>
+                        <li>部分分式分解时系数计算容易出错</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <h4>留数计算易错点</h4>
+                    <ul style="margin-top: 10px; line-height: 2;">
+                        <li>可去奇点的留数为 0，容易被遗漏</li>
+                        <li>不同阶的极点用不同的留数公式</li>
+                        <li>二阶极点求导后要记得化简</li>
+                        <li>只有 z^(-1) 项对积分有贡献</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <h4>函数性质易错点</h4>
+                    <ul style="margin-top: 10px; line-height: 2;">
+                        <li>复变函数 sin z, cos z 是<strong>无界</strong>的！</li>
+                        <li>实函数的有界性在复平面不成立</li>
+                        <li>Ln z 是多值函数，ln z 是主值</li>
+                        <li>周期性在复平面仍然成立</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <h4>考试答题技巧</h4>
+                    <ul style="margin-top: 10px; line-height: 2;">
+                        <li><strong>时间分配:</strong> 填空30分钟，选择10分钟，计算50分钟</li>
+                        <li><strong>先易后难:</strong> 先做有把握的题目</li>
+                        <li><strong>检查奇点:</strong> 积分和级数题先确定奇点位置</li>
+                        <li><strong>部分分式:</strong> 有理函数优先考虑分解</li>
+                        <li><strong>保留步骤:</strong> 即使最终答案错误也能得分</li>
+                        <li><strong>验证结果:</strong> 利用特殊值检验答案合理性</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>📚 复变函数与积分变换 期末复习网页</p>
+            <p>常州大学 数学系 | 2024-2025学年第1学期</p>
+            <p style="margin-top: 10px; opacity: 0.8;">祝您考试顺利，取得优异成绩！💯</p>
+            <p style="margin-top: 15px; opacity: 0.9; font-size: 0.95em; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px;">作者：冷歌 | 用心整理，助力学习</p>
+        </div>
+    </div>
+
+    <script>
+        // 切换标签页
+        function switchTab(index) {
+            const tabs = document.querySelectorAll('.nav-tab');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach((tab, i) => {
+                if (i === index) {
+                    tab.classList.add('active');
+                    contents[i].classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                    contents[i].classList.remove('active');
+                }
+            });
+        }
+
+        // 切换折叠区域
+        function toggleSection(header) {
+            const collapsible = header.nextElementSibling;
+            collapsible.classList.toggle('open');
+        }
+
+        // 搜索功能
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const questionCards = document.querySelectorAll('.question-card');
+            const knowledgeCards = document.querySelectorAll('.knowledge-card');
+
+            questionCards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    card.style.backgroundColor = searchTerm ? '#fffde7' : '#f8f9fa';
+                } else {
+                    card.style.display = searchTerm ? 'none' : 'block';
+                }
+            });
+
+            knowledgeCards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    card.style.borderColor = searchTerm ? '#ffc107' : '#e0e0e0';
+                } else {
+                    card.style.display = searchTerm ? 'none' : 'block';
+                }
+            });
+        });
+
+        // 初始化：展开第一个折叠区域
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstCollapsible = document.querySelector('.collapsible');
+            if (firstCollapsible) {
+                firstCollapsible.classList.add('open');
+            }
+        });
+    </script>
+</body>
+</html>

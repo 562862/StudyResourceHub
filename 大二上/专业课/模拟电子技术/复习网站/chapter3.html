@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第三章：多级放大电路 - 模拟电子技术</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>📚 第三章：多级放大电路</h1>
+            <p class="subtitle">理解多级放大的耦合方式与特点</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="chapter1.html">第一章：半导体器件</a></li>
+                <li><a href="chapter2.html">第二章：基本放大电路</a></li>
+                <li><a href="chapter3.html" class="active">第三章：多级放大电路</a></li>
+                <li><a href="chapter4.html">第四章：集成运放</a></li>
+                <li><a href="chapter5.html">第五章：反馈电路</a></li>
+                <li><a href="chapter6.html">第六章：功率放大</a></li>
+                <li><a href="exercises.html">习题练习</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="content-section">
+            <h2>一、多级放大电路的耦合方式</h2>
+
+            <h3>1.1 阻容耦合</h3>
+            <div class="knowledge-card">
+                <h4>🔹 阻容耦合的特点</h4>
+                <p><strong>优点：</strong></p>
+                <ul>
+                    <li>各级静态工作点<strong>独立</strong>，互不影响</li>
+                    <li>电路简单，调试方便</li>
+                </ul>
+                <p><strong>缺点：</strong></p>
+                <ul>
+                    <li><strong>不能放大直流信号</strong></li>
+                    <li>低频特性差（耦合电容的影响）</li>
+                    <li>不便于集成化</li>
+                </ul>
+            </div>
+
+            <h3>1.2 直接耦合</h3>
+            <div class="knowledge-card">
+                <h4>🔹 直接耦合的特点</h4>
+                <p><strong>优点：</strong></p>
+                <ul>
+                    <li><strong>可以放大直流信号和缓慢变化的信号</strong></li>
+                    <li>便于集成化</li>
+                    <li>低频特性好</li>
+                </ul>
+                <p><strong>缺点：</strong></p>
+                <ul>
+                    <li>各级静态工作点相互影响</li>
+                    <li>存在零点漂移问题</li>
+                </ul>
+            </div>
+
+            <div class="important-note">
+                <h4>⚠️ 考试重点</h4>
+                <p><strong>多级直接耦合放大电路</strong>不适合放大缓慢变化的信号？</p>
+                <p><strong>错误！</strong>这是常见的易错题。</p>
+                <p>多级直接耦合放大电路<strong>最适合</strong>放大缓慢变化的信号和直流信号，因为没有耦合电容的阻隔！</p>
+            </div>
+
+            <h2>二、差分放大电路</h2>
+
+            <h3>2.1 差分放大电路的作用</h3>
+            <div class="knowledge-card">
+                <h4>🔹 为什么需要差分放大电路？</h4>
+                <p><strong>零点漂移问题：</strong></p>
+                <p>直接耦合放大电路中，由于温度变化等因素，在没有输入信号时，输出电压会缓慢变化，这种现象称为零点漂移。</p>
+                <p><strong>差分放大电路的作用：</strong></p>
+                <ul>
+                    <li><strong>抑制零点漂移</strong></li>
+                    <li>放大差模信号</li>
+                    <li>抑制共模信号</li>
+                </ul>
+            </div>
+
+            <h3>2.2 差模信号与共模信号</h3>
+            <div class="knowledge-card">
+                <h4>🔹 两种输入信号</h4>
+                <p><strong>差模信号：</strong>两个输入端信号大小相等、极性相反</p>
+                <p>u<sub>id</sub> = u<sub>i1</sub> - u<sub>i2</sub></p>
+                <p><strong>共模信号：</strong>两个输入端信号大小相等、极性相同</p>
+                <p>u<sub>ic</sub> = (u<sub>i1</sub> + u<sub>i2</sub>) / 2</p>
+            </div>
+
+            <h3>2.3 共模抑制比（CMRR）</h3>
+            <div class="formula-box">
+                <strong>共模抑制比：</strong><br>
+                CMRR = A<sub>d</sub> / A<sub>c</sub><br>
+                或 CMRR(dB) = 20lg(A<sub>d</sub> / A<sub>c</sub>)
+            </div>
+
+            <div class="knowledge-card">
+                <h4>🔹 CMRR的意义</h4>
+                <p>CMRR越大，表示电路<strong>抑制共模信号的能力越强</strong>，性能越好。</p>
+                <p>理想差分放大电路：CMRR → ∞</p>
+            </div>
+
+            <h2>三、本章小结</h2>
+            <div class="knowledge-card">
+                <h4>🎯 核心知识点总结</h4>
+                <ul>
+                    <li><strong>阻容耦合：</strong>各级静态工作点独立，但不能放大直流</li>
+                    <li><strong>直接耦合：</strong>可以放大直流和缓慢变化信号，但有零点漂移</li>
+                    <li><strong>差分放大：</strong>抑制零点漂移，放大差模信号</li>
+                    <li><strong>CMRR：</strong>共模抑制比越大越好</li>
+                </ul>
+            </div>
+
+            <div class="start-card" style="margin-top: 40px;">
+                <h3>📚 继续学习</h3>
+                <p>掌握了多级放大电路，让我们学习集成运放！</p>
+                <a href="chapter4.html" class="btn btn-primary">进入第四章：集成运放 →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 模拟电子技术复习网站 | 祝你考试顺利！</p>
+            <p style="margin-top: 10px; opacity: 0.7; font-size: 0.9em;">作者：冷歌</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

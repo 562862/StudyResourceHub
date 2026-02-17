@@ -1,0 +1,2198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>马原期末复习网站 - 零基础也能懂！</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 5px;
+            font-size: 0.9em;
+        }
+
+        .high-freq {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .medium-freq {
+            background: #feca57;
+            color: white;
+        }
+
+        .low-freq {
+            background: #48dbfb;
+            color: white;
+        }
+
+        .knowledge-section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .knowledge-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .exam-count {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .content {
+            padding: 15px;
+            line-height: 1.8;
+        }
+
+        .key-point {
+            background: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #feca57;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .simple-explain {
+            background: #d1ecf1;
+            padding: 15px;
+            border-left: 4px solid #48dbfb;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .example {
+            background: #d4edda;
+            padding: 15px;
+            border-left: 4px solid #28a745;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .tip {
+            background: #f8d7da;
+            padding: 15px;
+            border-left: 4px solid #ff6b6b;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        /* 真题样式 */
+        .quiz-section {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+        }
+
+        .quiz-header {
+            font-size: 1.3em;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .quiz-item {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .question-type {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .single-choice {
+            background: #74b9ff;
+            color: white;
+        }
+
+        .multiple-choice {
+            background: #a29bfe;
+            color: white;
+        }
+
+        .question-text {
+            font-size: 1.05em;
+            color: #333;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .options {
+            margin: 10px 0;
+            padding-left: 10px;
+        }
+
+        .option {
+            padding: 8px 0;
+            color: #555;
+        }
+
+        .answer-section {
+            margin-top: 15px;
+            padding: 12px;
+            background: #d4edda;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+        }
+
+        .correct-answer {
+            color: #28a745;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .explanation {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .toggle-btn {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .collapsible-content.active {
+            max-height: 10000px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 10px;
+        }
+
+        strong {
+            color: #667eea;
+        }
+
+        ul {
+            padding-left: 25px;
+            margin: 10px 0;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .show-answer-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        .show-answer-btn:hover {
+            background: #5568d3;
+        }
+
+        .answer-hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>马原期末复习网站</h1>
+            <p class="subtitle">零基础小白也能看懂的复习资料 + 真题练习</p>
+            <div style="margin-top: 20px;">
+                <span class="difficulty-badge high-freq">🔥 高频考点 (15次以上)</span>
+                <span class="difficulty-badge medium-freq">⚡ 中频考点 (8-15次)</span>
+                <span class="difficulty-badge low-freq">📘 低频考点 (8次以下)</span>
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">6</div>
+                <div class="stat-label">测试卷分析</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">300+</div>
+                <div class="stat-label">题目统计</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">15</div>
+                <div class="stat-label">核心知识点</div>
+            </div>
+        </div>
+
+        <!-- 第一模块：马克思主义基本原理 -->
+        <div class="knowledge-section">
+            <div class="section-header" onclick="toggleContent(this)">
+                <div>
+                    <span class="section-title">📚 模块一：马克思主义基本原理</span>
+                    <span class="difficulty-badge high-freq">高频</span>
+                </div>
+                <div>
+                    <span class="exam-count">考查约60次</span>
+                    <button class="toggle-btn">▼</button>
+                </div>
+            </div>
+            <div class="collapsible-content">
+                <div class="content">
+                    <div class="simple-explain">
+                        <strong>🤔 什么是马克思主义？</strong><br>
+                        简单说，就是一套帮我们理解世界、改造世界的科学理论。不要被名字吓到，其实很接地气！
+                    </div>
+
+                    <div class="key-point">
+                        <strong>🎯 核心考点1：马克思主义的基本特征</strong><br>
+                        <strong>考查次数：约20次</strong><br><br>
+                        <strong>人话版解释：</strong>马克思主义有两个最重要的特点：<br>
+                        1️⃣ <strong>科学性</strong>：不是瞎编的，是有理有据的<br>
+                        2️⃣ <strong>革命性</strong>：不光是说说而已，要真正改变世界<br><br>
+                        <strong>记忆口诀：</strong>"科学革命，实践检验" - 既科学又革命，还要靠实践来验证
+                    </div>
+
+                    <!-- 配套真题 -->
+                    <div class="quiz-section">
+                        <div class="quiz-header">📝 配套真题练习</div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>1.</strong> 马克思主义的基本特征是（）。
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 思想性与艺术性的统一</div>
+                                <div class="option">B. 科学性与革命性的统一</div>
+                                <div class="option">C. 唯物主义与辩证法的统一</div>
+                                <div class="option">D. 思想与认识的统一</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：B</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    马克思主义最鲜明的特征就是<strong>科学性与革命性的统一</strong>。<br><br>
+                                    • <strong>科学性</strong>：马克思主义揭示了自然界、人类社会和思维发展的普遍规律<br>
+                                    • <strong>革命性</strong>：马克思主义不仅要解释世界，更要改造世界<br>
+                                    • <strong>统一性</strong>：科学性是革命性的基础，革命性是科学性的体现<br><br>
+                                    <strong>记忆技巧：</strong>马克思主义 = 科学的理论 + 革命的实践
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>2.</strong> 马克思主义最重要的理论品质是（）。
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 博大精深</div>
+                                <div class="option">B. 吐故纳新</div>
+                                <div class="option">C. 与时俱进</div>
+                                <div class="option">D. 科学严谨</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：C</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    <strong>与时俱进</strong>是马克思主义最重要的理论品质。<br><br>
+                                    • 马克思主义不是教条，而是行动的指南<br>
+                                    • 要根据时代发展不断丰富和发展马克思主义<br>
+                                    • 中国特色社会主义理论就是马克思主义与时俱进的体现<br><br>
+                                    <strong>记住：</strong>马克思主义的生命力在于不断创新发展！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>3.</strong> 马克思主义生命力的根源在于（）。
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 科学性与阶级性的统一</div>
+                                <div class="option">B. 与时俱进</div>
+                                <div class="option">C. 科学性</div>
+                                <div class="option">D. 以实践为基础的科学性与革命性的统一</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：D</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    马克思主义生命力的根源是<strong>以实践为基础的科学性与革命性的统一</strong>。<br><br>
+                                    关键词解读：<br>
+                                    • <strong>以实践为基础</strong>：不是空谈，要实干<br>
+                                    • <strong>科学性</strong>：理论正确<br>
+                                    • <strong>革命性</strong>：敢于改造世界<br>
+                                    • <strong>统一</strong>：三者缺一不可<br><br>
+                                    这道题强调"根源"，所以要选最全面的答案D。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>5.</strong> 哲学可以被认为是"全部科学之母",这是指（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 哲学是自然科学的基础</div>
+                                <div class="option">B. 哲学对各门具体科学的研究具有指导作用</div>
+                                <div class="option">C. 哲学是对各门具体科学知识的概括和总结</div>
+                                <div class="option">D. 各门具体科学是哲学的基础</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：B</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    哲学被称为"全部科学之母"是因为<strong>哲学对各门具体科学的研究具有指导作用</strong>。<br><br>
+                                    理解：<br>
+                                    • 哲学提供世界观和方法论的指导<br>
+                                    • 哲学是对具体科学的概括和总结<br>
+                                    • 具体科学为哲学提供基础，哲学为具体科学提供指导<br><br>
+                                    <strong>注意区分：</strong><br>
+                                    C选项说"概括和总结"只是一方面，但题目强调的是"指导作用"，所以B更准确！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>6.</strong> 人类进入21世纪，英国广播公司（BBC）在全球范围举行过一次"千年思想家"网上评选，结果高居榜首的是马克思。马克思主义之所以至今仍受到人们的普遍关注，充满生机和活力,是因为（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 它完成了对各种客观事物的认识</div>
+                                <div class="option">B. 它正确反映了社会发展规律并具有与时俱进的理论品质</div>
+                                <div class="option">C. 它是检验人们各种认识是否正确的标准</div>
+                                <div class="option">D. 它对人们的各种实践活动都有具体的指导作用</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：B</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    马克思主义至今充满生机和活力的根本原因是：<strong>它正确反映了社会发展规律并具有与时俱进的理论品质</strong>。<br><br>
+                                    两个关键点：<br>
+                                    • <strong>科学性</strong>：正确反映了社会发展规律<br>
+                                    • <strong>与时俱进</strong>：不断发展创新，适应时代变化<br><br>
+                                    <strong>错误选项分析：</strong><br>
+                                    A错：认识永无止境，不可能"完成"所有认识<br>
+                                    C错：检验真理的标准是实践，不是马克思主义本身<br>
+                                    D错：马克思主义是一般指导，不是对所有实践的"具体"指导<br><br>
+                                    <strong>记住：</strong>马克思主义的生命力在于科学性和与时俱进的统一！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type multiple-choice">多选题</span>
+                            <div class="question-text">
+                                <strong>7.</strong> 马克思主义的直接理论来源是（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 德国古典哲学</div>
+                                <div class="option">B. 英国古典政治经济学</div>
+                                <div class="option">C. 法国空想社会主义</div>
+                                <div class="option">D. 英国空想社会主义</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：ABCD（全选）</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    马克思主义有<strong>三大直接理论来源</strong>，全部正确！<br><br>
+                                    <strong>1. 德国古典哲学</strong>（A对）<br>
+                                    • 代表人物：黑格尔（辩证法）、费尔巴哈（唯物主义）<br>
+                                    • 马克思批判继承了辩证法和唯物主义<br><br>
+                                    <strong>2. 英国古典政治经济学</strong>（B对）<br>
+                                    • 代表人物：亚当·斯密、大卫·李嘉图<br>
+                                    • 为马克思创立剩余价值学说提供了理论基础<br><br>
+                                    <strong>3. 空想社会主义</strong>（CD对）<br>
+                                    • 法国：圣西门、傅立叶<br>
+                                    • 英国：欧文<br>
+                                    • 为科学社会主义提供了思想启蒙<br><br>
+                                    <strong>记忆口诀：</strong>"德哲英经法英空"（德国哲学、英国经济、法英空想）
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type multiple-choice">多选题</span>
+                            <div class="question-text">
+                                <strong>8.</strong> 在创立自己哲学理论的过程中，马克思、恩格斯批判地吸收了黑格尔哲学的（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 唯物主义思想</div>
+                                <div class="option">B. 辩证法思想</div>
+                                <div class="option">C. 逻辑学思想</div>
+                                <div class="option">D. 认识论思想</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：BCD</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    马克思批判继承了黑格尔的<strong>辩证法、逻辑学、认识论</strong>思想。<br><br>
+                                    <strong>为什么A错？</strong><br>
+                                    • 黑格尔是<strong>客观唯心主义</strong>者，不是唯物主义！<br>
+                                    • 马克思的唯物主义主要来自费尔巴哈，不是黑格尔<br><br>
+                                    <strong>为什么BCD对？</strong><br>
+                                    • <strong>B（辩证法）</strong>：黑格尔的最大贡献，马克思改造为唯物辩证法<br>
+                                    • <strong>C（逻辑学）</strong>：黑格尔的逻辑学包含辩证法的合理内核<br>
+                                    • <strong>D（认识论）</strong>：黑格尔的认识论也包含辩证法因素<br><br>
+                                    <strong>记住：</strong>黑格尔 = 唯心主义 + 辩证法（合理内核）！
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>🎯 核心考点2：学习马克思主义的方法</strong><br>
+                        <strong>考查次数：约8次</strong><br><br>
+                        <strong>人话版解释：</strong><br>
+                        学习马克思主义的根本方法是<strong>理论联系实际</strong><br><br>
+                        不能死记硬背，要：<br>
+                        • 理解核心理论<br>
+                        • 联系中国实际<br>
+                        • 指导实践行动
+                    </div>
+
+                    <!-- 配套真题 -->
+                    <div class="quiz-section">
+                        <div class="quiz-header">📝 配套真题练习</div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>4.</strong> 学习马克思主义的根本方法是（）。
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 具体问题具体分析的方法</div>
+                                <div class="option">B. 理论联系实际的方法</div>
+                                <div class="option">C. 实用主义的方法</div>
+                                <div class="option">D. 辩证思维的方法</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：B</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    <strong>理论联系实际</strong>是学习马克思主义的根本方法。<br><br>
+                                    • 不能光学理论不实践（书呆子）<br>
+                                    • 不能光实践不学理论（经验主义）<br>
+                                    • 要把马克思主义理论与中国实际相结合<br><br>
+                                    <strong>记住：</strong>毛泽东思想、邓小平理论、习近平新时代中国特色社会主义思想，都是理论联系实际的典范！
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第二模块：实践与认识 -->
+        <div class="knowledge-section">
+            <div class="section-header" onclick="toggleContent(this)">
+                <div>
+                    <span class="section-title">🧠 模块二：实践与认识（超高频！）</span>
+                    <span class="difficulty-badge high-freq">高频</span>
+                </div>
+                <div>
+                    <span class="exam-count">考查约40次</span>
+                    <button class="toggle-btn">▼</button>
+                </div>
+            </div>
+            <div class="collapsible-content">
+                <div class="content">
+                    <div class="simple-explain">
+                        <strong>🤔 什么是认识论？</strong><br>
+                        就是研究"我们怎么认识世界"的学问。核心就两句话：<strong>认识来自实践，实践检验认识</strong>。
+                    </div>
+
+                    <div class="key-point">
+                        <strong>🎯 核心考点1：实践的地位（超级重点！）</strong><br>
+                        <strong>考查次数：约25次</strong><br><br>
+                        <strong>人话版解释：</strong><br>
+                        实践在认识中有4个作用（必考！）：<br>
+                        1️⃣ 实践是认识的<strong>来源</strong><br>
+                        2️⃣ 实践是认识发展的<strong>动力</strong><br>
+                        3️⃣ 实践是认识的<strong>目的</strong><br>
+                        4️⃣ 实践是检验真理的<strong>唯一标准</strong><br><br>
+                        <strong>记忆口诀：</strong>"来动目检" - 来源、动力、目的、检验
+                    </div>
+
+                    <!-- 配套真题 -->
+                    <div class="quiz-section">
+                        <div class="quiz-header">📝 配套真题练习</div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>1.</strong> 实践的需要推动认识的产生和发展，推动人类的科学发现和技术发明，推动人类的思想进步和理论创新。表明实践是（）。
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 认识的来源</div>
+                                <div class="option">B. 检验认识真理性的唯一标准</div>
+                                <div class="option">C. 认识的目的</div>
+                                <div class="option">D. 认识发展的动力</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：D</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    题目关键词"推动"，说明实践是<strong>认识发展的动力</strong>。<br><br>
+                                    <strong>区分技巧：</strong><br>
+                                    • 看到"推动"、"促进" → 动力<br>
+                                    • 看到"从哪来"、"源头" → 来源<br>
+                                    • 看到"为了什么"、"归宿" → 目的<br>
+                                    • 看到"判断"、"验证" → 检验标准<br><br>
+                                    这道题考查频率很高，一定要记住！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>2.</strong> "哲学家们只是用不同的方式解释世界，问题在于改变世界"，这一观点是说（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 实践是认识的本质</div>
+                                <div class="option">B. 实践无需认识指导</div>
+                                <div class="option">C. 认识世界没有必要</div>
+                                <div class="option">D. 认识的目的在于指导实践</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：D</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    这是马克思的名言！关键词是"改变世界"。<br><br>
+                                    • 哲学家们只会"解释"（光说不练）<br>
+                                    • 问题在于"改变"（要去实践）<br>
+                                    • 说明：<strong>认识的目的在于指导实践</strong><br><br>
+                                    <strong>错误选项分析：</strong><br>
+                                    B错：实践需要认识指导<br>
+                                    C错：认识世界很有必要，但最终要改造世界
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>3.</strong> 要真正实现从认识到实践的飞跃，必须使理论为群众所掌握，并转化为群众的自觉行动。这是因为（）。
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 群众的行动都是合理的</div>
+                                <div class="option">B. 群众是社会实践的主体</div>
+                                <div class="option">C. 群众是人口中的大多数</div>
+                                <div class="option">D. 群众的意见都是正确的</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：B</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    <strong>群众是社会实践的主体</strong>，所以理论要转化为实践，必须让群众掌握。<br><br>
+                                    <strong>错误选项分析：</strong><br>
+                                    A错：群众的行动不一定都合理（需要正确理论指导）<br>
+                                    C错：虽然群众是大多数，但这不是主要原因<br>
+                                    D错：群众的意见不一定都正确<br><br>
+                                    <strong>核心思想：</strong>人民群众是历史的创造者，是实践的主体！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type multiple-choice">多选题</span>
+                            <div class="question-text">
+                                <strong>4.</strong> 习近平总书记重视实践第一的观点，强调（）。
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 实践没有止境，理论创新也没有止境</div>
+                                <div class="option">B. 要实现理论创新和实践创新的良性互动、相互促进，推动知行统一不断达到新境界</div>
+                                <div class="option">C. 实践创新具有重要意义</div>
+                                <div class="option">D. 要不断推进实践基础上的理论创新</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：ABCD（全选）</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    这道多选题考查习近平关于实践的重要论述，四个选项都正确。<br><br>
+                                    核心思想：<br>
+                                    • <strong>实践和理论都要创新</strong>（AB选项）<br>
+                                    • <strong>实践第一</strong>（C选项）<br>
+                                    • <strong>理论创新基于实践</strong>（D选项）<br><br>
+                                    <strong>多选题技巧：</strong>看到习近平新时代中国特色社会主义思想的题，通常选项都很全面，要仔细看每个选项是否正确。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>🎯 核心考点2：实践的特征</strong><br>
+                        <strong>考查次数：约10次</strong><br><br>
+                        <strong>人话版解释：</strong><br>
+                        实践有3个特征：<br>
+                        1️⃣ <strong>客观物质性</strong>：实践是客观的活动<br>
+                        2️⃣ <strong>自觉能动性</strong>：人有目的、有意识地实践<br>
+                        3️⃣ <strong>社会历史性</strong>：实践是社会的、历史的<br><br>
+                        <strong>记忆口诀：</strong>"客能社历"
+                    </div>
+
+                    <!-- 配套真题 -->
+                    <div class="quiz-section">
+                        <div class="quiz-header">📝 配套真题练习</div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>5.</strong> 与动物本能的、被动的适应性活动不同，人的实践活动是一种有目的、有意识的活动，这说明实践具有（）。
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 直接现实性</div>
+                                <div class="option">B. 社会历史性</div>
+                                <div class="option">C. 自觉能动性</div>
+                                <div class="option">D. 客观实在性</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：C</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    关键词："有目的、有意识" → <strong>自觉能动性</strong><br><br>
+                                    • 动物的活动是本能的、被动的<br>
+                                    • 人的实践是自觉的、主动的<br>
+                                    • 人会思考、规划、有目标地行动<br><br>
+                                    这就是人和动物的根本区别！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>6.</strong> 人们在生产劳动实践中形成的人与人的关系属于（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 思想关系</div>
+                                <div class="option">B. 社会关系</div>
+                                <div class="option">C. 私人关系</div>
+                                <div class="option">D. 经济关系</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：B</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    生产劳动实践中形成的人与人的关系属于<strong>社会关系</strong>。<br><br>
+                                    理解：<br>
+                                    • <strong>实践的社会性</strong>：实践是社会的活动，不是个人孤立的活动<br>
+                                    • 生产劳动中形成的是生产关系、阶级关系等社会关系<br>
+                                    • 这体现了实践的<strong>社会历史性</strong>特征<br><br>
+                                    <strong>区分：</strong><br>
+                                    • 社会关系 > 经济关系（经济关系是社会关系的一种）<br>
+                                    • 思想关系、私人关系不是实践活动直接形成的
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>7.</strong> 实践主体和客体之间最根本的关系是（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 反映与被反映的关系</div>
+                                <div class="option">B. 改造与被改造的关系</div>
+                                <div class="option">C. 相互依存的关系</div>
+                                <div class="option">D. 认识与被认识的关系</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：B</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    实践主体和客体之间最根本的关系是<strong>改造与被改造的关系</strong>。<br><br>
+                                    理解：<br>
+                                    • <strong>实践的本质</strong>：改造客观世界的物质活动<br>
+                                    • 主体（人）通过实践改造客体（对象）<br>
+                                    • 这是实践活动的根本特征<br><br>
+                                    <strong>其他关系：</strong><br>
+                                    • A（反映关系）：属于认识活动，不是实践活动<br>
+                                    • D（认识关系）：认识是实践的基础上产生的，不是最根本的<br>
+                                    • C（相互依存）：过于笼统<br><br>
+                                    <strong>记住：</strong>实践 = 改造世界的活动！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type multiple-choice">多选题</span>
+                            <div class="question-text">
+                                <strong>8.</strong> "实践是认识的基础"的含义包括（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 实践是认识的来源</div>
+                                <div class="option">B. 实践是认识发展的动力</div>
+                                <div class="option">C. 实践是认识的目的</div>
+                                <div class="option">D. 实践是检验真理的唯一标准</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：ABCD（全选）</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    "实践是认识的基础"包含<strong>四个方面</strong>，全部正确！<br><br>
+                                    这是本模块的<strong>超级核心考点</strong>，必须牢记：<br><br>
+                                    1️⃣ <strong>A - 来源</strong>：认识从实践中来，不是天生的<br>
+                                    2️⃣ <strong>B - 动力</strong>：实践推动认识不断发展<br>
+                                    3️⃣ <strong>C - 目的</strong>：认识的最终目的是指导实践<br>
+                                    4️⃣ <strong>D - 标准</strong>：实践是检验真理的唯一标准<br><br>
+                                    <strong>记忆口诀：</strong>"来动目检"（来源、动力、目的、检验）<br><br>
+                                    <strong>考试提示：</strong>这四点几乎每次必考，必须全部记住！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type multiple-choice">多选题</span>
+                            <div class="question-text">
+                                <strong>9.</strong> 实践是人类的基本存在方式，具体表现在（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 实践是社会关系形成的基础</div>
+                                <div class="option">B. 实践构成了社会生活的基本领域</div>
+                                <div class="option">C. 实践构成了社会发展的动力</div>
+                                <div class="option">D. 实践是社会生活的本质</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：ABCD（全选）</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    实践作为人类基本存在方式的表现，全部正确！<br><br>
+                                    理解：<br>
+                                    • <strong>A - 关系基础</strong>：人与人的社会关系通过实践建立<br>
+                                    • <strong>B - 社会领域</strong>：物质生产、政治实践、科学文化实践构成社会基本领域<br>
+                                    • <strong>C - 发展动力</strong>：社会发展的根本动力是生产实践<br>
+                                    • <strong>D - 本质规定</strong>：实践是社会生活的本质，人类社会与动物界的根本区别<br><br>
+                                    <strong>核心思想：</strong>离开实践,就不能理解社会生活！
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip">
+                        <strong>⚠️ 必考重点总结</strong><br>
+                        • "实践是认识的<strong>来源</strong>" - 不是书本，不是经验！<br>
+                        • "实践是检验真理的<strong>唯一</strong>标准" - 记住是"唯一"！<br>
+                        • "从群众中来，到群众中去" - 体现了实践与认识的辩证关系<br>
+                        • 认识从实践中来，又回到实践中去指导实践
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第三模块：资本主义部分 -->
+        <div class="knowledge-section">
+            <div class="section-header" onclick="toggleContent(this)">
+                <div>
+                    <span class="section-title">💰 模块三：资本主义（商品、货币、剩余价值）</span>
+                    <span class="difficulty-badge high-freq">高频</span>
+                </div>
+                <div>
+                    <span class="exam-count">考查约80次</span>
+                    <button class="toggle-btn">▼</button>
+                </div>
+            </div>
+            <div class="collapsible-content">
+                <div class="content">
+                    <div class="simple-explain">
+                        <strong>🤔 这部分讲什么？</strong><br>
+                        马克思揭露资本家怎么剥削工人的秘密。核心就是：资本家通过"剩余价值"赚钱。
+                    </div>
+
+                    <div class="key-point">
+                        <strong>🎯 核心考点1：商品的二因素</strong><br>
+                        <strong>考查次数：约20次</strong><br><br>
+                        <strong>人话版解释：</strong><br>
+                        任何商品都有两个属性：<br>
+                        • <strong>使用价值</strong>：能用，满足需要（比如手机能打电话）<br>
+                        • <strong>价值</strong>：凝结在商品中的劳动（比如手机值5000元）<br><br>
+                        <strong>关系：</strong><br>
+                        • 使用价值是价值的物质承担者<br>
+                        • 买家要使用价值，卖家要价值<br>
+                        • 二者对立统一<br><br>
+                        <strong>记忆口诀：</strong>"用值承价值"
+                    </div>
+
+                    <!-- 配套真题 -->
+                    <div class="quiz-section">
+                        <div class="quiz-header">📝 配套真题练习</div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>1.</strong> 商品的本质因素是（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 使用价值</div>
+                                <div class="option">B. 价值</div>
+                                <div class="option">C. 价格</div>
+                                <div class="option">D. 交换价值</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：B</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    商品的<strong>本质</strong>因素是<strong>价值</strong>。<br><br>
+                                    • <strong>价值</strong>是商品的本质属性（凝结的劳动）<br>
+                                    • <strong>使用价值</strong>是商品的自然属性（能用）<br>
+                                    • 价值是商品特有的，使用价值不是（空气也有使用价值但不是商品）<br><br>
+                                    <strong>记住：</strong>问"本质"就选"价值"！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>2.</strong> 马克思说:"如果物没有用，那么其中包含的劳动也就没有用，不能算作劳动，因此不形成价值。"这句话表明（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 使用价值是价值的物质承担者</div>
+                                <div class="option">B. 使用价值与价值是不可分离的</div>
+                                <div class="option">C. 价值是由使用价值决定的</div>
+                                <div class="option">D. 只要物有使用价值也就有价值</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：A</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    这道题考查使用价值和价值的关系。<br><br>
+                                    关键信息："物没有用"（没有使用价值）→"不形成价值"<br>
+                                    说明：<strong>使用价值是价值的物质承担者</strong><br><br>
+                                    理解：<br>
+                                    • 没有使用价值，价值就无法实现<br>
+                                    • 使用价值是价值的"载体"<br>
+                                    • 但价值不是由使用价值决定的（C错）<br><br>
+                                    <strong>记住：</strong>这是高频考点，必须理解！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type multiple-choice">多选题</span>
+                            <div class="question-text">
+                                <strong>3.</strong> 使用价值、交换价值、价值三者之间的关系是（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 使用价值是交换价值和价值的物质承担者</div>
+                                <div class="option">B. 交换价值和价值寓于使用价值之中</div>
+                                <div class="option">C. 交换价值是价值的表现形式</div>
+                                <div class="option">D. 价值是交换价值的基础和内容</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：ABCD（全选）</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    这道题考查三者的完整关系，全部正确。<br><br>
+                                    层次关系：<br>
+                                    • <strong>使用价值</strong>：物质载体（A、B对）<br>
+                                    • <strong>价值</strong>：本质内容（D对）<br>
+                                    • <strong>交换价值</strong>：表现形式（C对）<br><br>
+                                    <strong>记忆：</strong>使用价值（载体）承载价值（内容），通过交换价值（形式）表现出来
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>🎯 核心考点2：货币的职能</strong><br>
+                        <strong>考查次数：约15次</strong><br><br>
+                        <strong>人话版解释：</strong><br>
+                        货币有5个功能：<br>
+                        1️⃣ <strong>价值尺度</strong>：标价（这件衣服100元）<br>
+                        2️⃣ <strong>流通手段</strong>：一手交钱一手交货<br>
+                        3️⃣ <strong>贮藏手段</strong>：存钱<br>
+                        4️⃣ <strong>支付手段</strong>：还债、发工资<br>
+                        5️⃣ <strong>世界货币</strong>：国际贸易用<br><br>
+                        <strong>记忆口诀：</strong>"尺流贮支世"
+                    </div>
+
+                    <!-- 配套真题 -->
+                    <div class="quiz-section">
+                        <div class="quiz-header">📝 配套真题练习</div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>4.</strong> "一手交钱一手交货"中的"钱"所充当的货币职能是（）。
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 流通手段</div>
+                                <div class="option">B. 贮藏手段</div>
+                                <div class="option">C. 价值尺度</div>
+                                <div class="option">D. 支付手段</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：A</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    "一手交钱一手交货" = <strong>流通手段</strong><br><br>
+                                    <strong>区分技巧：</strong><br>
+                                    • <strong>流通手段</strong>：现场交易，钱货两清（一手交钱一手交货）<br>
+                                    • <strong>支付手段</strong>：不是现场交易（发工资、还债、赊购）<br>
+                                    • <strong>价值尺度</strong>：只是标价，不用真拿出钱（这件衣服100元）<br><br>
+                                    <strong>记住：</strong>这是必考题，几乎每次都考！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type multiple-choice">多选题</span>
+                            <div class="question-text">
+                                <strong>5.</strong> 货币的本质通过它的职能体现出来，货币有多种职能，其中最基本的职能是（）。
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 支付手段</div>
+                                <div class="option">B. 贮藏手段和世界货币</div>
+                                <div class="option">C. 价值尺度</div>
+                                <div class="option">D. 流通手段</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：CD</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    货币的<strong>基本</strong>职能是<strong>价值尺度</strong>和<strong>流通手段</strong>。<br><br>
+                                    为什么？<br>
+                                    • 这两个职能最早出现<br>
+                                    • 其他职能都是从这两个派生出来的<br>
+                                    • 没有这两个，货币就不成其为货币<br><br>
+                                    <strong>记住：</strong>问"基本职能"，只选价值尺度和流通手段！
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>🎯 核心考点3：剩余价值理论（超级重点！）</strong><br>
+                        <strong>考查次数：约30次</strong><br><br>
+                        <strong>人话版解释：</strong><br>
+                        • <strong>劳动力成为商品</strong>：工人没有生产资料，只能卖劳动力<br>
+                        • <strong>劳动力价值</strong>：维持工人生存所需的生活资料价值<br>
+                        • <strong>剩余价值</strong>：工人创造的价值 - 劳动力价值 = 被资本家占有的部分<br><br>
+                        <strong>两种剩余价值：</strong><br>
+                        • <strong>绝对剩余价值</strong>：延长工作时间（加班）<br>
+                        • <strong>相对剩余价值</strong>：提高劳动生产率（用机器）<br><br>
+                        <strong>记住：</strong>剩余价值是资本家剥削工人的根源！
+                    </div>
+
+                    <!-- 配套真题 -->
+                    <div class="quiz-section">
+                        <div class="quiz-header">📝 配套真题练习</div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>6.</strong> 货币转化为资本的决定性前提是（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 劳动力成为商品</div>
+                                <div class="option">B. 流通中的不等价交换</div>
+                                <div class="option">C. 生产资料成为商品</div>
+                                <div class="option">D. 资本家拥有大量货币</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：A</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    <strong>劳动力成为商品</strong>是货币转化为资本的决定性前提！<br><br>
+                                    为什么？<br>
+                                    • 只有劳动力商品的使用价值能创造比自身价值更大的价值<br>
+                                    • 资本家买劳动力，让工人干活，创造剩余价值<br>
+                                    • 如果劳动力不是商品，资本家就无法剥削工人<br><br>
+                                    <strong>记住：</strong>这是马克思政治经济学的核心发现！必考！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>7.</strong> 不变资本是指（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 在价值增殖过程中不发生价值增殖的资本</div>
+                                <div class="option">B. 在生产过程中实物形态不发生变化的资本</div>
+                                <div class="option">C. 在价值增殖过程中不发生价值转移的资本</div>
+                                <div class="option">D. 在生产过程中其价值不发生转移的资本</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：A</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    <strong>不变资本</strong>：在价值增殖过程中<strong>不发生价值增殖</strong>的资本。<br><br>
+                                    理解：<br>
+                                    • 不变资本 = 买机器、原料的钱<br>
+                                    • 它的价值只是"转移"到产品中，不增值<br>
+                                    • 100万的机器，转移到产品中还是100万<br><br>
+                                    <strong>对比：</strong><br>
+                                    • <strong>可变资本</strong> = 买劳动力的钱，能增值！<br>
+                                    • 工人工资10万，能创造出20万的价值<br><br>
+                                    <strong>记住：</strong>只有可变资本（劳动力）才能创造剩余价值！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type multiple-choice">多选题</span>
+                            <div class="question-text">
+                                <strong>8.</strong> 绝对剩余价值生产和相对剩余价值生产之间的联系和区别是（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 相对剩余价值生产以生产技术变革为条件，绝对剩余价值生产则不是</div>
+                                <div class="option">B. 二者的共同本质在于都是提高对工人剥削程度的方法</div>
+                                <div class="option">C. 绝对剩余价值生产是相对剩余价值生产的起点</div>
+                                <div class="option">D. 相对剩余价值生产是绝对剩余价值生产的起点</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：ABC</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br><br>
+                                    <strong>区别：</strong><br>
+                                    • <strong>绝对剩余价值</strong>：延长工作时间（A对，不需要技术）<br>
+                                    • <strong>相对剩余价值</strong>：提高劳动生产率（A对，需要技术革命）<br><br>
+                                    <strong>联系：</strong><br>
+                                    • 本质相同：都是剥削工人（B对）<br>
+                                    • 历史关系：绝对剩余价值是起点（C对）<br><br>
+                                    <strong>为什么D错？</strong><br>
+                                    资本主义早期主要是延长工作时间（绝对剩余价值），后来才发展技术（相对剩余价值）。
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type multiple-choice">多选题</span>
+                            <div class="question-text">
+                                <strong>9.</strong> 劳动力商品使用价值的特殊性表现在（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 能够创造出生产资料的价值</div>
+                                <div class="option">B. 能创造出比自身价值更大的价值</div>
+                                <div class="option">C. 它的使用价值是价值的源泉</div>
+                                <div class="option">D. 能够把自身的价值转移到新产品中去</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：BC</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    劳动力商品的<strong>特殊性</strong>：能创造比自身价值更大的价值！<br><br>
+                                    <strong>B对：</strong>劳动力的核心特点<br>
+                                    • 资本家花10元买劳动力<br>
+                                    • 工人创造20元的价值<br>
+                                    • 多出的10元就是剩余价值<br><br>
+                                    <strong>C对：</strong>劳动是价值的唯一源泉<br><br>
+                                    <strong>A错：</strong>生产资料的价值是转移，不是劳动力创造<br>
+                                    <strong>D错：</strong>转移价值的是生产资料，不是劳动力<br><br>
+                                    <strong>记住：</strong>劳动力能"增值"是它的特殊性！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>10.</strong> 商品的使用价值和价值的统一关系表现在（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 商品的使用价值和价值都是商品的自然属性</div>
+                                <div class="option">B. 商品的使用价值和价值互相依存、不可分割</div>
+                                <div class="option">C. 使用价值是价值的物质承担者，价值寓于使用价值之中</div>
+                                <div class="option">D. 只要有使用价值就有价值</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：C</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    <strong>使用价值是价值的物质承担者，价值寓于使用价值之中</strong>。<br><br>
+                                    理解：<br>
+                                    • <strong>统一性</strong>：二者统一于商品体中，缺一不可<br>
+                                    • 没有使用价值，价值就无法实现（没人要的东西不值钱）<br>
+                                    • 价值必须依托于使用价值才能体现<br><br>
+                                    <strong>错误选项：</strong><br>
+                                    A错：价值是社会属性，不是自然属性<br>
+                                    B错：二者对立统一，不是简单依存<br>
+                                    D错：空气有使用价值但不是商品，没有价值<br><br>
+                                    <strong>记住：</strong>这是高频考点，"承担者"和"寓于"是关键词！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>11.</strong> 资本主义生产过程是（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 劳动过程和价值形成过程的统一</div>
+                                <div class="option">B. 劳动过程和价值增殖过程的统一</div>
+                                <div class="option">C. 价值形成过程和价值增殖过程的统一</div>
+                                <div class="option">D. 劳动过程和价值转移过程的统一</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：B</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    资本主义生产过程是<strong>劳动过程和价值增殖过程的统一</strong>。<br><br>
+                                    理解：<br>
+                                    • <strong>劳动过程</strong>：工人使用生产资料创造使用价值<br>
+                                    • <strong>价值增殖过程</strong>：创造剩余价值，资本家获得利润<br>
+                                    • <strong>资本主义特点</strong>：不仅要生产使用价值，更要创造剩余价值<br><br>
+                                    <strong>区分：</strong><br>
+                                    • 一般商品生产：劳动过程 + 价值形成过程<br>
+                                    • 资本主义生产：劳动过程 + 价值增殖过程（关键是"增殖"）<br><br>
+                                    <strong>记住：</strong>"增殖"是资本主义的本质特征！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>12.</strong> 区分不变资本和可变资本的依据是资本的不同部分（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 在生产过程中采取的物质形态不同</div>
+                                <div class="option">B. 在价值增殖过程中的作用不同</div>
+                                <div class="option">C. 在生产过程中的周转方式不同</div>
+                                <div class="option">D. 在剩余价值生产中的地位不同</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：B</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    划分不变资本和可变资本的依据是<strong>在价值增殖过程中的作用不同</strong>。<br><br>
+                                    理解：<br>
+                                    • <strong>不变资本（c）</strong>：生产资料，价值不变，只转移<br>
+                                    • <strong>可变资本（v）</strong>：劳动力，价值可变，能增殖<br>
+                                    • 区分依据：看能否创造剩余价值！<br><br>
+                                    <strong>与固定资本/流动资本的区别：</strong><br>
+                                    • 固定/流动：按周转方式划分（A、C错）<br>
+                                    • 不变/可变：按价值增殖作用划分（B对）<br><br>
+                                    <strong>记住：</strong>这个区分很重要，经常考！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type multiple-choice">多选题</span>
+                            <div class="question-text">
+                                <strong>13.</strong> 商品经济产生和存在的条件有（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 社会分工</div>
+                                <div class="option">B. 生产资料和产品属于不同的所有者</div>
+                                <div class="option">C. 存在社会剩余产品</div>
+                                <div class="option">D. 不同的生产者之间存在交换需求</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：AB</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    商品经济产生和存在需要<strong>两个基本条件</strong>！<br><br>
+                                    <strong>A对 - 社会分工</strong>：<br>
+                                    • 这是商品经济产生的<strong>一般条件</strong>和<strong>自然基础</strong><br>
+                                    • 有了分工，才有交换的必要性<br>
+                                    • 分工是商品交换的前提<br><br>
+                                    <strong>B对 - 生产资料和产品属于不同所有者</strong>：<br>
+                                    • 这是商品经济产生的<strong>决定性条件</strong><br>
+                                    • 没有独立的所有者，就不会有交换<br>
+                                    • 经济利益的独立性是商品经济的本质<br><br>
+                                    <strong>C错</strong>：剩余产品不是必要条件<br>
+                                    <strong>D错</strong>：这是结果，不是条件<br><br>
+                                    <strong>记住：</strong>分工（基础） + 不同所有者（决定）= 商品经济！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type multiple-choice">多选题</span>
+                            <div class="question-text">
+                                <strong>14.</strong> 商品经济的基本规律是价值规律，其表现形式有（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 价格围绕价值上下波动</div>
+                                <div class="option">B. 价格围绕生产价格上下波动</div>
+                                <div class="option">C. 市场价格围绕垄断价格上下波动</div>
+                                <div class="option">D. 价格与供求关系相互制约</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：ABC</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    价值规律在不同历史阶段有<strong>不同表现形式</strong>！<br><br>
+                                    <strong>A对 - 简单商品经济</strong>：<br>
+                                    • 价格围绕价值上下波动<br>
+                                    • 这是价值规律的基本形式<br><br>
+                                    <strong>B对 - 自由竞争资本主义</strong>：<br>
+                                    • 价格围绕生产价格波动<br>
+                                    • 生产价格 = 成本 + 平均利润<br><br>
+                                    <strong>C对 - 垄断资本主义</strong>：<br>
+                                    • 价格围绕垄断价格波动<br>
+                                    • 垄断价格包含垄断利润<br><br>
+                                    <strong>D错：</strong>这不是价值规律的表现形式，而是价格波动的原因<br><br>
+                                    <strong>记住：</strong>价值规律在不同阶段的表现形式不同，但本质不变！
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip">
+                        <strong>⚠️ 必考重点总结</strong><br>
+                        • "货币转化为资本的前提" → <strong>劳动力成为商品</strong><br>
+                        • "一手交钱一手交货" → 货币的<strong>流通手段</strong>职能<br>
+                        • "资本家剥削的秘密" → <strong>剩余价值</strong><br>
+                        • "只有什么能创造剩余价值" → <strong>可变资本（劳动力）</strong><br>
+                        • "延长工作时间" → <strong>绝对剩余价值</strong><br>
+                        • "提高劳动生产率" → <strong>相对剩余价值</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第四模块：唯物辩证法 -->
+        <div class="knowledge-section">
+            <div class="section-header" onclick="toggleContent(this)">
+                <div>
+                    <span class="section-title">🔄 模块四：唯物辩证法（联系、发展、矛盾）</span>
+                    <span class="difficulty-badge high-freq">高频</span>
+                </div>
+                <div>
+                    <span class="exam-count">考查约50次</span>
+                    <button class="toggle-btn">▼</button>
+                </div>
+            </div>
+            <div class="collapsible-content">
+                <div class="content">
+                    <div class="simple-explain">
+                        <strong>🤔 什么是唯物辩证法？</strong><br>
+                        就是用"联系"、"发展"、"矛盾"的眼光看问题。记住：世界是变化的、有联系的、充满矛盾的。
+                    </div>
+
+                    <div class="key-point">
+                        <strong>🎯 核心考点1：联系的观点</strong><br>
+                        <strong>考查次数：约15次</strong><br><br>
+                        <strong>人话版解释：</strong><br>
+                        • <strong>联系的普遍性</strong>：万物皆有联系，没有孤立存在的事物<br>
+                        • <strong>联系的客观性</strong>：联系不以人的意志为转移<br><br>
+                        <strong>记忆诀窍：</strong>"城门失火，殃及池鱼" - 这就是联系！
+                    </div>
+
+                    <!-- 配套真题 -->
+                    <div class="quiz-section">
+                        <div class="quiz-header">📝 配套真题练习</div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>1.</strong> "城门失火，殃及池鱼"的寓言故事，以及人们在日常生活中所说"鱼儿离不开水，瓜儿离不开秧""没有共产党就没有新中国"等，体现的辩证法思想是（）。
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 联系的观点</div>
+                                <div class="option">B. 发展的观点</div>
+                                <div class="option">C. 事物都是对立统一的</div>
+                                <div class="option">D. 量变引起质变</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：A</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    这道题考查<strong>联系的观点</strong>。<br><br>
+                                    分析：<br>
+                                    • "城门失火，殃及池鱼"：城门和池鱼有联系<br>
+                                    • "鱼儿离不开水"：鱼和水有联系<br>
+                                    • "没有共产党就没有新中国"：党和国家有联系<br><br>
+                                    <strong>记住：</strong>看到"离不开"、"相互影响"等词，就选联系的观点！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>2.</strong> 有一首断言缺了钉马掌的钉子会导致战争失败、国家灭亡的童谣:"钉子缺，蹄铁卸;蹄铁卸，战马蹶;战马蹶，骑士绝;骑士绝，战事折;战事折，国家灭。"这首童谣包含的哲学道理是（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 事物是普遍联系的</div>
+                                <div class="option">B. 事物是变化发展的</div>
+                                <div class="option">C. 事物的量变引起质变</div>
+                                <div class="option">D. 事物的现象是本质的表现</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：A</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    一个钉子引发一系列连锁反应，体现了<strong>事物的普遍联系</strong>。<br><br>
+                                    理解：<br>
+                                    • 钉子 → 蹄铁 → 战马 → 骑士 → 战事 → 国家<br>
+                                    • 这是一个联系的链条<br>
+                                    • 说明事物之间的联系是客观的、普遍的<br><br>
+                                    <strong>类似题目：</strong>"蝴蝶效应"也是考联系的观点
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>🎯 核心考点2：质量互变规律</strong><br>
+                        <strong>考查次数：约18次</strong><br><br>
+                        <strong>人话版解释：</strong><br>
+                        • <strong>量变</strong>：一点一点的积累（比如每天背10个单词）<br>
+                        • <strong>质变</strong>：突然的飞跃（某天突然发现能看懂英文了）<br>
+                        • <strong>度</strong>：量变引起质变的临界点<br><br>
+                        <strong>经典成语：</strong>"千里之堤，溃于蚁穴"、"水滴石穿"
+                    </div>
+
+                    <!-- 配套真题 -->
+                    <div class="quiz-section">
+                        <div class="quiz-header">📝 配套真题练习</div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>3.</strong> 下列命题中，体现量变引起质变观点的是（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 城门失火，殃及池鱼</div>
+                                <div class="option">B. 兼听则明，偏信则暗</div>
+                                <div class="option">C. 长堤溃蚁穴，君子慎其微</div>
+                                <div class="option">D. 社稷无常奉，群臣无常位</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：C</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    "长堤溃蚁穴" = <strong>量变引起质变</strong><br><br>
+                                    理解：<br>
+                                    • 蚁穴很小（量变）<br>
+                                    • 慢慢积累，堤坝崩溃（质变）<br>
+                                    • 说明要"慎其微"（注意小的变化）<br><br>
+                                    <strong>类似成语：</strong><br>
+                                    • "千里之堤，溃于蚁穴"<br>
+                                    • "水滴石穿"<br>
+                                    • "积土成山，积水成渊"<br>
+                                    都是量变到质变的典型例子！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type multiple-choice">多选题</span>
+                            <div class="question-text">
+                                <strong>4.</strong> 下列选项中，体现量变引起质变这一哲学道理的有（）。
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 千里之堤，溃于蚁穴</div>
+                                <div class="option">B. 不积细流，无以成江海</div>
+                                <div class="option">C. 水滴石穿，绳锯木断</div>
+                                <div class="option">D. 近朱者赤，近墨者黑</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：ABC</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    ABC都体现了<strong>量变到质变</strong>。<br><br>
+                                    • A："蚁穴"（小的量变）→"千里之堤溃"（质变）<br>
+                                    • B："积累细流"（量变）→"成江海"（质变）<br>
+                                    • C："水滴"（量变）→"石穿"（质变）<br><br>
+                                    <strong>D错：</strong>"近朱者赤，近墨者黑"体现的是<strong>外因的作用</strong>（环境影响），不是量变质变。<br><br>
+                                    <strong>记住：</strong>看到"积累"、"渐进"、"慢慢"等词，就是量变到质变！
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>🎯 核心考点3：矛盾分析方法</strong><br>
+                        <strong>考查次数：约20次</strong><br><br>
+                        <strong>人话版解释：</strong><br>
+                        • <strong>矛盾的普遍性</strong>：处处有矛盾，时时有矛盾<br>
+                        • <strong>矛盾的特殊性</strong>：具体问题具体分析<br>
+                        • <strong>主要矛盾</strong>：抓重点！考试前最该复习的就是高频考点<br><br>
+                        <strong>记忆口诀：</strong>"两点论和重点论的统一" - 既要全面，又要抓重点
+                    </div>
+
+                    <!-- 配套真题 -->
+                    <div class="quiz-section">
+                        <div class="quiz-header">📝 配套真题练习</div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>5.</strong> 下列说法中，包含具体问题具体分析思想的是（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 集中优势兵力，各个歼灭敌人</div>
+                                <div class="option">B. 得道多助，失道寡助</div>
+                                <div class="option">C. 一着不慎，满盘皆输</div>
+                                <div class="option">D. 兵无常势，水无常形，能因敌变化而取胜者，谓之神</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：D</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    "能因敌变化而取胜" = <strong>具体问题具体分析</strong><br><br>
+                                    理解：<br>
+                                    • "兵无常势"：没有固定的战术<br>
+                                    • "能因敌变化"：根据敌人情况灵活应对<br>
+                                    • 这就是具体问题具体分析！<br><br>
+                                    <strong>核心思想：</strong>矛盾具有特殊性，要根据具体情况采取不同方法。<br><br>
+                                    <strong>其他选项：</strong><br>
+                                    A：体现重点论（集中兵力）<br>
+                                    C：体现重点论（关键环节）
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>6.</strong> 坚持重点论就是（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 善于抓住主要矛盾</div>
+                                <div class="option">B. 抓好了经济建设，其他问题便可以迎刃而解</div>
+                                <div class="option">C. 反对两点论</div>
+                                <div class="option">D. 抓住一点不管其余</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：A</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    <strong>重点论</strong> = 抓住<strong>主要矛盾</strong><br><br>
+                                    理解：<br>
+                                    • 主要矛盾：对事物发展起决定作用的矛盾<br>
+                                    • 重点论：抓重点，抓主要矛盾<br>
+                                    • 两点论：全面看问题，主要矛盾和次要矛盾都要看<br><br>
+                                    <strong>重要！</strong><br>
+                                    • 重点论不是"只抓一点"（D错）<br>
+                                    • 重点论不反对两点论（C错）<br>
+                                    • 要坚持<strong>两点论和重点论的统一</strong><br><br>
+                                    <strong>记住：</strong>既要全面（两点论），又要抓重点（重点论）！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type multiple-choice">多选题</span>
+                            <div class="question-text">
+                                <strong>7.</strong> 矛盾的同一性在事物发展中的作用表现在（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 矛盾双方可以相互吸取有利于自身的因素</div>
+                                <div class="option">B. 矛盾双方可以在一定条件下相互转化</div>
+                                <div class="option">C. 矛盾的同一性规定着事物发展的基本趋势</div>
+                                <div class="option">D. 矛盾的同一性是事物发展的源泉和动力</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：AB</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    矛盾的同一性在事物发展中的作用有两个方面！<br><br>
+                                    <strong>A对 - 相互吸取</strong>：<br>
+                                    • 矛盾双方相互依存、相互贯通<br>
+                                    • 可以从对方吸取有利因素促进自身发展<br><br>
+                                    <strong>B对 - 相互转化</strong>：<br>
+                                    • 在一定条件下，矛盾双方可以转化<br>
+                                    • 如祸福相依、优势劣势转化<br><br>
+                                    <strong>C错</strong>：规定事物发展基本趋势的是<strong>矛盾的主要方面</strong>，不是同一性<br>
+                                    <strong>D错</strong>：事物发展的源泉和动力是<strong>矛盾的斗争性</strong>，不是同一性<br><br>
+                                    <strong>记住：</strong>同一性（吸取+转化），斗争性（源泉动力）！
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip">
+                        <strong>⚠️ 考试技巧总结</strong><br>
+                        • 看到"防微杜渐"、"千里之堤溃于蚁穴"，选<strong>量变到质变</strong><br>
+                        • 看到"抓住重点"、"牵牛要牵牛鼻子"，选<strong>主要矛盾</strong><br>
+                        • 看到"具体问题具体分析"，选<strong>矛盾的特殊性</strong><br>
+                        • 看到"城门失火，殃及池鱼"，选<strong>联系的观点</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第五模块：社会主义与共产主义 -->
+        <div class="knowledge-section">
+            <div class="section-header" onclick="toggleContent(this)">
+                <div>
+                    <span class="section-title">🚩 模块五：社会主义与共产主义</span>
+                    <span class="difficulty-badge high-freq">高频</span>
+                </div>
+                <div>
+                    <span class="exam-count">考查约100次</span>
+                    <button class="toggle-btn">▼</button>
+                </div>
+            </div>
+            <div class="collapsible-content">
+                <div class="content">
+                    <div class="simple-explain">
+                        <strong>🤔 什么是科学社会主义？</strong><br>
+                        科学社会主义是马克思、恩格斯创立的，揭示了资本主义必然灭亡、社会主义必然胜利的规律。
+                    </div>
+
+                    <div class="key-point">
+                        <strong>🎯 核心考点1："两个必然"和"两个决不会"</strong><br>
+                        <strong>考查次数：约15次</strong><br><br>
+                        <strong>人话版解释：</strong><br>
+                        • <strong>"两个必然"</strong>：资本主义必然灭亡，社会主义必然胜利<br>
+                        • <strong>"两个决不会"</strong>：<br>
+                          1️⃣ 无论哪一个社会形态，在它所能容纳的全部生产力发挥出来以前，是决不会灭亡的<br>
+                          2️⃣ 新的更高的生产关系，在它的物质存在条件在旧社会的胎胞里成熟以前，是决不会出现的<br><br>
+                        <strong>记忆口诀：</strong>"必然胜利，条件成熟"
+                    </div>
+
+                    <!-- 配套真题 -->
+                    <div class="quiz-section">
+                        <div class="quiz-header">📝 配套真题练习</div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>1.</strong> 马克思、恩格斯在《共产党宣言》中提出的"两个必然"是（）。
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 生产力必然决定生产关系</div>
+                                <div class="option">B. 资本主义必然灭亡，社会主义必然胜利</div>
+                                <div class="option">C. 经济基础必然决定上层建筑</div>
+                                <div class="option">D. 资产阶级必然灭亡，无产阶级必然胜利</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：B</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    "两个必然"是指<strong>资本主义必然灭亡，社会主义必然胜利</strong>。<br><br>
+                                    • 这是马克思主义的基本结论<br>
+                                    • 体现了人类社会发展的客观规律<br>
+                                    • 是建立在对资本主义基本矛盾深刻分析基础上的科学论断<br><br>
+                                    <strong>记住：</strong>这是马原考试的必考点！
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>🎯 核心考点2：社会主义的根本任务</strong><br>
+                        <strong>考查次数：约12次</strong><br><br>
+                        <strong>人话版解释：</strong><br>
+                        社会主义的根本任务是<strong>解放生产力、发展生产力</strong><br><br>
+                        为什么？<br>
+                        • 只有生产力高度发展，才能为共产主义创造物质基础<br>
+                        • 只有发展生产力，才能满足人民日益增长的物质文化需要<br>
+                        • 生产力是社会发展的最终决定力量
+                    </div>
+
+                    <!-- 配套真题 -->
+                    <div class="quiz-section">
+                        <div class="quiz-header">📝 配套真题练习</div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>2.</strong> 社会主义的根本任务是（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 进行阶级斗争</div>
+                                <div class="option">B. 进行政治经济体制改革</div>
+                                <div class="option">C. 改革生产资料所有制</div>
+                                <div class="option">D. 解放生产力、发展生产力</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：D</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    社会主义的根本任务是<strong>解放生产力、发展生产力</strong>。<br><br>
+                                    • 生产力是社会发展的最终决定力量<br>
+                                    • 社会主义优越性最终要体现在生产力的发展上<br>
+                                    • 这是建设社会主义现代化强国的必然要求<br><br>
+                                    <strong>记住：</strong>发展是硬道理！
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>🎯 核心考点3：共产主义社会的基本特征（超级重点！）</strong><br>
+                        <strong>考查次数：约25次</strong><br><br>
+                        <strong>人话版解释：</strong><br>
+                        共产主义社会有四大特征：<br>
+                        1️⃣ <strong>物质财富极大丰富，消费资料按需分配</strong><br>
+                        2️⃣ <strong>社会关系高度和谐，人们精神境界极大提高</strong><br>
+                           - 阶级消灭<br>
+                           - 国家消亡<br>
+                           - "三大差别"消失（工农差别、城乡差别、脑体差别）<br>
+                        3️⃣ <strong>人的自由而全面的发展</strong><br>
+                        4️⃣ <strong>全人类的彻底解放</strong><br><br>
+                        <strong>记忆口诀：</strong>"物质丰富，和谐发展，自由解放"
+                    </div>
+
+                    <!-- 配套真题 -->
+                    <div class="quiz-section">
+                        <div class="quiz-header">📝 配套真题练习</div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>3.</strong> 马克思主义认为，共产主义社会的分配原则是（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 按生产要素分配</div>
+                                <div class="option">B. 按需分配</div>
+                                <div class="option">C. 平均分配</div>
+                                <div class="option">D. 按劳分配</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：B</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    共产主义社会实行<strong>按需分配</strong>。<br><br>
+                                    <strong>区别：</strong><br>
+                                    • <strong>社会主义</strong>：按劳分配（还存在差别）<br>
+                                    • <strong>共产主义</strong>：按需分配（物质极大丰富）<br><br>
+                                    为什么能按需分配？<br>
+                                    • 生产力高度发达<br>
+                                    • 物质财富极大丰富<br>
+                                    • 人的精神境界极大提高<br><br>
+                                    <strong>记住：</strong>按需分配是共产主义社会的标志性特征！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>4.</strong> 在共产主义社会，国家消亡。具体而言，消亡的是（）。
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 国家的社会管理职能</div>
+                                <div class="option">B. 作为阶级压迫工具的职能即政治国家</div>
+                                <div class="option">C. 国家的全部机构</div>
+                                <div class="option">D. 国家的全部职能</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：B</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    国家消亡，消亡的是<strong>作为阶级压迫工具的政治国家</strong>。<br><br>
+                                    理解：<br>
+                                    • 国家的本质是阶级统治的工具<br>
+                                    • 共产主义社会阶级消灭了，国家作为阶级统治工具也就消亡了<br>
+                                    • 但社会管理职能依然存在（不是无政府主义）<br><br>
+                                    <strong>注意：</strong>不是所有职能都消亡，只是阶级压迫职能消亡！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type multiple-choice">多选题</span>
+                            <div class="question-text">
+                                <strong>5.</strong> 马克思、恩格斯认为，在共产主义社会中，将要消失的"三大差别"是（）。
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 脑力劳动与体力劳动的差别</div>
+                                <div class="option">B. 工业与农业的差别</div>
+                                <div class="option">C. 统治者与被统治者的差别</div>
+                                <div class="option">D. 城市与乡村的差别</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：ABD</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    "三大差别"是指：<br><br>
+                                    1️⃣ <strong>工业与农业的差别</strong><br>
+                                    2️⃣ <strong>城市与乡村的差别</strong><br>
+                                    3️⃣ <strong>脑力劳动与体力劳动的差别</strong><br><br>
+                                    为什么这些差别会消失？<br>
+                                    • 生产力高度发达<br>
+                                    • 劳动自动化程度极高<br>
+                                    • 教育普及，人的素质全面提高<br><br>
+                                    <strong>记住：</strong>这是共产主义社会高度和谐的标志！
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>🎯 核心考点4：无产阶级革命</strong><br>
+                        <strong>考查次数：约18次</strong><br><br>
+                        <strong>人话版解释：</strong><br>
+                        • <strong>无产阶级政党</strong>：工人阶级的先锋队<br>
+                        • <strong>革命形式</strong>：暴力革命是主要形式，但也要争取和平发展<br>
+                        • <strong>无产阶级专政</strong>：过渡时期必须实行无产阶级专政<br>
+                        • <strong>根本保证</strong>：无产阶级政党的正确领导<br><br>
+                        <strong>记忆口诀：</strong>"党领导，专政巩固，革命胜利"
+                    </div>
+
+                    <!-- 配套真题 -->
+                    <div class="quiz-section">
+                        <div class="quiz-header">📝 配套真题练习</div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>6.</strong> 无产阶级革命之所以能取得胜利，其根本保证是（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 取得国家政权</div>
+                                <div class="option">B. 建立革命统一战线</div>
+                                <div class="option">C. 无产阶级政党的正确领导</div>
+                                <div class="option">D. 人民群众的革命积极性的极大提高</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：C</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    <strong>无产阶级政党的正确领导</strong>是革命胜利的根本保证。<br><br>
+                                    为什么？<br>
+                                    • 无产阶级政党是工人阶级的先锋队<br>
+                                    • 掌握马克思主义科学理论<br>
+                                    • 能够制定正确的路线方针政策<br>
+                                    • 能够组织和领导人民群众进行革命斗争<br><br>
+                                    <strong>记住：</strong>党的领导是革命成功的关键！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>7.</strong> 世界上第一个无产阶级政党是（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 共产主义者同盟</div>
+                                <div class="option">B. 中国共产党</div>
+                                <div class="option">C. 布尔什维克</div>
+                                <div class="option">D. 德国社会民主工党</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：A</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    <strong>共产主义者同盟</strong>是世界上第一个无产阶级政党。<br><br>
+                                    历史背景：<br>
+                                    • 1847年成立<br>
+                                    • 马克思、恩格斯为其起草了纲领《共产党宣言》<br>
+                                    • 标志着科学社会主义与工人运动相结合<br>
+                                    • 标志着马克思主义政党的诞生<br><br>
+                                    <strong>记住：</strong>这是马克思主义发展史上的重要里程碑！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>8.</strong> 社会主义发展史上的第一次历史性飞跃是（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 空想社会主义的产生</div>
+                                <div class="option">B. 科学社会主义的创立</div>
+                                <div class="option">C. 社会主义从理论变为现实</div>
+                                <div class="option">D. 社会主义在中国的胜利</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：B</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    社会主义发展史上的<strong>第一次历史性飞跃</strong>是<strong>科学社会主义的创立</strong>。<br><br>
+                                    <strong>三次历史性飞跃：</strong><br>
+                                    1️⃣ <strong>第一次</strong>：从空想到科学（科学社会主义创立）<br>
+                                    2️⃣ <strong>第二次</strong>：从理论到实践（十月革命胜利）<br>
+                                    3️⃣ <strong>第三次</strong>：从一国到多国（社会主义制度建立）<br><br>
+                                    <strong>理解：</strong><br>
+                                    • 马克思、恩格斯创立科学社会主义，实现了从空想到科学的转变<br>
+                                    • 这是社会主义发展史上最根本的转折<br><br>
+                                    <strong>记住：</strong>空想→科学→实践→推广，这是发展逻辑！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type multiple-choice">多选题</span>
+                            <div class="question-text">
+                                <strong>9.</strong> 社会主义革命可能在一国或数国首先取得胜利的理论依据是（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 资本主义政治经济发展不平衡规律</div>
+                                <div class="option">B. 无产阶级是最先进最革命的阶级</div>
+                                <div class="option">C. 资本主义基本矛盾的尖锐化</div>
+                                <div class="option">D. 无产阶级政党的正确领导</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：AC</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    社会主义革命可以在一国首先胜利的<strong>理论依据</strong>！<br><br>
+                                    <strong>A对 - 不平衡规律</strong>：<br>
+                                    • 这是列宁提出的重要理论<br>
+                                    • 帝国主义时代，各国发展极不平衡<br>
+                                    • 在薄弱环节可以首先突破<br>
+                                    • 这是最根本的理论依据！<br><br>
+                                    <strong>C对 - 基本矛盾尖锐化</strong>：<br>
+                                    • 资本主义基本矛盾激化<br>
+                                    • 为革命创造了客观条件<br><br>
+                                    <strong>B、D错：</strong>这些是革命的主观条件，不是理论依据<br><br>
+                                    <strong>记住：</strong>不平衡规律是列宁对马克思主义的重大发展！
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>🎯 核心考点5：空想社会主义 vs 科学社会主义</strong><br>
+                        <strong>考查次数：约10次</strong><br><br>
+                        <strong>人话版解释：</strong><br>
+                        <strong>空想社会主义：</strong><br>
+                        • 代表人物：圣西门、傅立叶、欧文<br>
+                        • 优点：对未来社会作了天才描绘，提供了启发工人觉悟的宝贵材料<br>
+                        • 缺陷：找不到实现理想社会的现实道路，不理解社会发展规律<br><br>
+                        <strong>科学社会主义：</strong><br>
+                        • 创立者：马克思、恩格斯<br>
+                        • 理论基础：唯物史观和剩余价值学说<br>
+                        • 特点：揭示了资本主义必然灭亡、社会主义必然胜利的规律<br><br>
+                        <strong>根本区别：</strong>是否坚持科学的立场、观点、方法
+                    </div>
+
+                    <!-- 配套真题 -->
+                    <div class="quiz-section">
+                        <div class="quiz-header">📝 配套真题练习</div>
+
+                        <div class="quiz-item">
+                            <span class="question-type single-choice">单选题</span>
+                            <div class="question-text">
+                                <strong>8.</strong> 马克思主义与空想社会主义的根本区别是（）。
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 是否认同暴力革命</div>
+                                <div class="option">B. 是否与资产阶级合作</div>
+                                <div class="option">C. 在展望未来社会的问题上，是否坚持科学的立场、观点、方法</div>
+                                <div class="option">D. 是否夺取国家政权</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：C</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    根本区别在于<strong>是否坚持科学的立场、观点、方法</strong>。<br><br>
+                                    理解：<br>
+                                    • 空想社会主义虽然对未来社会有美好设想，但缺乏科学依据<br>
+                                    • 马克思主义基于唯物史观和剩余价值学说，科学地论证了社会主义的必然性<br>
+                                    • 马克思主义找到了实现社会主义的现实道路<br><br>
+                                    <strong>记住：</strong>科学性是马克思主义社会主义的根本特征！
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-item">
+                            <span class="question-type multiple-choice">多选题</span>
+                            <div class="question-text">
+                                <strong>9.</strong> 19世纪英法空想社会主义的缺陷有（）
+                            </div>
+                            <div class="options">
+                                <div class="option">A. 没有找到埋葬资本主义的社会力量</div>
+                                <div class="option">B. 不能揭示资本主义必然灭亡的经济根源</div>
+                                <div class="option">C. 找不到通往理想社会的现实道路</div>
+                                <div class="option">D. 没有正确认识社会发展的客观规律</div>
+                            </div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this)">显示答案</button>
+                            <div class="answer-section answer-hidden">
+                                <div class="correct-answer">✅ 正确答案：ABCD（全选）</div>
+                                <div class="explanation">
+                                    <strong>详细解析：</strong><br>
+                                    空想社会主义的主要缺陷，全部正确。<br><br>
+                                    • <strong>A对：</strong>不知道无产阶级是资本主义的掘墓人<br>
+                                    • <strong>B对：</strong>没有剩余价值学说，不理解剥削的本质<br>
+                                    • <strong>C对：</strong>只能靠宣传教育，找不到革命道路<br>
+                                    • <strong>D对：</strong>缺乏唯物史观，不理解社会发展规律<br><br>
+                                    <strong>记住：</strong>这些缺陷正是马克思主义要克服的！
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip">
+                        <strong>⚠️ 必考重点总结</strong><br>
+                        • "两个必然" → <strong>资本主义必然灭亡，社会主义必然胜利</strong><br>
+                        • "社会主义根本任务" → <strong>解放生产力、发展生产力</strong><br>
+                        • "共产主义分配原则" → <strong>按需分配</strong><br>
+                        • "三大差别" → <strong>工农差别、城乡差别、脑体差别</strong><br>
+                        • "国家消亡" → <strong>政治国家消亡，社会管理职能保留</strong><br>
+                        • "革命根本保证" → <strong>无产阶级政党的正确领导</strong><br>
+                        • "科学社会主义vs空想社会主义" → <strong>是否坚持科学的立场、观点、方法</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 考前速记 -->
+        <div class="knowledge-section">
+            <div class="section-header" onclick="toggleContent(this)">
+                <div>
+                    <span class="section-title">⚡ 考前速记清单</span>
+                    <span class="difficulty-badge high-freq">必背</span>
+                </div>
+                <div>
+                    <button class="toggle-btn">▼</button>
+                </div>
+            </div>
+            <div class="collapsible-content">
+                <div class="content">
+                    <div class="tip">
+                        <strong>🔥 最高频的10个考点（必须掌握！）</strong><br><br>
+                        1️⃣ <strong>实践是认识的来源、动力、目的和检验标准</strong>（考了25次）<br>
+                        2️⃣ <strong>剩余价值理论：绝对剩余价值和相对剩余价值</strong>（考了30次）<br>
+                        3️⃣ <strong>商品二因素：使用价值和价值</strong>（考了20次）<br>
+                        4️⃣ <strong>量变质变规律：度、关节点</strong>（考了18次）<br>
+                        5️⃣ <strong>矛盾分析方法：主要矛盾和次要矛盾</strong>（考了20次）<br>
+                        6️⃣ <strong>马克思主义基本特征：科学性与革命性统一</strong>（考了20次）<br>
+                        7️⃣ <strong>货币的职能：价值尺度、流通手段</strong>（考了15次）<br>
+                        8️⃣ <strong>联系的观点：普遍性、客观性</strong>（考了15次）<br>
+                        9️⃣ <strong>劳动力成为商品：货币转化为资本的前提</strong>（考了12次）<br>
+                        🔟 <strong>不变资本和可变资本：只有可变资本创造剩余价值</strong>（考了10次）
+                    </div>
+
+                    <div class="key-point">
+                        <strong>📝 常见选择题陷阱</strong><br><br>
+                        ❌ <strong>错误选项：</strong>"认识的来源是书本" → 正确答案：<strong>实践</strong><br>
+                        ❌ <strong>错误选项：</strong>"不变资本创造剩余价值" → 正确答案：<strong>可变资本</strong><br>
+                        ❌ <strong>错误选项：</strong>"货币的基本职能是五个" → 正确答案：<strong>两个（价值尺度、流通手段）</strong><br>
+                        ❌ <strong>错误选项：</strong>"量变必然引起质变" → 正确答案：量变<strong>达到一定程度</strong>才引起质变<br>
+                        ❌ <strong>错误选项：</strong>"主要矛盾就是重点" → 正确答案：要坚持<strong>两点论和重点论统一</strong>
+                    </div>
+
+                    <div class="example">
+                        <strong>🎯 答题技巧</strong><br><br>
+                        <strong>单选题：</strong><br>
+                        • 看到"唯一"、"根本"、"最"等词，注意排除法<br>
+                        • 看到"完全"、"绝对"等极端词，多半是错的<br>
+                        • "一手交钱一手交货" = 流通手段（必考）<br>
+                        • "货币转化为资本的前提" = 劳动力成为商品（必考）<br><br>
+                        <strong>多选题：</strong><br>
+                        • 至少选2个，最多选4个<br>
+                        • 宁可少选，不要多选（多选不得分）<br>
+                        • 看到"包括"、"有"等词，往往要选多个<br>
+                        • 注意辨析相近选项的细微差别
+                    </div>
+
+                    <div class="simple-explain">
+                        <strong>💪 最后的鼓励</strong><br><br>
+                        马原其实不难，就是概念多、理论抽象。<br>
+                        只要理解了核心逻辑，记住高频考点，<br>
+                        配合真题练习，考试绝对没问题！<br><br>
+                        <strong>复习策略：</strong><br>
+                        1️⃣ 先看知识点讲解，理解核心概念<br>
+                        2️⃣ 做配套真题，检验学习效果<br>
+                        3️⃣ 看答案解析，弄懂错题<br>
+                        4️⃣ 考前再看一遍速记清单<br><br>
+                        <strong>记住核心：</strong><br>
+                        • 实践是核心（哲学部分）<br>
+                        • 剩余价值是核心（资本主义部分）<br>
+                        • 人的发展是核心（社会主义部分）<br><br>
+                        祝你考试顺利！加油！💪
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleContent(header) {
+            const content = header.nextElementSibling;
+            const button = header.querySelector('.toggle-btn');
+
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                button.textContent = '▼';
+            } else {
+                content.classList.add('active');
+                button.textContent = '▲';
+            }
+        }
+
+        function toggleAnswer(button) {
+            const answerSection = button.nextElementSibling;
+
+            if (answerSection.classList.contains('answer-hidden')) {
+                answerSection.classList.remove('answer-hidden');
+                button.textContent = '隐藏答案';
+                button.style.background = '#95a5a6';
+            } else {
+                answerSection.classList.add('answer-hidden');
+                button.textContent = '显示答案';
+                button.style.background = '#667eea';
+            }
+        }
+
+        // 默认展开第一个
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstSection = document.querySelector('.knowledge-section .section-header');
+            if (firstSection) {
+                toggleContent(firstSection);
+            }
+        });
+    </script>
+
+    <footer style="background: white; border-radius: 15px; padding: 25px; margin-top: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); text-align: center;">
+        <p style="color: #667eea; font-size: 1.1em; margin-bottom: 10px;">📚 祝你考试顺利，取得优异成绩！</p>
+        <p style="color: #666; font-size: 0.9em; opacity: 0.8; border-top: 1px solid #eee; padding-top: 15px; margin-top: 15px;">作者：冷歌 | 用心整理，助力学习</p>
+    </footer>
+</body>
+</html>

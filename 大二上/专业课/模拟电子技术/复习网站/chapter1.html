@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第一章：半导体器件基础 - 模拟电子技术</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>📚 第一章：半导体器件基础</h1>
+            <p class="subtitle">从零开始认识半导体器件</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="chapter1.html" class="active">第一章：半导体器件</a></li>
+                <li><a href="chapter2.html">第二章：基本放大电路</a></li>
+                <li><a href="chapter3.html">第三章：多级放大电路</a></li>
+                <li><a href="chapter4.html">第四章：集成运放</a></li>
+                <li><a href="chapter5.html">第五章：反馈电路</a></li>
+                <li><a href="chapter6.html">第六章：功率放大</a></li>
+                <li><a href="exercises.html">习题练习</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="content-section">
+            <h2>一、PN结的形成与特性</h2>
+
+            <h3>1.1 半导体基础知识</h3>
+            <div class="knowledge-card">
+                <h4>🔹 什么是半导体？</h4>
+                <p>半导体是导电性能介于导体和绝缘体之间的材料。常用的半导体材料有硅（Si）和锗（Ge）。</p>
+            </div>
+
+            <div class="knowledge-card">
+                <h4>🔹 两种载流子</h4>
+                <p><strong>多子与少子：</strong></p>
+                <ul>
+                    <li><strong>N型半导体：</strong>多数载流子是<strong>自由电子</strong>（多子），少数载流子是<strong>空穴</strong>（少子）</li>
+                    <li><strong>P型半导体：</strong>多数载流子是<strong>空穴</strong>（多子），少数载流子是<strong>自由电子</strong>（少子）</li>
+                </ul>
+            </div>
+
+            <div class="important-note">
+                <h4>⚠️ 考点提醒</h4>
+                <p><strong>记忆口诀：</strong>"N型负电子，P型正空穴"</p>
+                <p>• 多数载流子就是多子，少数载流子就是少子<br>
+                • N型半导体中：电子多、空穴少<br>
+                • P型半导体中：空穴多、电子少</p>
+            </div>
+
+            <h3>1.2 PN结的形成</h3>
+            <p>当P型半导体和N型半导体结合在一起时，在交界面附近会形成一个特殊的区域，称为<strong>PN结</strong>。</p>
+
+            <div class="knowledge-card">
+                <h4>🔹 PN结的三个区域</h4>
+                <p><strong>1. 空间电荷区（耗尽层）：</strong>PN结交界处形成的带电区域，没有自由载流子</p>
+                <p><strong>2. P区：</strong>带正电荷的区域</p>
+                <p><strong>3. N区：</strong>带负电荷的区域</p>
+            </div>
+
+            <h3>1.3 PN结的单向导电性</h3>
+            <p>PN结最重要的特性就是<strong>单向导电性</strong>——这是二极管工作的物理基础！</p>
+
+            <table class="comparison-table">
+                <tr>
+                    <th>工作状态</th>
+                    <th>外加电压</th>
+                    <th>结果</th>
+                </tr>
+                <tr>
+                    <td><strong>正向偏置</strong></td>
+                    <td>P区接正极，N区接负极</td>
+                    <td>PN结导通，有较大电流</td>
+                </tr>
+                <tr>
+                    <td><strong>反向偏置</strong></td>
+                    <td>P区接负极，N区接正极</td>
+                    <td>PN结截止，几乎无电流</td>
+                </tr>
+            </table>
+
+            <div class="important-note">
+                <h4>⚠️ 重要结论</h4>
+                <p><strong>PN结的单向导电性：</strong></p>
+                <p>• 加正向电压 → 导通（电阻小）<br>
+                • 加反向电压 → 截止（电阻大）<br>
+                • 这就是二极管的工作原理！</p>
+            </div>
+
+            <h2>二、二极管</h2>
+
+            <h3>2.1 二极管的结构与符号</h3>
+            <div class="knowledge-card">
+                <h4>🔹 二极管的基本结构</h4>
+                <p>二极管是由一个PN结加上相应的电极引线和管壳封装而成的。</p>
+                <p><strong>两个电极：</strong></p>
+                <ul>
+                    <li><strong>阳极（A）：</strong>连接P区</li>
+                    <li><strong>阴极（K）：</strong>连接N区</li>
+                </ul>
+            </div>
+
+            <h3>2.2 二极管的工作特性</h3>
+            <div class="knowledge-card">
+                <h4>🔹 理想二极管的主要性能指标</h4>
+                <p><strong>关键参数：</strong>U<sub>F</sub> = 0（理想情况）</p>
+                <p><strong>实际参数：</strong></p>
+                <ul>
+                    <li>硅二极管：U<sub>F</sub> ≈ 0.7V（导通压降）</li>
+                    <li>锗二极管：U<sub>F</sub> ≈ 0.3V（导通压降）</li>
+                </ul>
+            </div>
+
+            <div class="formula-box">
+                <strong>理想二极管特性：</strong><br>
+                U<sub>F</sub> = 0，I<sub>F</sub> = 0（理想状态下）
+            </div>
+
+            <div class="important-note">
+                <h4>⚠️ 考试必记</h4>
+                <p><strong>二极管的理想特性指标：</strong></p>
+                <p>选项：U<sub>F</sub>=0，I<sub>F</sub>=0 ✓（正确答案）</p>
+                <p>• 理想二极管正向导通时：压降为0，电流为0<br>
+                • 实际二极管有压降：硅管0.7V，锗管0.3V</p>
+            </div>
+
+            <h3>2.3 二极管的应用</h3>
+            <div class="knowledge-card">
+                <h4>🔹 稳压管（稳压二极管）</h4>
+                <p><strong>工作原理：</strong>稳压管必须工作在<strong>反向击穿状态</strong>才有稳压作用。</p>
+                <p><strong>特点：</strong>反向击穿后，在一定电流范围内，电压基本保持不变。</p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 例题1：稳压管的工作状态</h4>
+                <p><strong>题目：</strong>有两只稳压管，稳压值分别为9V和6V，则不可能得到的输出电压U为（）。</p>
+                <p>A. 5V　　B. 9V　　C. 6.7V　　D. 15V</p>
+                <div class="solution">
+                    <p><strong>解析：</strong></p>
+                    <p>两只稳压管可以实现：</p>
+                    <ul>
+                        <li>单独使用9V稳压管：输出9V ✓</li>
+                        <li>单独使用6V稳压管：输出6V</li>
+                        <li>串联使用：9V + 6V = 15V ✓</li>
+                        <li>无法得到5V或6.7V</li>
+                    </ul>
+                    <p><strong>答案：A、C</strong></p>
+                    <p><strong>重点：</strong>稳压管只能得到固定的稳压值或它们的串联组合。</p>
+                </div>
+            </div>
+
+            <h2>三、三极管（晶体管）</h2>
+
+            <h3>3.1 三极管的结构</h3>
+            <div class="knowledge-card">
+                <h4>🔹 三极管的三个区域</h4>
+                <p>三极管由两个PN结组成，有三个区域：</p>
+                <ul>
+                    <li><strong>发射区（E）：</strong>发射载流子</li>
+                    <li><strong>基区（B）：</strong>控制载流子传输（最薄）</li>
+                    <li><strong>集电区（C）：</strong>收集载流子</li>
+                </ul>
+            </div>
+
+            <div class="knowledge-card">
+                <h4>🔹 两种类型的三极管</h4>
+                <p><strong>NPN型：</strong>发射区和集电区是N型，基区是P型</p>
+                <p><strong>PNP型：</strong>发射区和集电区是P型，基区是N型</p>
+            </div>
+
+            <h3>3.2 三极管的电流关系</h3>
+            <div class="formula-box">
+                <strong>基本电流关系：</strong><br>
+                I<sub>E</sub> = I<sub>B</sub> + I<sub>C</sub><br>
+                I<sub>C</sub> = β · I<sub>B</sub><br>
+                （其中β是电流放大倍数）
+            </div>
+
+            <div class="knowledge-card">
+                <h4>🔹 三极管的三个工作区</h4>
+                <table class="comparison-table">
+                    <tr>
+                        <th>工作区</th>
+                        <th>PN结状态</th>
+                        <th>特点</th>
+                    </tr>
+                    <tr>
+                        <td><strong>放大区</strong></td>
+                        <td>发射结正偏，集电结反偏</td>
+                        <td>I<sub>C</sub> = β·I<sub>B</sub>，具有放大作用</td>
+                    </tr>
+                    <tr>
+                        <td><strong>饱和区</strong></td>
+                        <td>两个结都正偏</td>
+                        <td>相当于开关闭合，电流很大</td>
+                    </tr>
+                    <tr>
+                        <td><strong>截止区</strong></td>
+                        <td>两个结都反偏</td>
+                        <td>相当于开关断开，电流很小</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="important-note">
+                <h4>⚠️ 考试重点</h4>
+                <p><strong>三极管工作在放大状态的条件：</strong></p>
+                <p>• 发射结必须<strong>正向偏置</strong>（正偏）<br>
+                • 集电结必须<strong>反向偏置</strong>（反偏）<br>
+                • 这是三极管放大的<strong>必要条件</strong>！</p>
+            </div>
+
+            <h3>3.3 三极管相当于什么？</h3>
+            <div class="knowledge-card">
+                <h4>🔹 三极管工作状态的等效模型</h4>
+                <p><strong>饱和状态：</strong>晶体三极管工作在<strong>饱和放大状态</strong>时，相当于一个<strong>满控电流源</strong>。</p>
+                <p><strong>恒流区（放大区）：</strong>场效应管工作在<strong>恒流区</strong>时，相当于一个<strong>压控电流源</strong>。</p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 例题2：三极管的等效电路</h4>
+                <p><strong>题目：</strong>测得放大电路处于放大状态的半导体三极管直流电位如图所示，试在圈中画出管子的符号，并分别说明是硅管还是锗管。</p>
+                <p>已知：V<sub>C</sub> = 12V，V<sub>B</sub> = 11.3V，V<sub>E</sub> = 0</p>
+                <div class="solution">
+                    <p><strong>解析：</strong></p>
+                    <p>1. 判断极性：C极电位最高(12V) → E极电位最低(0V) → 这是<strong>PNP型</strong>三极管</p>
+                    <p>2. 判断材料：V<sub>BE</sub> = V<sub>B</sub> - V<sub>E</sub> = 11.3V - 0 = 11.3V</p>
+                    <p>   但这不对！应该是 V<sub>EB</sub> = 12V - 11.3V = 0.7V</p>
+                    <p>   因为压降为0.7V，所以是<strong>硅管</strong></p>
+                    <p><strong>答案：</strong>PNP型硅管</p>
+                </div>
+            </div>
+
+            <h3>3.4 场效应管</h3>
+            <div class="knowledge-card">
+                <h4>🔹 场效应管的特点</h4>
+                <p><strong>与三极管的对比：</strong></p>
+                <ul>
+                    <li><strong>三极管：</strong>电流控制器件（用基极电流I<sub>B</sub>控制集电极电流I<sub>C</sub>）</li>
+                    <li><strong>场效应管：</strong>电压控制器件（用栅源电压U<sub>GS</sub>控制漏极电流I<sub>D</sub>）</li>
+                </ul>
+            </div>
+
+            <div class="important-note">
+                <h4>⚠️ 场效应管的单向导电性</h4>
+                <p><strong>注意：</strong>场效应管的正向导通没有<strong>单向导电性</strong>特性！</p>
+                <p>• 二极管有单向导电性 ✓<br>
+                • 三极管的发射结有单向导电性 ✓<br>
+                • 场效应管没有单向导电性 ✗</p>
+            </div>
+
+            <div class="example-box">
+                <h4>📝 例题3：判断β值</h4>
+                <p><strong>题目：</strong>电路如图所示，试问β大于多少时晶体管饱和？</p>
+                <p>已知：V<sub>CC</sub> = 15V，R<sub>b</sub> = 100kΩ，R<sub>c</sub> = 1kΩ</p>
+                <div class="solution">
+                    <p><strong>解析：</strong></p>
+                    <p>1. 饱和状态下：V<sub>CE</sub> ≈ 0，I<sub>C</sub> = V<sub>CC</sub> / R<sub>c</sub></p>
+                    <p>2. I<sub>C(sat)</sub> = 15V / 1kΩ = 15mA</p>
+                    <p>3. I<sub>B</sub> = (V<sub>CC</sub> - V<sub>BE</sub>) / R<sub>b</sub> ≈ (15-0.7) / 100kΩ = 0.143mA</p>
+                    <p>4. β = I<sub>C</sub> / I<sub>B</sub> = 15mA / 0.143mA ≈ 105</p>
+                    <p><strong>答案：</strong>当β > 105时，晶体管饱和</p>
+                </div>
+            </example-box>
+
+            <h2>四、本章小结</h2>
+            <div class="knowledge-card">
+                <h4>🎯 核心知识点总结</h4>
+                <ul>
+                    <li><strong>PN结：</strong>具有单向导电性，是半导体器件的基础</li>
+                    <li><strong>二极管：</strong>正向导通，反向截止；理想状态U<sub>F</sub>=0</li>
+                    <li><strong>稳压管：</strong>工作在反向击穿状态才有稳压作用</li>
+                    <li><strong>三极管：</strong>发射结正偏、集电结反偏时工作在放大区</li>
+                    <li><strong>场效应管：</strong>电压控制器件，无单向导电性</li>
+                </ul>
+            </div>
+
+            <div class="important-note">
+                <h4>⚠️ 常见易错点</h4>
+                <ul>
+                    <li>混淆多子和少子的概念（N型半导体多子是电子）</li>
+                    <li>忘记二极管导通压降（硅管0.7V，锗管0.3V）</li>
+                    <li>不理解三极管放大条件（发射结正偏、集电结反偏）</li>
+                    <li>混淆三极管和场效应管的控制方式</li>
+                </ul>
+            </div>
+
+            <div class="start-card" style="margin-top: 40px;">
+                <h3>📚 继续学习</h3>
+                <p>掌握了半导体器件基础，让我们进入放大电路的学习！</p>
+                <a href="chapter2.html" class="btn btn-primary">进入第二章：基本放大电路 →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 模拟电子技术复习网站 | 祝你考试顺利！</p>
+            <p style="margin-top: 10px; opacity: 0.7; font-size: 0.9em;">作者：冷歌</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

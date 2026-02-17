@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第五章：反馈放大电路 - 模拟电子技术</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>📚 第五章：反馈放大电路</h1>
+            <p class="subtitle">理解反馈的概念及其对电路性能的影响</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="chapter1.html">第一章：半导体器件</a></li>
+                <li><a href="chapter2.html">第二章：基本放大电路</a></li>
+                <li><a href="chapter3.html">第三章：多级放大电路</a></li>
+                <li><a href="chapter4.html">第四章：集成运放</a></li>
+                <li><a href="chapter5.html" class="active">第五章：反馈电路</a></li>
+                <li><a href="chapter6.html">第六章：功率放大</a></li>
+                <li><a href="exercises.html">习题练习</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="content-section">
+            <h2>一、反馈的基本概念</h2>
+
+            <div class="knowledge-card">
+                <h4>🔹 什么是反馈？</h4>
+                <p><strong>反馈：</strong>将放大电路输出信号的一部分或全部，通过一定的方式送回到输入端。</p>
+                <p><strong>反馈网络：</strong>实现反馈的电路部分</p>
+                <p><strong>反馈量：</strong>送回到输入端的信号</p>
+            </div>
+
+            <h2>二、反馈类型的判断</h2>
+
+            <h3>2.1 正反馈与负反馈</h3>
+            <div class="knowledge-card">
+                <h4>🔹 判断方法</h4>
+                <p><strong>负反馈：</strong>反馈信号使输入信号<strong>减小</strong>（削弱）</p>
+                <p><strong>正反馈：</strong>反馈信号使输入信号<strong>增大</strong>（增强）</p>
+                <p><strong>瞬时极性法：</strong></p>
+                <ul>
+                    <li>假设输入信号极性，逐级推导</li>
+                    <li>如果反馈信号与输入信号<strong>相位相反</strong> → 负反馈</li>
+                    <li>如果反馈信号与输入信号<strong>相位相同</strong> → 正反馈</li>
+                </ul>
+            </div>
+
+            <h3>2.2 串联反馈与并联反馈</h3>
+            <div class="knowledge-card">
+                <h4>🔹 判断方法</h4>
+                <p><strong>串联反馈：</strong>反馈信号与输入信号<strong>不在同一节点</strong>，以电压方式叠加</p>
+                <p><strong>并联反馈：</strong>反馈信号与输入信号<strong>在同一节点</strong>，以电流方式叠加</p>
+            </div>
+
+            <h3>2.3 电压反馈与电流反馈</h3>
+            <div class="knowledge-card">
+                <h4>🔹 判断方法</h4>
+                <p><strong>电压反馈：</strong>反馈信号取自<strong>输出电压</strong></p>
+                <ul>
+                    <li>测试方法：令输出短路，如果反馈信号消失 → 电压反馈</li>
+                </ul>
+                <p><strong>电流反馈：</strong>反馈信号取自<strong>输出电流</strong></p>
+                <ul>
+                    <li>测试方法：令输出开路，如果反馈信号消失 → 电流反馈</li>
+                </ul>
+            </div>
+
+            <h3>2.4 四种负反馈组态</h3>
+            <table class="comparison-table">
+                <tr>
+                    <th>组态</th>
+                    <th>反馈类型</th>
+                    <th>稳定对象</th>
+                    <th>输入电阻</th>
+                    <th>输出电阻</th>
+                </tr>
+                <tr>
+                    <td><strong>电压串联</strong></td>
+                    <td>取样电压，串联输入</td>
+                    <td>输出电压</td>
+                    <td>增大</td>
+                    <td>减小</td>
+                </tr>
+                <tr>
+                    <td><strong>电压并联</strong></td>
+                    <td>取样电压，并联输入</td>
+                    <td>输出电压</td>
+                    <td>减小</td>
+                    <td>减小</td>
+                </tr>
+                <tr>
+                    <td><strong>电流串联</strong></td>
+                    <td>取样电流，串联输入</td>
+                    <td>输出电流</td>
+                    <td>增大</td>
+                    <td>增大</td>
+                </tr>
+                <tr>
+                    <td><strong>电流并联</strong></td>
+                    <td>取样电流，并联输入</td>
+                    <td>输出电流</td>
+                    <td>减小</td>
+                    <td>增大</td>
+                </tr>
+            </table>
+
+            <h2>三、负反馈对放大电路性能的影响</h2>
+
+            <div class="knowledge-card">
+                <h4>🔹 负反馈的作用</h4>
+                <p><strong>1. 稳定放大倍数</strong></p>
+                <ul>
+                    <li>减小放大倍数的变化</li>
+                    <li>提高电路稳定性</li>
+                </ul>
+                <p><strong>2. 改善波形失真</strong></p>
+                <ul>
+                    <li>减小非线性失真</li>
+                    <li>改善频率失真</li>
+                </ul>
+                <p><strong>3. 展宽频带</strong></p>
+                <ul>
+                    <li>通频带展宽1+AF倍</li>
+                </ul>
+                <p><strong>4. 改变输入输出电阻</strong></p>
+                <ul>
+                    <li>串联反馈：增大输入电阻</li>
+                    <li>并联反馈：减小输入电阻</li>
+                    <li>电压反馈：减小输出电阻</li>
+                    <li>电流反馈：增大输出电阻</li>
+                </ul>
+            </div>
+
+            <div class="important-note">
+                <h4>⚠️ 记忆口诀</h4>
+                <p><strong>反馈类型判断：</strong></p>
+                <ul>
+                    <li>"输出短路看反馈，消失为压，存在为流"（电压/电流反馈）</li>
+                    <li>"同节点并，异节点串"（串联/并联反馈）</li>
+                    <li>"减弱为负，增强为正"（正/负反馈）</li>
+                </ul>
+            </div>
+
+            <h2>四、自激振荡</h2>
+
+            <div class="knowledge-card">
+                <h4>🔹 自激振荡的产生</h4>
+                <p><strong>产生条件：</strong></p>
+                <p>1. 幅度条件：|AF| = 1</p>
+                <p>2. 相位条件：φ<sub>A</sub> + φ<sub>F</sub> = 2nπ（n=0,1,2...）</p>
+                <p><strong>判断方法：</strong></p>
+                <ul>
+                    <li>无输入信号时，输出有正弦波 → 自激振荡</li>
+                    <li>负反馈变正反馈（通常在高频或低频）→ 自激振荡</li>
+                </ul>
+            </div>
+
+            <h2>五、本章小结</h2>
+            <div class="knowledge-card">
+                <h4>🎯 核心知识点总结</h4>
+                <ul>
+                    <li><strong>负反馈：</strong>削弱输入信号，改善电路性能</li>
+                    <li><strong>正反馈：</strong>增强输入信号，用于振荡电路</li>
+                    <li><strong>四种组态：</strong>电压串联、电压并联、电流串联、电流并联</li>
+                    <li><strong>负反馈作用：</strong>稳定增益、减小失真、展宽频带、改变阻抗</li>
+                </ul>
+            </div>
+
+            <div class="start-card" style="margin-top: 40px;">
+                <h3>📚 继续学习</h3>
+                <p>掌握了反馈电路，让我们学习功率放大电路！</p>
+                <a href="chapter6.html" class="btn btn-primary">进入第六章：功率放大 →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 模拟电子技术复习网站 | 祝你考试顺利！</p>
+            <p style="margin-top: 10px; opacity: 0.7; font-size: 0.9em;">作者：冷歌</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

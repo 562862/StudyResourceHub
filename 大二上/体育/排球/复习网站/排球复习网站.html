@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排球与体育理论 - 期末复习宝典</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+            line-height: 1.8;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        nav {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 3px solid #667eea;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav button {
+            padding: 12px 25px;
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        nav button:hover, nav button.active {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .knowledge-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .knowledge-card h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .knowledge-card h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+        }
+
+        .key-point {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 5px solid #667eea;
+        }
+
+        .key-point strong {
+            color: #667eea;
+            font-size: 1.1em;
+        }
+
+        .question-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 5px solid #28a745;
+            transition: all 0.3s;
+        }
+
+        .question-card.wrong {
+            border-left-color: #dc3545;
+        }
+
+        .question-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateX(5px);
+        }
+
+        .question-text {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .answer {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .answer.correct {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .answer.wrong {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .memory-tip {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .memory-tip h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .stat-box h3 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .stat-box p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            border-top: 3px solid #667eea;
+        }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            nav button {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏐 排球与体育理论</h1>
+            <p>期末复习宝典 - 轻松掌握所有考点</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><button class="nav-btn active" data-section="overview">📊 考点概览</button></li>
+                <li><button class="nav-btn" data-section="injury">🏥 运动损伤</button></li>
+                <li><button class="nav-btn" data-section="health">💪 健康与锻炼</button></li>
+                <li><button class="nav-btn" data-section="standard">📋 体质健康标准</button></li>
+                <li><button class="nav-btn" data-section="volleyball">🏐 排球专项</button></li>
+                <li><button class="nav-btn" data-section="practice">✍️ 全部题目</button></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <!-- 考点概览 -->
+            <div class="section active" id="overview">
+                <div class="knowledge-card">
+                    <h2>📊 考试内容统计</h2>
+                    <div class="stats">
+                        <div class="stat-box">
+                            <h3>200</h3>
+                            <p>总题目数</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>150</h3>
+                            <p>基础理论题</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>50</h3>
+                            <p>排球专项题</p>
+                        </div>
+                    </div>
+
+                    <h3>📚 主要考点分布</h3>
+                    <div class="key-point">
+                        <strong>🏥 运动损伤与急救（约40题）</strong>
+                        <p>包括：运动损伤分类、急性损伤处理（PRICE原则）、心肺复苏术、中暑处理、肌肉拉伤、运动中腹痛等</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>💪 健康促进与体育锻炼（约60题）</strong>
+                        <p>包括：健康标准、亚健康、适量运动、体育锻炼对身体影响、疾病预防等</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>📋 国家学生体质健康标准（约50题）</strong>
+                        <p>包括：标准制定、测试项目、评分标准、实施规定等</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>🏐 排球专项知识（50题）</strong>
+                        <p>包括：排球历史、场地规格、比赛规则、基本技术、战术配合等</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 运动损伤 -->
+            <div class="section" id="injury">
+                <div class="knowledge-card">
+                    <h2>🏥 运动损伤与急救</h2>
+
+                    <h3>📌 运动损伤的分类</h3>
+                    <div class="key-point">
+                        <strong>按皮肤或粘膜完整性分类：</strong>
+                        <p>✅ <span class="highlight">开放性损伤</span>：皮肤破损，如撕裂伤、擦伤</p>
+                        <p>✅ <span class="highlight">闭合性损伤</span>：皮肤完整，如肌肉拉伤、关节扭伤</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>按病程长短分类：</strong>
+                        <p>✅ <span class="highlight">急性损伤</span>：一瞬间遭到暴力造成的损伤</p>
+                        <p>✅ <span class="highlight">慢性损伤</span>：长期反复受损导致，如网球肘、髌骨软骨软化症</p>
+                    </div>
+
+                    <div class="memory-tip">
+                        <h4>💡 记忆技巧</h4>
+                        <p><strong>开放vs闭合</strong>：想想"开门见血"→开放性损伤能看到血</p>
+                        <p><strong>急性vs慢性</strong>：急性=突然发生；慢性=日积月累</p>
+                    </div>
+
+                    <h3>📌 急性闭合性损伤的处理 - PRICE原则</h3>
+                    <div class="key-point">
+                        <strong>24小时内的处理黄金原则（早期）：</strong>
+                        <p>✅ <span class="highlight">P</span> - Protection（保护）：保护受伤部位</p>
+                        <p>✅ <span class="highlight">R</span> - Rest（休息）：停止运动</p>
+                        <p>✅ <span class="highlight">I</span> - Ice（冷敷）：立即冷敷减少肿胀</p>
+                        <p>✅ <span class="highlight">C</span> - Compression（加压包扎）：用弹性绷带加压包扎</p>
+                        <p>✅ <span class="highlight">E</span> - Elevation（抬高患肢）：抬高受伤肢体，减少肿胀</p>
+                    </div>
+
+                    <div class="memory-tip">
+                        <h4>💡 记忆技巧</h4>
+                        <p><strong>PRICE = 价格</strong>：受伤要付出"代价"，记住这5步处理！</p>
+                        <p><strong>关键点</strong>：24小时内<span class="highlight">冷敷</span>，24小时后才能热敷！</p>
+                        <p><strong>错误做法</strong>：❌ 立即中药外敷（会加重肿胀）</p>
+                    </div>
+
+                    <h3>📌 心肺复苏术（CPR）</h3>
+                    <div class="key-point">
+                        <strong>关键数据记忆：</strong>
+                        <p>✅ 按压位置：<span class="highlight">胸骨下半部，两乳头连线中点</span></p>
+                        <p>✅ 按压频率：<span class="highlight">100次/分钟</span></p>
+                        <p>✅ 人工呼吸频率：<span class="highlight">16-18次/分钟</span></p>
+                        <p>✅ 按压与呼吸比例：<span class="highlight">30:2</span>（不是15:1！）</p>
+                        <p>✅ 黄金时间：<span class="highlight">4分钟内</span>开始（不是10分钟）</p>
+                    </div>
+
+                    <div class="memory-tip">
+                        <h4>💡 记忆技巧</h4>
+                        <p><strong>30:2</strong>：想象"三十而立，二人成行"</p>
+                        <p><strong>4分钟</strong>：大脑缺氧超过4分钟会造成不可逆损伤</p>
+                    </div>
+
+                    <h3>📌 运动中腹痛</h3>
+                    <div class="key-point">
+                        <strong>腹痛原因与位置对应：</strong>
+                        <p>✅ <span class="highlight">右上腹</span>：肝胆疾患或瘀血（不是左上腹）</p>
+                        <p>✅ <span class="highlight">右下腹</span>：阑尾炎</p>
+                        <p>✅ <span class="highlight">左下腹</span>：宿便</p>
+                        <p>✅ <span class="highlight">腹中部/两肋下</span>：呼吸肌痉挛（不是腹中部）</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>预防要点：</strong>
+                        <p>✅ 饭后<span class="highlight">1小时后</span>再剧烈运动</p>
+                        <p>✅ 充分做准备活动</p>
+                        <p>✅ 运动前避免过饱或空腹</p>
+                    </div>
+
+                    <div class="memory-tip">
+                        <h4>💡 记忆技巧</h4>
+                        <p><strong>肝在右边</strong>：肝脏在身体右侧→肝瘀血在右上腹</p>
+                        <p><strong>轻度腹痛</strong>：不要立即停止，减慢速度+调整呼吸</p>
+                    </div>
+
+                    <h3>📌 中暑</h3>
+                    <div class="key-point">
+                        <strong>中暑类型（3种）：</strong>
+                        <p>✅ 热射病</p>
+                        <p>✅ 日射病</p>
+                        <p>✅ 热痉挛（题库说只有2种是错误的）</p>
+                    </div>
+
+                    <h3>📌 准备活动</h3>
+                    <div class="key-point">
+                        <strong>准备活动要点：</strong>
+                        <p>✅ 分为<span class="highlight">一般性准备活动</span>和<span class="highlight">专项准备活动</span></p>
+                        <p>✅ 时间：<span class="highlight">10-20分钟</span>（不是30分钟以上）</p>
+                        <p>✅ 间隔：准备活动结束与正式运动间隔<span class="highlight">1-4分钟</span></p>
+                        <p>✅ 游泳前：用<span class="highlight">冷水</span>淋湿全身（不是热水）</p>
+                    </div>
+                </div>
+
+                <div class="knowledge-card">
+                    <h3>📝 运动损伤相关题目精选</h3>
+                    <div class="question-card">
+                        <div class="question-text">1. 肌肉拉伤是开放性损伤。</div>
+                        <div class="answer wrong">❌ 错误 - 肌肉拉伤是闭合性损伤</div>
+                    </div>
+                    <div class="question-card wrong">
+                        <div class="question-text">2. 撕裂伤是闭合性损伤。</div>
+                        <div class="answer wrong">❌ 错误 - 撕裂伤是开放性损伤</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">3. 网球肘是慢性损伤。</div>
+                        <div class="answer correct">✅ 正确</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">4. 髌骨软骨软化症是急性损伤。</div>
+                        <div class="answer wrong">❌ 错误 - 是慢性损伤</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">5. 急性闭合性软组织损伤早期阶段处理方案中C为冷疗。</div>
+                        <div class="answer wrong">❌ 错误 - C是Compression（加压包扎），I才是Ice（冷疗）</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">6. 关节韧带扭伤后立即采用中药外敷，可减轻肿胀。</div>
+                        <div class="answer wrong">❌ 错误 - 早期应冷敷，不能立即中药外敷</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">7. 心肺复苏术心脏按压与人工呼吸通常按15:1的次数比例循环操作。</div>
+                        <div class="answer wrong">❌ 错误 - 应该是30:2</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">8. 心肺复苏力争在心跳骤停10分钟内进行。</div>
+                        <div class="answer wrong">❌ 错误 - 应该在4分钟内进行</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">9. 运动中腹痛的部位常与病变脏器位置有关，其中肝胆疾患或瘀血多为左上腹痛。</div>
+                        <div class="answer wrong">❌ 错误 - 肝胆在右上腹</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">10. 游泳下水前先用热水淋湿全身可预防肌肉痉挛。</div>
+                        <div class="answer wrong">❌ 错误 - 应该用冷水</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 健康与锻炼 -->
+            <div class="section" id="health">
+                <div class="knowledge-card">
+                    <h2>💪 健康促进与体育锻炼</h2>
+
+                    <h3>📌 健康的定义</h3>
+                    <div class="key-point">
+                        <strong>三维健康（不只是身体和心理）：</strong>
+                        <p>✅ 身体健康</p>
+                        <p>✅ 心理健康</p>
+                        <p>✅ <span class="highlight">社会适应</span></p>
+                        <p>注意：题目说"健康包括身体健康和心理健康"是<span class="highlight">错误的</span>，因为缺少社会适应！</p>
+                    </div>
+
+                    <h3>📌 亚健康</h3>
+                    <div class="key-point">
+                        <strong>亚健康的特点：</strong>
+                        <p>✅ 主观有虚弱感觉、各种不适症状</p>
+                        <p>✅ 医学检查<span class="highlight">没有疾病的客观依据</span></p>
+                        <p>✅ 介于健康与疾病之间的边缘状态</p>
+                        <p>✅ 也称"疲劳综合症"</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>亚健康人群包括：</strong>
+                        <p>✅ 长期大量吸烟、酗酒者</p>
+                        <p>✅ 生物节律脆弱期（更年期、经前期、老年期）</p>
+                        <p>✅ 性功能减低、月经紊乱、痛经者</p>
+                    </div>
+
+                    <h3>📌 体育人口判定标准</h3>
+                    <div class="key-point">
+                        <strong>我国体育人口标准（三个条件都要满足）：</strong>
+                        <p>✅ 每周参加体育活动<span class="highlight">3次以上</span></p>
+                        <p>✅ 每次活动<span class="highlight">30分钟以上</span>（不是20分钟）</p>
+                        <p>✅ 达到<span class="highlight">中等强度以上</span></p>
+                    </div>
+
+                    <div class="memory-tip">
+                        <h4>💡 记忆技巧</h4>
+                        <p><strong>3-30-中</strong>：三次、三十分钟、中等强度</p>
+                    </div>
+
+                    <h3>📌 运动强度与心率</h3>
+                    <div class="key-point">
+                        <strong>理想运动强度：</strong>
+                        <p>✅ 平均心率：<span class="highlight">130-150次/分钟</span></p>
+                        <p>✅ 锻炼时间：<span class="highlight">30-60分钟</span>（不是40-60分钟）</p>
+                        <p>✅ 每周至少：<span class="highlight">3-5次</span></p>
+                        <p>❌ 心率130次/分时健身价值不大是<span class="highlight">错误</span>的（这个强度有价值）</p>
+                    </div>
+
+                    <h3>📌 适量运动的益处</h3>
+                    <div class="key-point">
+                        <strong>对身体的全面影响：</strong>
+                        <p>✅ 增强免疫机能，不易感冒</p>
+                        <p>✅ 促进消化吸收，改善胃肠功能</p>
+                        <p>✅ <span class="highlight">全面</span>增强各器官系统机能（不是"部分"）</p>
+                        <p>✅ 促进身高增长，增加肌肉力量</p>
+                        <p>✅ 可以<span class="highlight">延缓</span>（不是"避免"）骨质疏松</p>
+                    </div>
+
+                    <h3>📌 骨质疏松的预防</h3>
+                    <div class="key-point">
+                        <strong>体育活动预防骨质疏松的机理：</strong>
+                        <p>✅ 在骨量增长期获得较高的峰值骨量</p>
+                        <p>✅ 成年后减少骨量丢失</p>
+                        <p>✅ 运动促进钙的吸收、利用（这是主要机理）</p>
+                        <p>❌ "防止钙流失"不是主要机理</p>
+                    </div>
+
+                    <h3>📌 糖尿病与运动</h3>
+                    <div class="key-point">
+                        <strong>运动时间选择：</strong>
+                        <p>✅ Ⅰ型糖尿病：餐后30分钟-1小时运动</p>
+                        <p>✅ Ⅱ型糖尿病：<span class="highlight">也有此要求</span>（题目说没有要求是错的）</p>
+                        <p>✅ 运动可提高胰岛素敏感性和利用效率</p>
+                    </div>
+
+                    <h3>📌 健康评估MDI</h3>
+                    <div class="key-point">
+                        <strong>MDI健康评估分数（满分100分）：</strong>
+                        <p>✅ <span class="highlight">80分以上</span>：第一状态（健康状态）</p>
+                        <p>✅ <span class="highlight">60-79分</span>：第二状态（亚健康状态）</p>
+                        <p>✅ <span class="highlight">60分以下</span>：第三状态（疾病状态）</p>
+                        <p>❌ 75分属于第二状态，不是第一状态</p>
+                        <p>❌ 88分属于第一状态，不是第三状态</p>
+                    </div>
+
+                    <h3>📌 健康促进的内容</h3>
+                    <div class="key-point">
+                        <strong>健康促进包括：</strong>
+                        <p>✅ 个人和社会对其负责</p>
+                        <p>✅ 环境因素占重要地位 - <span class="highlight">必须保护和改善环境</span></p>
+                        <p>✅ 涉及所有人群，不只针对个别疾病</p>
+                        <p>✅ 健康教育是以<span class="highlight">健康知识为中心的大众教育</span>（不是精英教育）</p>
+                        <p>✅ 在全民（包括农民）中开展健康教育<span class="highlight">属于</span>健康促进任务</p>
+                    </div>
+
+                    <h3>📌 合理膳食与生活方式</h3>
+                    <div class="key-point">
+                        <strong>健康生活方式：</strong>
+                        <p>✅ 三餐营养全面均衡，不偏食</p>
+                        <p>✅ 减少动植物脂肪、甜食和钠盐摄入</p>
+                        <p>✅ 增加豆制品、蔬菜、水果等</p>
+                        <p>✅ 戒烟限酒可使心脑血管病死亡率下降<span class="highlight">25%-40%</span></p>
+                    </div>
+                </div>
+
+                <div class="knowledge-card">
+                    <h3>📝 健康与锻炼相关题目精选</h3>
+                    <div class="question-card">
+                        <div class="question-text">1. 我国对体育人口的判定标准为每周参加体育活动3次以上，每次活动20分钟以上。</div>
+                        <div class="answer wrong">❌ 错误 - 应该是30分钟以上</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">2. 只有当运动时的平均心率在120～150次/min之间波动，锻炼时间达到40～60min，每周至少运动3～5次，才能取得理想效果。</div>
+                        <div class="answer wrong">❌ 错误 - 应该是30-60分钟</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">3. 适量运动能部分增强全身各器官系统机能。</div>
+                        <div class="answer wrong">❌ 错误 - 是全面增强，不是部分</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">4. 适宜的体育运动，可延缓骨骼系统的衰老，避免老年性骨质疏松症的发生。</div>
+                        <div class="answer wrong">❌ 错误 - 是延缓，不能避免</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">5. 对于Ⅰ型糖尿病患者，一般建议餐后30分钟～1小时后运动为宜，而Ⅱ型糖尿病患者没有上述要求。</div>
+                        <div class="answer wrong">❌ 错误 - Ⅱ型糖尿病患者也有此要求</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">6. 坚持体育锻炼是防治骨质疏松症的主要措施之一，其防治机理是：运动可以促进钙的吸收、利用和防止其流失。</div>
+                        <div class="answer wrong">❌ 错误 - 主要机理是促进吸收利用，不是防止流失</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">7. MDI健康评估的满分为100分，得分为75分的属于第一状态（健康状态）。</div>
+                        <div class="answer wrong">❌ 错误 - 75分属于第二状态（亚健康）</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">8. 环境因素占有重要地位——必须保护和改善环境不是健康促进的内容。</div>
+                        <div class="answer wrong">❌ 错误 - 这是健康促进的重要内容</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">9. 健康的概念包括身体健康和心理健康。</div>
+                        <div class="answer wrong">❌ 错误 - 还包括社会适应，是三维健康</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">10. 三维健康是身体健康、心理健康和社会适应。</div>
+                        <div class="answer correct">✅ 正确</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 体质健康标准 -->
+            <div class="section" id="standard">
+                <div class="knowledge-card">
+                    <h2>📋 国家学生体质健康标准</h2>
+
+                    <h3>📌 基本信息</h3>
+                    <div class="key-point">
+                        <strong>实施时间与修订：</strong>
+                        <p>✅ <span class="highlight">2007年</span>正式在全国实施（不是2005年）</p>
+                        <p>✅ <span class="highlight">2014年</span>进行了修订（不是2010年）</p>
+                        <p>✅ 是学校体育工作的<span class="highlight">教育质量基本标准</span></p>
+                    </div>
+
+                    <h3>📌 测试项目（大学生共8项）</h3>
+                    <div class="key-point">
+                        <strong>大学生测试项目及权重：</strong>
+                        <p>✅ BMI（身高体重）：<span class="highlight">15%</span></p>
+                        <p>✅ 肺活量：<span class="highlight">15%</span></p>
+                        <p>✅ 50米跑：<span class="highlight">20%</span>（不是15分）</p>
+                        <p>✅ 坐位体前屈/立定跳远：<span class="highlight">10%</span></p>
+                        <p>✅ 引体向上（男）/仰卧起坐（女）：<span class="highlight">10%</span></p>
+                        <p>✅ 1000米（男）/800米（女）：<span class="highlight">20%</span></p>
+                    </div>
+
+                    <h3>📌 评分标准</h3>
+                    <div class="key-point">
+                        <strong>学年总分构成：</strong>
+                        <p>✅ 标准分：<span class="highlight">100分</span></p>
+                        <p>✅ 附加分：<span class="highlight">20分</span>（不是10分）</p>
+                        <p>✅ 满分：<span class="highlight">120分</span>（不是110分）</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>等级评定：</strong>
+                        <p>✅ <span class="highlight">90分以上</span>：优秀</p>
+                        <p>✅ <span class="highlight">80-89.9分</span>：良好</p>
+                        <p>✅ <span class="highlight">60-79.9分</span>：及格</p>
+                        <p>✅ <span class="highlight">60分以下</span>：不及格</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>附加分指标：</strong>
+                        <p>✅ 男生：引体向上、1000米跑</p>
+                        <p>✅ 女生：1分钟仰卧起坐、800米跑</p>
+                        <p>✅ 各指标加分幅度均为<span class="highlight">10分</span></p>
+                    </div>
+
+                    <h3>📌 毕业要求</h3>
+                    <div class="key-point">
+                        <strong>毕业成绩评定：</strong>
+                        <p>✅ 毕业当年学年总分的<span class="highlight">50%</span> + 其他学年平均分的<span class="highlight">50%</span></p>
+                        <p>❌ 不是按四年平均成绩评定</p>
+                        <p>✅ 达不到<span class="highlight">50分</span>者按结业或肄业处理</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>评优评奖要求：</strong>
+                        <p>✅ 成绩达到<span class="highlight">良好及以上</span>，方可参加评优评奖</p>
+                        <p>✅ 成绩达到<span class="highlight">优秀</span>，方可获体育奖学分</p>
+                    </div>
+
+                    <h3>📌 免予执行</h3>
+                    <div class="key-point">
+                        <strong>免测规定：</strong>
+                        <p>✅ 学生因病或残疾可申请暂缓或免予执行</p>
+                        <p>✅ 需医疗单位证明，体育教学部门核准</p>
+                        <p>✅ 免测学生<span class="highlight">可以</span>参加评优与评奖（不是不可以）</p>
+                        <p>✅ 《免予执行申请表》存入学生档案</p>
+                        <p>✅ 毕业时《标准》成绩需注明免测</p>
+                    </div>
+
+                    <h3>📌 测试要求</h3>
+                    <div class="key-point">
+                        <strong>测试规则：</strong>
+                        <p>✅ 每年测试<span class="highlight">一次</span></p>
+                        <p>✅ 每个学生<span class="highlight">每年</span>评定一次（不是四年评定一次）</p>
+                        <p>✅ 可进行2-3次测试的项目，记录<span class="highlight">最好成绩</span>（不是平均成绩）</p>
+                        <p>✅ 立定跳远：取<span class="highlight">最好成绩</span>（不是平均成绩）</p>
+                        <p>✅ 测试前必须做好热身运动</p>
+                        <p>✅ 身体不适应立即停止并告知教师</p>
+                    </div>
+
+                    <h3>📌 具体测试项目要点</h3>
+                    <div class="key-point">
+                        <strong>肺活量：</strong>
+                        <p>✅ 测试目的：测试学生<span class="highlight">肺通气功能</span></p>
+                        <p>✅ 深呼吸（象闻花式慢呼吸），以中等速度和力度尽全力吹</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>引体向上：</strong>
+                        <p>✅ 握杆方法<span class="highlight">不限</span>（正握、反握都可以）</p>
+                        <p>✅ 两手距离与肩同宽</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>坐位体前屈：</strong>
+                        <p>✅ 应<span class="highlight">匀速</span>向前推动游标</p>
+                        <p>✅ 不得突然发力</p>
+                    </div>
+
+                    <h3>📌 数据管理</h3>
+                    <div class="key-point">
+                        <strong>数据上传：</strong>
+                        <p>✅ 通过"中国学生体质健康网"上传</p>
+                        <p>✅ 上传至国家学生体质健康标准数据管理系统</p>
+                        <p>✅ 经<span class="highlight">教育行政部门</span>审核后上传（不是体育行政部门）</p>
+                    </div>
+
+                    <h3>📌 组别划分</h3>
+                    <div class="key-point">
+                        <strong>大学生分组：</strong>
+                        <p>✅ <span class="highlight">大一、大二</span>为一组</p>
+                        <p>✅ <span class="highlight">大三、大四</span>为一组</p>
+                        <p>❌ 大学各组别的测试指标<span class="highlight">不全是</span>选测指标（有必测项目）</p>
+                    </div>
+
+                    <h3>📌 体质与体能</h3>
+                    <div class="key-point">
+                        <strong>体质的构成：</strong>
+                        <p>✅ 在<span class="highlight">遗传性和获得性</span>基础上表现出来（不只是遗传性和运动性）</p>
+                        <p>✅ 包括：身体形态、身体机能、身体素质、心理状态、适应能力</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>体能分类：</strong>
+                        <p>✅ <span class="highlight">健康体能</span>：心肺耐力、柔韧性、肌肉力量、肌肉耐力、身体成分</p>
+                        <p>✅ <span class="highlight">运动体能</span>：速度、力量、灵敏性、协调性、平衡性、反应时（不是"耐力、力量"）</p>
+                        <p>❌ 2014年修订后的《标准》用"<span class="highlight">体质</span>"作为定语（不是"体能"）</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>身体素质：</strong>
+                        <p>✅ 包括：速度、力量、耐力、<span class="highlight">灵敏</span>、柔韧（不是"反应"）</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>影响体质的因素：</strong>
+                        <p>✅ 学校<span class="highlight">体育教育</span>（不只是体质测试）对增强学生体质有重要影响</p>
+                    </div>
+                </div>
+
+                <div class="knowledge-card">
+                    <h3>📝 体质健康标准相关题目精选</h3>
+                    <div class="question-card wrong">
+                        <div class="question-text">1. 《国家学生体质健康标准》在2005年正式开始在全国各级各类学校全面实施，2014年进行了修订。</div>
+                        <div class="answer wrong">❌ 错误 - 是2007年实施</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">2. 2014年修订的《标准》中大学生合计需测8个项目。</div>
+                        <div class="answer correct">✅ 正确</div>
+                    </div>
+                    <div class="question-card wrong">
+                        <div class="question-text">3. 学年总分由标准分与附加分之和构成，满分为100分。</div>
+                        <div class="answer wrong">❌ 错误 - 满分为120分（100+20）</div>
+                    </div>
+                    <div class="question-card wrong">
+                        <div class="question-text">4. 学生因病或残疾被免予执行《标准》，他/她将不可以参加评优与评奖。</div>
+                        <div class="answer wrong">❌ 错误 - 可以参加评优与评奖</div>
+                    </div>
+                    <div class="question-card wrong">
+                        <div class="question-text">5. 立定跳远测试时，应取三次成绩的平均成绩作为最终成绩。</div>
+                        <div class="answer wrong">❌ 错误 - 应该取最好成绩</div>
+                    </div>
+                    <div class="question-card wrong">
+                        <div class="question-text">6. 《标准》测试中，可进行2-3次测试的项目，记录平均成绩。</div>
+                        <div class="answer wrong">❌ 错误 - 记录最好成绩</div>
+                    </div>
+                    <div class="question-card wrong">
+                        <div class="question-text">7. 学生毕业时《标准》的成绩和等级，按大学四年的平均成绩评定。</div>
+                        <div class="answer wrong">❌ 错误 - 按毕业当年50%+其他学年平均50%</div>
+                    </div>
+                    <div class="question-card wrong">
+                        <div class="question-text">8. 引体向上测试时，受试者跳起双手抓紧握杆，两手距离与肩同宽成直臂悬垂。握杆方法不限。</div>
+                        <div class="answer wrong">❌ 错误 - 握杆方法不限是对的，但题目描述有误</div>
+                    </div>
+                    <div class="question-card wrong">
+                        <div class="question-text">9. 根据大学生测试单项指标与权重，50米跑在《标准》中所占权重为15分。</div>
+                        <div class="answer wrong">❌ 错误 - 是20%</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">10. 根据大学生测试单项指标与权重，肺活量在《标准》中所占权重为15%。</div>
+                        <div class="answer correct">✅ 正确</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 排球专项 -->
+            <div class="section" id="volleyball">
+                <div class="knowledge-card">
+                    <h2>🏐 排球专项知识</h2>
+
+                    <h3>📌 排球历史</h3>
+                    <div class="key-point">
+                        <strong>起源与传入：</strong>
+                        <p>✅ <span class="highlight">1895年</span>起源（不是1891年）</p>
+                        <p>✅ 起源于<span class="highlight">美国</span></p>
+                        <p>✅ 由<span class="highlight">威廉·摩根</span>首先发明</p>
+                        <p>✅ <span class="highlight">1905年</span>传入我国</p>
+                    </div>
+
+                    <div class="memory-tip">
+                        <h4>💡 记忆技巧</h4>
+                        <p><strong>1895</strong>：比篮球（1891年）晚4年</p>
+                        <p><strong>1905</strong>：发明后10年传入中国</p>
+                    </div>
+
+                    <h3>📌 中国女排辉煌战绩</h3>
+                    <div class="key-point">
+                        <strong>获得冠军的年份：</strong>
+                        <p>✅ 世界性比赛第一个"<span class="highlight">五连冠</span>"（1981-1986）</p>
+                        <p>✅ <span class="highlight">2003年</span>女排世界杯冠军</p>
+                        <p>✅ <span class="highlight">2015年</span>女排世界杯冠军</p>
+                        <p>✅ <span class="highlight">2016年</span>里约奥运会冠军</p>
+                        <p>✅ <span class="highlight">2008年</span>北京奥运会<span class="highlight">第三名</span>（不是冠军）</p>
+                    </div>
+
+                    <h3>📌 场地规格</h3>
+                    <div class="key-point">
+                        <strong>场地尺寸：</strong>
+                        <p>✅ 长：<span class="highlight">18米</span>（不是19米）</p>
+                        <p>✅ 宽：<span class="highlight">9米</span>（不是8米）</p>
+                        <p>✅ 所有线宽：<span class="highlight">5厘米</span></p>
+                        <p>✅ 发球区宽度：<span class="highlight">9米</span>（不是3米）</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>网高：</strong>
+                        <p>✅ 成年男子：<span class="highlight">2.43米</span>（不是2.34米）</p>
+                        <p>✅ 成年女子：<span class="highlight">2.24米</span></p>
+                    </div>
+
+                    <div class="memory-tip">
+                        <h4>💡 记忆技巧</h4>
+                        <p><strong>场地</strong>：18×9，想象"十八九岁的青春活力"</p>
+                        <p><strong>男子网高</strong>：2.43，想象"二四三团"</p>
+                    </div>
+
+                    <h3>📌 基本技术</h3>
+                    <div class="key-point">
+                        <strong>排球基本技术（6种）：</strong>
+                        <p>✅ 传球</p>
+                        <p>✅ 垫球</p>
+                        <p>✅ 发球</p>
+                        <p>✅ 扣球</p>
+                        <p>✅ 拦网</p>
+                        <p>✅ <span class="highlight">准备姿势和移动</span>（无球技术）</p>
+                        <p>❌ 题目只列5项（缺少准备姿势和移动）是错误的</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>准备姿势分类：</strong>
+                        <p>✅ <span class="highlight">稍蹲</span>准备姿势</p>
+                        <p>✅ <span class="highlight">半蹲</span>准备姿势</p>
+                        <p>✅ <span class="highlight">低蹲</span>准备姿势</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>正面上手传球：</strong>
+                        <p>✅ 击球点：额前上方<span class="highlight">20厘米</span>左右</p>
+                    </div>
+
+                    <h3>📌 基本战术</h3>
+                    <div class="key-point">
+                        <strong>进攻战术（按二传位置）：</strong>
+                        <p>✅ <span class="highlight">"中二传"</span>（二传在3号位）</p>
+                        <p>✅ <span class="highlight">"边二传"</span></p>
+                        <p>✅ <span class="highlight">"插上"</span></p>
+                        <p>❌ 没有"心二传"这个说法</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>防守战术：</strong>
+                        <p>✅ 双人拦网防守阵形：<span class="highlight">"心跟进"</span>和<span class="highlight">"边跟进"</span></p>
+                    </div>
+
+                    <h3>📌 比赛规则</h3>
+                    <div class="key-point">
+                        <strong>计分制度：</strong>
+                        <p>✅ 采用<span class="highlight">五局三胜制</span></p>
+                        <p>✅ 采用<span class="highlight">每球得分制</span></p>
+                        <p>✅ 非决胜局：<span class="highlight">25分</span>，且超过对方2分（不是21分）</p>
+                        <p>✅ 决胜局：<span class="highlight">15分</span>，且超过对方2分</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>发球规则：</strong>
+                        <p>✅ 第一裁判鸣哨后<span class="highlight">8秒内</span>发出</p>
+                        <p>✅ 发球队员必须在<span class="highlight">发球区内</span>完成发球</p>
+                        <p>✅ 发球时<span class="highlight">踏及端线</span>判犯规</p>
+                        <p>✅ 抛球后未发出，再抛球发出<span class="highlight">判犯规</span></p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>击球规则：</strong>
+                        <p>✅ 一队在一次进攻中最多击球<span class="highlight">3次</span>（拦网除外）</p>
+                        <p>✅ <span class="highlight">允许</span>队员用脚击球</p>
+                        <p>✅ 队员身体的<span class="highlight">任何部位</span>都可以击球</p>
+                        <p>✅ <span class="highlight">不可以</span>对对方发球进行拦网</p>
+                        <p>✅ 拦网触球后接着传球<span class="highlight">不算</span>两次击球犯规</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>轮转规则：</strong>
+                        <p>✅ 接发球队获得发球权后，按<span class="highlight">顺时针</span>方向轮转（不是逆时针）</p>
+                        <p>✅ 由转到<span class="highlight">1号位</span>的队员发球</p>
+                        <p>✅ 第一个发球队员发球失误，对方<span class="highlight">需要</span>轮转位置</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>场上位置：</strong>
+                        <p>✅ 4号位是<span class="highlight">前排左侧</span>位置（不是右侧）</p>
+                        <p>✅ 3号位：前排中间（二传常用位置）</p>
+                    </div>
+
+                    <h3>📌 犯规判定</h3>
+                    <div class="key-point">
+                        <strong>过中线犯规：</strong>
+                        <p>✅ 一只脚<span class="highlight">踏及</span>中线<span class="highlight">不判</span>犯规（必须越过）</p>
+                        <p>✅ 双脚在本方，臀部过中线坐在对方<span class="highlight">不判</span>犯规</p>
+                        <p>✅ 双脚在本方，双手全部越过中线<span class="highlight">不判</span>犯规</p>
+                        <p>✅ 判定依据：<span class="highlight">脚</span>是否完全越过中线</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>触网犯规：</strong>
+                        <p>✅ 击球过程中触及<span class="highlight">标志杆内</span>的球网任何部分<span class="highlight">均判</span>犯规</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>出界判定：</strong>
+                        <p>✅ 球触及<span class="highlight">标志杆</span>后进入对方<span class="highlight">判出界</span></p>
+                        <p>✅ 室内比赛，球碰天花板后进入对方<span class="highlight">判出界</span>（比赛不继续）</p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>后排进攻：</strong>
+                        <p>✅ 后排队员可以在<span class="highlight">进攻线以后</span>扣任何高度的球</p>
+                    </div>
+
+                    <h3>📌 暂停与换人</h3>
+                    <div class="key-point">
+                        <strong>暂停规则：</strong>
+                        <p>✅ 每局可请求<span class="highlight">2次</span>普通暂停</p>
+                        <p>✅ 普通暂停时间：<span class="highlight">30秒</span></p>
+                        <p>✅ 技术暂停：非决胜局在<span class="highlight">8分或16分</span>时自动执行（决胜局无技术暂停）</p>
+                        <p>✅ 技术暂停时间：<span class="highlight">60秒</span></p>
+                    </div>
+
+                    <div class="key-point">
+                        <strong>换人规则：</strong>
+                        <p>✅ 一局比赛最多可换人<span class="highlight">6人次</span></p>
+                    </div>
+
+                    <h3>📌 名次确定</h3>
+                    <div class="key-point">
+                        <strong>Z值计算：</strong>
+                        <p>✅ Z值 = X（<span class="highlight">得分总数</span>）÷ Y（失分总数）</p>
+                        <p>❌ 不是"胜局总数÷负局总数"</p>
+                    </div>
+                </div>
+
+                <div class="knowledge-card">
+                    <h3>📝 排球专项题目精选</h3>
+                    <div class="question-card wrong">
+                        <div class="question-text">1. 排球运动起源于1891年。</div>
+                        <div class="answer wrong">❌ 错误 - 是1895年</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">2. 排球运动起源于美国，由威廉·摩根首先发明。</div>
+                        <div class="answer correct">✅ 正确</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">3. 我国女子排球队2016年在巴西里约热内卢举办的奥运会上获得冠军。</div>
+                        <div class="answer correct">✅ 正确</div>
+                    </div>
+                    <div class="question-card wrong">
+                        <div class="question-text">4. 排球场地的长为19m，宽为8m。</div>
+                        <div class="answer wrong">❌ 错误 - 长18米，宽9米</div>
+                    </div>
+                    <div class="question-card wrong">
+                        <div class="question-text">5. 正式排球比赛中，成年男子网高为2.34m。</div>
+                        <div class="answer wrong">❌ 错误 - 是2.43米</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">6. 正式排球比赛中，成年女子网高为2.24m。</div>
+                        <div class="answer correct">✅ 正确</div>
+                    </div>
+                    <div class="question-card wrong">
+                        <div class="question-text">7. 排球比赛非决胜局中，一队赢得21分同时超过对方2分为胜一局。</div>
+                        <div class="answer wrong">❌ 错误 - 是25分</div>
+                    </div>
+                    <div class="question-card wrong">
+                        <div class="question-text">8. 发球队员将球抛起后想发球，但未能发出，接着又将球抛起发出，不判犯规。</div>
+                        <div class="answer wrong">❌ 错误 - 判犯规</div>
+                    </div>
+                    <div class="question-card wrong">
+                        <div class="question-text">9. 队员一只脚踏及中线，应判该队员过中线犯规。</div>
+                        <div class="answer wrong">❌ 错误 - 不判犯规，必须完全越过</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-text">10. 比赛中，允许队员用脚击球。</div>
+                        <div class="answer correct">✅ 正确</div>
+                    </div>
+                    <div class="question-card wrong">
+                        <div class="question-text">11. 拦网队员拦网触球后，接着又将球传起，应判该队员两次击球犯规。</div>
+                        <div class="answer wrong">❌ 错误 - 不判犯规</div>
+                    </div>
+                    <div class="question-card wrong">
+                        <div class="question-text">12. 在室内比赛时，球碰到天花板后进入对方场区，比赛继续进行。</div>
+                        <div class="answer wrong">❌ 错误 - 判出界，不继续</div>
+                    </div>
+                    <div class="question-card wrong">
+                        <div class="question-text">13. 比赛中接发球队获得发球权后，应按逆时针方向轮转一个位置。</div>
+                        <div class="answer wrong">❌ 错误 - 应该顺时针</div>
+                    </div>
+                    <div class="question-card wrong">
+                        <div class="question-text">14. 正式排球比赛中，每局都有两次技术暂停。</div>
+                        <div class="answer wrong">❌ 错误 - 决胜局没有技术暂停</div>
+                    </div>
+                    <div class="question-card wrong">
+                        <div class="question-text">15. 排球比赛确定名次办法中的Z值=X（胜局总数）÷Y（负局总数）</div>
+                        <div class="answer wrong">❌ 错误 - 是得分总数÷失分总数</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 全部题目练习 -->
+            <div class="section" id="practice">
+                <div class="knowledge-card">
+                    <h2>✍️ 全部题目练习</h2>
+                    <p style="margin-bottom: 20px;">共200道题目，建议按考点分类复习完后再进行全面练习。</p>
+
+                    <div id="all-questions"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>💪 祝你考试顺利，取得好成绩！</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">建议：先按考点分类学习，理解核心概念后再做题目练习</p>
+            <p style="margin-top: 15px; opacity: 0.8; font-size: 0.9em; border-top: 1px solid #ddd; padding-top: 15px;">作者：冷歌 | 用心整理，助力学习</p>
+        </footer>
+    </div>
+
+    <script>
+        // 导航切换
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetSection = this.dataset.section;
+
+                // 更新按钮状态
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // 更新内容显示
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(targetSection).classList.add('active');
+
+                // 滚动到顶部
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
+        });
+
+        // 加载所有题目数据（嵌入式）
+        const data = JSON.parse('<?php echo file_get_contents("volleyball_data.json"); ?>');
+
+        // 生成全部题目
+        const allQuestionsContainer = document.getElementById('all-questions');
+        let questionNumber = 1;
+
+        // 基础理论题
+        const theorySection = document.createElement('div');
+        theorySection.innerHTML = '<h3 style="color: #667eea; margin: 30px 0 20px 0;">📚 基础理论题库（150题）</h3>';
+        data['基础理论题库'].forEach(q => {
+            const isCorrect = q['正确/错误(1是正确,0是错误)'] === 1;
+            const card = document.createElement('div');
+            card.className = 'question-card' + (isCorrect ? '' : ' wrong');
+            card.innerHTML = `
+                <div class="question-text">${questionNumber}. ${q['题干']}</div>
+                <div class="answer ${isCorrect ? 'correct' : 'wrong'}">
+                    ${isCorrect ? '✅ 正确' : '❌ 错误'}
+                </div>
+            `;
+            theorySection.appendChild(card);
+            questionNumber++;
+        });
+        allQuestionsContainer.appendChild(theorySection);
+
+        // 排球专项题
+        const volleyballSection = document.createElement('div');
+        volleyballSection.innerHTML = '<h3 style="color: #667eea; margin: 30px 0 20px 0;">🏐 排球专项题库（50题）</h3>';
+        data['专项题库'].forEach(q => {
+            const isCorrect = q['正确/错误(1是正确,0是错误)'] === 1;
+            const card = document.createElement('div');
+            card.className = 'question-card' + (isCorrect ? '' : ' wrong');
+            card.innerHTML = `
+                <div class="question-text">${questionNumber}. ${q['题干']}</div>
+                <div class="answer ${isCorrect ? 'correct' : 'wrong'}">
+                    ${isCorrect ? '✅ 正确' : '❌ 错误'}
+                </div>
+            `;
+            volleyballSection.appendChild(card);
+            questionNumber++;
+        });
+        allQuestionsContainer.appendChild(volleyballSection);
+    </script>
+</body>
+</html>

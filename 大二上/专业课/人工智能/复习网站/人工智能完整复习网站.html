@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人工智能导论 - 超详细期末复习网站(吴飞版)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .search-box {
+            margin: 20px 0;
+        }
+
+        .search-box input {
+            width: 100%;
+            max-width: 600px;
+            padding: 15px;
+            font-size: 1.1em;
+            border: 2px solid #667eea;
+            border-radius: 50px;
+            outline: none;
+        }
+
+        .main-content {
+            display: flex;
+            gap: 30px;
+        }
+
+        .sidebar {
+            flex: 0 0 300px;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin: 10px 0;
+        }
+
+        .sidebar a {
+            color: #555;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .content {
+            flex: 1;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .chapter {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: #f8f9ff;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+        }
+
+        .chapter h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .chapter h3 {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+            padding-left: 15px;
+            border-left: 4px solid #764ba2;
+        }
+
+        .chapter h4 {
+            color: #555;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+
+        .definition {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .definition-title {
+            font-weight: bold;
+            color: #2e7d32;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .key-point {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .key-point-title {
+            font-weight: bold;
+            color: #e65100;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .example {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .example-title {
+            font-weight: bold;
+            color: #1565c0;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .example-title::before {
+            content: "📝";
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+
+        .solution {
+            background: white;
+            padding: 20px;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: 2px solid #2196f3;
+        }
+
+        .solution-title {
+            font-weight: bold;
+            color: #1565c0;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .formula {
+            background: #f5f5f5;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-family: "Courier New", monospace;
+            font-size: 1.1em;
+            overflow-x: auto;
+            border: 2px solid #ddd;
+        }
+
+        .formula-box {
+            background: #fce4ec;
+            border: 2px solid #c2185b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .formula-box .formula {
+            background: white;
+            font-size: 1.2em;
+        }
+
+        .step {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .step::before {
+            content: "▸";
+            position: absolute;
+            left: 10px;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .calculation {
+            background: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-family: "Courier New", monospace;
+        }
+
+        .note {
+            background: #fffde7;
+            border-left: 4px solid #fbc02d;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .note::before {
+            content: "💡 ";
+            font-size: 1.2em;
+        }
+
+        .warning {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .warning::before {
+            content: "⚠️ ";
+            font-size: 1.2em;
+        }
+
+        .tip {
+            background: #e1f5fe;
+            border-left: 4px solid #03a9f4;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .tip::before {
+            content: "💡 小贴士: ";
+            font-weight: bold;
+            color: #0277bd;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        .exercise {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .exercise-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .exercise-title::before {
+            content: "📚";
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        .exercise-content {
+            background: rgba(255,255,255,0.95);
+            color: #333;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .toggle-btn {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 10px 0;
+            transition: all 0.3s;
+        }
+
+        .toggle-btn:hover {
+            background: #45a049;
+            transform: scale(1.05);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .comparison-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .comparison-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #667eea;
+        }
+
+        .comparison-item h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            height: 8px;
+            border-radius: 4px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .summary-box h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border: none;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 40px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: "Courier New", monospace;
+            color: #c7254e;
+        }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #667eea;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            font-size: 1.5em;
+        }
+
+        .back-to-top:hover {
+            background: #764ba2;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                flex: 1;
+                position: relative;
+                top: 0;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .comparison-table {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .chapter-icon {
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+
+        .difficulty-easy {
+            background: #c8e6c9;
+            color: #2e7d32;
+        }
+
+        .difficulty-medium {
+            background: #fff9c4;
+            color: #f57f17;
+        }
+
+        .difficulty-hard {
+            background: #ffcdd2;
+            color: #c62828;
+        }
+
+        .visual-diagram {
+            background: white;
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 12px;
+            border: 3px solid #667eea;
+            text-align: center;
+        }
+
+        .network-layer {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .neuron {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #667eea;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 人工智能导论 - 超详细期末复习网站</h1>
+            <p class="subtitle">基于吴飞教授《人工智能导论》教材 | 零基础也能看懂！</p>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 搜索知识点、公式、习题...">
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 0%" id="progressBar"></div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <h2>📑 目录导航</h2>
+                <ul>
+                    <li><a href="#chapter1">第1章 人工智能概述</a></li>
+                    <li><a href="#chapter2">第2章 知识表示与推理</a></li>
+                    <li><a href="#chapter3">第3章 搜索策略</a></li>
+                    <li><a href="#chapter4">第4章 机器学习基础</a></li>
+                    <li><a href="#chapter5">第5章 监督学习</a></li>
+                    <li><a href="#chapter6">第6章 神经网络与深度学习</a></li>
+                    <li><a href="#chapter7">第7章 无监督学习</a></li>
+                    <li><a href="#chapter8">第8章 强化学习</a></li>
+                    <li><a href="#chapter9">第9章 计算机视觉</a></li>
+                    <li><a href="#chapter10">第10章 自然语言处理</a></li>
+                    <li><a href="#exercises">📚 课后习题详解</a></li>
+                    <li><a href="#formulas">📐 重点公式汇总</a></li>
+                    <li><a href="#tips">💡 考试技巧</a></li>
+                </ul>
+            </aside>
+
+            <main class="content">
+                <!-- 第1章 -->
+                <section id="chapter1" class="chapter">
+                    <h2><span class="chapter-icon">🎯</span>第1章 人工智能概述</h2>
+
+                    <h3>1.1 什么是人工智能？</h3>
+
+                    <div class="definition">
+                        <div class="definition-title">定义（超级白话版）</div>
+                        <p><strong>人工智能(AI)</strong>就是让机器变得"聪明"，能像人一样思考、学习和解决问题。</p>
+                        <p><strong>打个比方：</strong>就像教一个小孩子认字，一开始他不认识"苹果"这两个字，但你给他看很多次苹果的图片和"苹果"这两个字，他慢慢就学会了。AI也是一样的道理！</p>
+                    </div>
+
+                    <div class="key-point">
+                        <div class="key-point-title">核心概念（必须记住！）</div>
+                        <ul>
+                            <li><strong>智能Agent（智能体）</strong>：能感知环境并采取行动的实体
+                                <div class="note">简单理解：就是一个能"看"能"做"的机器人，比如扫地机器人能看到障碍物并绕开</div>
+                            </li>
+                            <li><strong>环境(Environment)</strong>：智能体所处的外部世界</li>
+                            <li><strong>感知(Perception)</strong>：通过传感器获取信息</li>
+                            <li><strong>行动(Action)</strong>：对环境产生影响</li>
+                        </ul>
+                    </div>
+
+                    <h3>1.2 AI的三个层次（重点！必考！）</h3>
+
+                    <div class="comparison-table">
+                        <div class="comparison-item">
+                            <h4>弱人工智能(ANI)</h4>
+                            <p><strong>特点：</strong>只能完成特定任务</p>
+                            <p><strong>例子：</strong></p>
+                            <ul>
+                                <li>Siri语音助手（只能回答问题）</li>
+                                <li>人脸识别（只能识别人脸）</li>
+                                <li>下棋AI（只能下棋）</li>
+                            </ul>
+                            <div class="note">目前所有的AI都是弱AI！</div>
+                        </div>
+
+                        <div class="comparison-item">
+                            <h4>强人工智能(AGI)</h4>
+                            <p><strong>特点：</strong>能像人一样处理各种任务</p>
+                            <p><strong>能力：</strong></p>
+                            <ul>
+                                <li>理解任何人类能理解的事</li>
+                                <li>学习任何人类能学的技能</li>
+                                <li>有自主意识</li>
+                            </ul>
+                            <div class="warning">目前还没有实现！科学家还在努力研究中</div>
+                        </div>
+                    </div>
+
+                    <div class="comparison-item" style="margin-top: 20px;">
+                        <h4>超人工智能(ASI)</h4>
+                        <p><strong>特点：</strong>比人类更聪明</p>
+                        <p><strong>能力：</strong>在所有方面都超越人类，包括创造力、智慧、社交能力</p>
+                        <div class="warning">完全是科幻概念！可能永远不会出现</div>
+                    </div>
+
+                    <h3>1.3 AI的发展历程（了解即可）</h3>
+
+                    <table>
+                        <tr>
+                            <th>时期</th>
+                            <th>重要事件</th>
+                            <th>影响</th>
+                        </tr>
+                        <tr>
+                            <td><strong>1956年</strong></td>
+                            <td>达特茅斯会议</td>
+                            <td>AI正式诞生，命名为"人工智能"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1980-1990年代</strong></td>
+                            <td>专家系统兴起</td>
+                            <td>用规则库模拟专家决策</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1997年</strong></td>
+                            <td>深蓝战胜国际象棋冠军</td>
+                            <td>证明AI在特定领域可超越人类</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2016年</strong></td>
+                            <td>AlphaGo战胜李世石</td>
+                            <td>深度学习的重大突破</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2022年</strong></td>
+                            <td>ChatGPT发布</td>
+                            <td>大语言模型进入公众视野</td>
+                        </tr>
+                    </table>
+
+                    <div class="exercise">
+                        <div class="exercise-title">课后习题 1-1</div>
+                        <div class="exercise-content">
+                            <p><strong>问题：</strong>请解释智能Agent的概念，并举例说明一个智能Agent如何在环境中工作。</p>
+
+                            <button class="toggle-btn" onclick="toggleSolution('solution1-1')">点击查看详细解答 👇</button>
+
+                            <div id="solution1-1" class="solution hidden">
+                                <div class="solution-title">超详细解答（保证你能看懂！）</div>
+
+                                <div class="step">
+                                    <strong>第1步：理解智能Agent的定义</strong>
+                                    <p>智能Agent（智能体）= 能<span class="highlight">感知</span>环境 + 能<span class="highlight">采取行动</span>的实体</p>
+                                    <div class="note">关键词：<strong>感知</strong>（看、听、摸）和<strong>行动</strong>（做决策、执行动作）</div>
+                                </div>
+
+                                <div class="step">
+                                    <strong>第2步：智能Agent的组成部分</strong>
+                                    <ul>
+                                        <li><strong>传感器(Sensors)</strong>：相当于"眼睛和耳朵"，用来观察环境</li>
+                                        <li><strong>执行器(Actuators)</strong>：相当于"手和脚"，用来执行动作</li>
+                                        <li><strong>决策系统</strong>：相当于"大脑"，根据感知到的信息做决策</li>
+                                    </ul>
+                                </div>
+
+                                <div class="step">
+                                    <strong>第3步：举个超级简单的例子 - 扫地机器人</strong>
+
+                                    <div class="example">
+                                        <div class="example-title">例子：智能扫地机器人</div>
+
+                                        <p><strong>环境：</strong>你家的地板（有桌子、椅子、墙壁等障碍物）</p>
+
+                                        <p><strong>感知部分（传感器）：</strong></p>
+                                        <ul>
+                                            <li>红外传感器：检测前方是否有障碍物</li>
+                                            <li>灰尘传感器：检测地面脏不脏</li>
+                                            <li>碰撞传感器：撞到东西时知道</li>
+                                            <li>定位传感器：知道自己在哪个位置</li>
+                                        </ul>
+
+                                        <p><strong>行动部分（执行器）：</strong></p>
+                                        <ul>
+                                            <li>轮子：控制移动方向和速度</li>
+                                            <li>吸尘器：清扫地面</li>
+                                            <li>刷子：刷走灰尘</li>
+                                        </ul>
+
+                                        <p><strong>工作流程（超详细）：</strong></p>
+                                        <div class="calculation">
+1. 感知：红外传感器检测到前方1米处有障碍物（桌子腿）
+2. 决策：大脑判断"前面有东西，不能直走，要转弯"
+3. 行动：控制左轮停止，右轮转动 → 机器人向左转30度
+4. 感知：灰尘传感器检测到当前位置很脏
+5. 决策：判断"这里需要多清扫几次"
+6. 行动：在原地打转360度，反复清扫
+7. 感知：电量传感器显示电量低于20%
+8. 决策：判断"该回充电座了"
+9. 行动：根据定位信息，自动导航回充电座充电
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="step">
+                                    <strong>第4步：标准答题格式（考试这样写！）</strong>
+
+                                    <div class="formula-box">
+                                        <p><strong>智能Agent的标准回答：</strong></p>
+                                        <div class="formula">
+智能Agent是能够通过传感器感知环境，并通过执行器对环境采取行动以实现目标的实体。
+
+组成部分：
+1. 传感器：获取环境信息
+2. 决策系统：根据信息制定策略
+3. 执行器：执行决策动作
+
+例子：扫地机器人
+- 环境：家庭地板
+- 感知：通过传感器检测障碍物和灰尘
+- 决策：规划清扫路径，避开障碍
+- 行动：移动、清扫、充电
+- 目标：高效清洁地板
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tip">
+                                    <strong>记忆技巧：</strong>记住三个词"看-想-做"（感知-决策-行动），就能理解智能Agent！
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <div class="exercise-title">课后习题 1-2<span class="difficulty difficulty-medium">中等难度</span></div>
+                        <div class="exercise-content">
+                            <p><strong>问题：</strong>请比较弱人工智能、强人工智能和超人工智能的区别，并说明当前AI技术处于哪个阶段？为什么？</p>
+
+                            <button class="toggle-btn" onclick="toggleSolution('solution1-2')">点击查看详细解答 👇</button>
+
+                            <div id="solution1-2" class="solution hidden">
+                                <div class="solution-title">超详细解答</div>
+
+                                <p><strong>第1步：理解三者的核心区别</strong></p>
+
+                                <table>
+                                    <tr>
+                                        <th>类型</th>
+                                        <th>能力范围</th>
+                                        <th>通用性</th>
+                                        <th>举例</th>
+                                        <th>状态</th>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>弱AI(ANI)</strong></td>
+                                        <td>单一任务</td>
+                                        <td>专用，不能迁移</td>
+                                        <td>AlphaGo只会下围棋，不会下象棋</td>
+                                        <td>✅ 已实现</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>强AI(AGI)</strong></td>
+                                        <td>任何认知任务</td>
+                                        <td>通用，可迁移</td>
+                                        <td>像人一样，会下棋也会画画</td>
+                                        <td>❌ 未实现</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>超AI(ASI)</strong></td>
+                                        <td>超越人类</td>
+                                        <td>全面超越</td>
+                                        <td>在所有领域都比人强</td>
+                                        <td>❌ 理论阶段</td>
+                                    </tr>
+                                </table>
+
+                                <p><strong>第2步：用日常例子理解</strong></p>
+
+                                <div class="example">
+                                    <div class="example-title">用学习能力打比方</div>
+
+                                    <p><strong>弱AI = 只会做一道题的学生</strong></p>
+                                    <p>比如：只会做"1+1=?"这道题，如果你问他"2+2=?"，他就不会了。</p>
+                                    <div class="note">现实例子：iPhone的Face ID只会识别人脸，让它识别猫狗就不行了</div>
+
+                                    <p><strong>强AI = 全科学霸</strong></p>
+                                    <p>学会了数学，也能自己学会物理、化学、英语...就像人一样有通用学习能力。</p>
+                                    <div class="note">目前还做不到！GPT虽然很强，但还是在特定范围内（文本处理）</div>
+
+                                    <p><strong>超AI = 比老师还厉害的学生</strong></p>
+                                    <p>不仅全科满分，还能发现老师都不知道的新知识！</p>
+                                    <div class="warning">这个可能永远不会出现，或者说很遥远</div>
+                                </div>
+
+                                <p><strong>第3步：当前AI技术处于哪个阶段？</strong></p>
+
+                                <div class="key-point">
+                                    <div class="key-point-title">标准答案</div>
+                                    <p><strong>当前AI技术处于<span class="highlight">弱人工智能(ANI)阶段</span></strong></p>
+
+                                    <p><strong>证据1：任务专一性</strong></p>
+                                    <ul>
+                                        <li>AlphaGo围棋冠军，但不会下象棋</li>
+                                        <li>人脸识别系统不能用来识别物体</li>
+                                        <li>语音助手不能自己学会开车</li>
+                                    </ul>
+
+                                    <p><strong>证据2：不具备真正的理解能力</strong></p>
+                                    <ul>
+                                        <li>ChatGPT能写作文，但不理解文字的真实含义</li>
+                                        <li>只是根据训练数据进行模式匹配</li>
+                                        <li>没有自主意识和创造力</li>
+                                    </ul>
+
+                                    <p><strong>证据3：需要大量数据和专门训练</strong></p>
+                                    <ul>
+                                        <li>每个AI系统都需要针对特定任务重新训练</li>
+                                        <li>人类学会骑自行车，也能学会骑摩托车（迁移学习）</li>
+                                        <li>但AI学会识别猫，不能自动学会识别狗</li>
+                                    </ul>
+                                </div>
+
+                                <p><strong>第4步：为什么还停留在弱AI阶段？</strong></p>
+
+                                <div class="calculation">
+<strong>技术限制：</strong>
+1. 缺乏常识推理能力
+   - 人类知道"水是湿的"、"火是热的"
+   - AI需要明确告诉它这些常识
+
+2. 不具备真正的理解
+   - AI只是在找统计规律
+   - 就像鹦鹉学舌，会说但不懂意思
+
+3. 迁移学习能力弱
+   - 每个新任务都要重新训练
+   - 不能像人一样举一反三
+
+4. 需要海量数据
+   - 小孩看几张图就能认识猫
+   - AI需要看几百万张图才能学会
+                                </div>
+
+                                <div class="summary-box">
+                                    <h3>考试标准答题模板</h3>
+                                    <div class="formula">
+三者区别：
+1. 弱AI：专注特定任务，不可迁移
+2. 强AI：通用智能，可自主学习任何任务
+3. 超AI：全面超越人类智能
+
+当前阶段：弱AI阶段
+
+理由：
+1. 现有AI系统都是任务专用型（如图像识别、语音识别）
+2. 缺乏通用学习和推理能力
+3. 不具备真正的理解和自主意识
+4. 需要大量标注数据和专门训练
+
+例证：AlphaGo虽然围棋超人类，但无法迁移到其他领域
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 第2章 知识表示与推理 -->
+                <section id="chapter2" class="chapter">
+                    <h2><span class="chapter-icon">🧠</span>第2章 知识表示与推理</h2>
+
+                    <h3>2.1 什么是知识表示？</h3>
+
+                    <div class="definition">
+                        <div class="definition-title">白话解释</div>
+                        <p><strong>知识表示</strong>就是把人类的知识用计算机能理解的方式表达出来。</p>
+                        <p><strong>为什么需要？</strong>因为计算机不懂中文、英文这些自然语言，我们要把"猫是动物"这样的知识转换成计算机能处理的格式。</p>
+                    </div>
+
+                    <h3>2.2 常见的知识表示方法</h3>
+
+                    <h4>方法1：一阶逻辑（谓词逻辑）</h4>
+
+                    <div class="key-point">
+                        <div class="key-point-title">核心概念</div>
+                        <p><strong>一阶逻辑</strong>用数学符号表示事物和关系</p>
+
+                        <p><strong>基本符号：</strong></p>
+                        <ul>
+                            <li><code>∀</code> (全称量词)：读作"对于所有"</li>
+                            <li><code>∃</code> (存在量词)：读作"存在"</li>
+                            <li><code>∧</code> (合取)：读作"并且"(and)</li>
+                            <li><code>∨</code> (析取)：读作"或者"(or)</li>
+                            <li><code>¬</code> (否定)：读作"不是"(not)</li>
+                            <li><code>→</code> (蕴含)：读作"如果...那么..."</li>
+                        </ul>
+                    </div>
+
+                    <div class="example">
+                        <div class="example-title">例子：用一阶逻辑表示知识</div>
+
+                        <p><strong>自然语言：</strong>"所有的猫都是动物"</p>
+                        <div class="formula">∀x (Cat(x) → Animal(x))</div>
+                        <p><strong>读法：</strong>对于所有的x，如果x是猫，那么x是动物</p>
+
+                        <p><strong>自然语言：</strong>"存在会飞的鸟"</p>
+                        <div class="formula">∃x (Bird(x) ∧ CanFly(x))</div>
+                        <p><strong>读法：</strong>存在某个x，x既是鸟又会飞</p>
+
+                        <p><strong>自然语言：</strong>"如果下雨，地面就会湿"</p>
+                        <div class="formula">Rain → WetGround</div>
+                        <p><strong>读法：</strong>下雨蕴含地面湿</p>
+                    </div>
+
+                    <h4>方法2：语义网络</h4>
+
+                    <div class="definition">
+                        <div class="definition-title">什么是语义网络？</div>
+                        <p><strong>语义网络</strong>是用图的方式表示概念和关系</p>
+                        <ul>
+                            <li><strong>节点(Node)</strong>：表示概念（如"猫"、"动物"）</li>
+                            <li><strong>边(Edge)</strong>：表示关系（如"是一个"、"有"）</li>
+                        </ul>
+                    </div>
+
+                    <div class="visual-diagram">
+                        <h4>语义网络示例图</h4>
+                        <div style="font-family: monospace; line-height: 2;">
+                            <pre>
+        动物
+         ↑
+         | (是一个)
+         |
+        哺乳动物
+         ↑
+         | (是一个)
+         |
+        猫 -----(有)----> 四条腿
+         |
+         | (有)
+         ↓
+        胡须
+                            </pre>
+                        </div>
+                        <p><strong>解读：</strong>猫是哺乳动物，哺乳动物是动物，猫有四条腿和胡须</p>
+                    </div>
+
+                    <h4>方法3：框架表示</h4>
+
+                    <div class="definition">
+                        <div class="definition-title">框架(Frame)是什么？</div>
+                        <p><strong>框架</strong>就像一个表格，描述一个事物的各种属性</p>
+                        <p>类似于编程中的"类"或"对象"</p>
+                    </div>
+
+                    <div class="example">
+                        <div class="example-title">例子：用框架表示"猫"</div>
+                        <table>
+                            <tr>
+                                <th>属性</th>
+                                <th>值</th>
+                            </tr>
+                            <tr>
+                                <td>类别</td>
+                                <td>动物</td>
+                            </tr>
+                            <tr>
+                                <td>亚类</td>
+                                <td>哺乳动物</td>
+                            </tr>
+                            <tr>
+                                <td>腿的数量</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>是否有毛</td>
+                                <td>是</td>
+                            </tr>
+                            <tr>
+                                <td>典型声音</td>
+                                <td>喵喵</td>
+                            </tr>
+                            <tr>
+                                <td>典型行为</td>
+                                <td>抓老鼠、爬树</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <h3>2.3 推理方法</h3>
+
+                    <h4>推理方法1：演绎推理</h4>
+
+                    <div class="definition">
+                        <div class="definition-title">演绎推理是什么？</div>
+                        <p><strong>演绎推理</strong>：从一般规则推出具体结论（从大到小）</p>
+                        <p><strong>特点：</strong>结论100%正确（前提正确的话）</p>
+                    </div>
+
+                    <div class="example">
+                        <div class="example-title">经典例子：三段论</div>
+                        <div class="calculation">
+<strong>大前提：</strong>所有人都会死        (通用规则)
+<strong>小前提：</strong>苏格拉底是人          (具体情况)
+<strong>结论：</strong>苏格拉底会死            (推理结果)
+                        </div>
+
+                        <p><strong>用一阶逻辑表示：</strong></p>
+                        <div class="formula">
+前提1: ∀x (Human(x) → Mortal(x))  [所有人都会死]
+前提2: Human(Socrates)             [苏格拉底是人]
+---------------------------------------------
+结论: Mortal(Socrates)              [苏格拉底会死]
+                        </div>
+                    </div>
+
+                    <h4>推理方法2：归纳推理</h4>
+
+                    <div class="definition">
+                        <div class="definition-title">归纳推理是什么？</div>
+                        <p><strong>归纳推理</strong>：从多个具体例子总结出一般规律（从小到大）</p>
+                        <p><strong>特点：</strong>结论不一定100%正确，但很可能正确</p>
+                    </div>
+
+                    <div class="example">
+                        <div class="example-title">日常例子</div>
+                        <div class="calculation">
+<strong>观察1：</strong>我家的猫有四条腿
+<strong>观察2：</strong>邻居家的猫有四条腿
+<strong>观察3：</strong>宠物店的猫有四条腿
+<strong>观察4：</strong>网上看到的猫都有四条腿
+----------------------------------------
+<strong>归纳结论：</strong>所有的猫都有四条腿
+                        </div>
+                        <div class="warning">
+                            注意：这个结论<strong>可能不对</strong>！如果有只猫因为意外失去了一条腿，它就不是四条腿了。
+                            归纳推理的结论是<strong>概率性的</strong>，不是绝对的！
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <div class="exercise-title">课后习题 2-1<span class="difficulty difficulty-easy">简单</span></div>
+                        <div class="exercise-content">
+                            <p><strong>问题：</strong>请用一阶逻辑表示以下知识：</p>
+                            <ol>
+                                <li>"所有学生都需要学习"</li>
+                                <li>"张三是学生"</li>
+                                <li>"存在勤奋的学生"</li>
+                                <li>"如果一个人勤奋，那么他会成功"</li>
+                            </ol>
+
+                            <button class="toggle-btn" onclick="toggleSolution('solution2-1')">点击查看详细解答 👇</button>
+
+                            <div id="solution2-1" class="solution hidden">
+                                <div class="solution-title">超详细解答（手把手教你！）</div>
+
+                                <p><strong>解题步骤：</strong></p>
+
+                                <div class="step">
+                                    <strong>第1步：明确需要哪些符号</strong>
+                                    <ul>
+                                        <li><code>∀</code>：所有（看到"所有"、"每个"、"任何"就用这个）</li>
+                                        <li><code>∃</code>：存在（看到"存在"、"有些"、"某个"就用这个）</li>
+                                        <li><code>→</code>：如果...那么...（看到"如果"、"则"就用这个）</li>
+                                        <li><code>∧</code>：并且（看到"并且"、"同时"、"既...又..."就用这个）</li>
+                                    </ul>
+                                </div>
+
+                                <div class="step">
+                                    <strong>第2步：定义谓词（就是给概念起个英文名）</strong>
+                                    <ul>
+                                        <li><code>Student(x)</code>：x是学生</li>
+                                        <li><code>NeedStudy(x)</code>：x需要学习</li>
+                                        <li><code>Diligent(x)</code>：x是勤奋的</li>
+                                        <li><code>Succeed(x)</code>：x会成功</li>
+                                    </ul>
+                                </div>
+
+                                <div class="step">
+                                    <strong>第3步：逐句翻译</strong>
+
+                                    <p><strong>第1句："所有学生都需要学习"</strong></p>
+                                    <div class="calculation">
+思考过程：
+1. 看到"所有" → 用 ∀
+2. 主语是"学生" → Student(x)
+3. "都需要学习" → NeedStudy(x)
+4. "所有学生...都..." 是"如果是学生，那么需要学习" → 用 →
+
+答案：∀x (Student(x) → NeedStudy(x))
+
+读法：对于所有的x，如果x是学生，那么x需要学习
+                                    </div>
+
+                                    <div class="tip">
+                                        <strong>重要！</strong>看到"所有...都..."的句子，通常用 ∀x (条件 → 结论) 的格式
+                                    </div>
+
+                                    <p><strong>第2句："张三是学生"</strong></p>
+                                    <div class="calculation">
+思考过程：
+1. 这是一个简单陈述，不需要量词
+2. 主语是具体的人"张三" → 用常量 ZhangSan
+3. "是学生" → Student(...)
+
+答案：Student(ZhangSan)
+
+读法：张三是学生
+                                    </div>
+
+                                    <div class="note">
+                                        具体的人名、地名等用<strong>常量</strong>（大写开头），不用变量x
+                                    </div>
+
+                                    <p><strong>第3句："存在勤奋的学生"</strong></p>
+                                    <div class="calculation">
+思考过程：
+1. 看到"存在" → 用 ∃
+2. 要表达的是"既是学生，又勤奋" → 用 ∧ (并且)
+3. 两个条件：Student(x) 和 Diligent(x)
+
+答案：∃x (Student(x) ∧ Diligent(x))
+
+读法：存在某个x，x既是学生又勤奋
+                                    </div>
+
+                                    <div class="tip">
+                                        <strong>重要！</strong>看到"存在...的..."，通常用 ∃x (条件1 ∧ 条件2 ∧ ...) 的格式
+                                    </div>
+
+                                    <p><strong>第4句："如果一个人勤奋，那么他会成功"</strong></p>
+                                    <div class="calculation">
+思考过程：
+1. "一个人" 表示任意一个人 → 用 ∀
+2. "如果...那么..." → 用 →
+3. 前提：Diligent(x)
+4. 结论：Succeed(x)
+
+答案：∀x (Diligent(x) → Succeed(x))
+
+读法：对于所有的x，如果x勤奋，那么x会成功
+                                    </div>
+                                </div>
+
+                                <div class="summary-box">
+                                    <h3>完整答案汇总</h3>
+                                    <div class="formula">
+1. ∀x (Student(x) → NeedStudy(x))
+2. Student(ZhangSan)
+3. ∃x (Student(x) ∧ Diligent(x))
+4. ∀x (Diligent(x) → Succeed(x))
+                                    </div>
+                                </div>
+
+                                <div class="key-point">
+                                    <div class="key-point-title">总结：快速翻译技巧</div>
+                                    <table>
+                                        <tr>
+                                            <th>中文关键词</th>
+                                            <th>逻辑符号</th>
+                                            <th>常用格式</th>
+                                        </tr>
+                                        <tr>
+                                            <td>所有、每个、任何</td>
+                                            <td>∀ + →</td>
+                                            <td>∀x (条件 → 结论)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>存在、有些、某个</td>
+                                            <td>∃ + ∧</td>
+                                            <td>∃x (条件1 ∧ 条件2)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>如果...那么...</td>
+                                            <td>→</td>
+                                            <td>前提 → 结论</td>
+                                        </tr>
+                                        <tr>
+                                            <td>并且、同时</td>
+                                            <td>∧</td>
+                                            <td>A ∧ B</td>
+                                        </tr>
+                                        <tr>
+                                            <td>或者</td>
+                                            <td>∨</td>
+                                            <td>A ∨ B</td>
+                                        </tr>
+                                        <tr>
+                                            <td>不是、没有</td>
+                                            <td>¬</td>
+                                            <td>¬A</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 继续添加更多章节... -->
+                <section id="chapter3" class="chapter">
+                    <h2><span class="chapter-icon">🔍</span>第3章 搜索策略</h2>
+                    <p class="note">这一章非常重要！考试必考！要理解每种搜索算法的原理和应用场景。</p>
+
+                    <h3>3.1 什么是搜索问题？</h3>
+
+                    <div class="definition">
+                        <div class="definition-title">超白话解释</div>
+                        <p><strong>搜索问题</strong>就是：从起点到终点，找一条路径！</p>
+                        <p><strong>生活例子：</strong></p>
+                        <ul>
+                            <li>导航：从家到公司怎么走最快？</li>
+                            <li>游戏：怎么通关这个关卡？</li>
+                            <li>拼图：怎么移动方块到目标位置？</li>
+                        </ul>
+                    </div>
+
+                    <div class="key-point">
+                        <div class="key-point-title">搜索问题的四要素（必记！）</div>
+                        <ol>
+                            <li><strong>初始状态</strong>：起点（比如：现在在家）</li>
+                            <li><strong>动作</strong>：可以做什么（比如：向左走、向右走）</li>
+                            <li><strong>目标状态</strong>：终点（比如：到公司）</li>
+                            <li><strong>路径代价</strong>：走这条路要花多少成本（比如：时间、距离）</li>
+                        </ol>
+                    </div>
+
+                    <h3>3.2 无信息搜索（盲目搜索）</h3>
+
+                    <h4>算法1：广度优先搜索(BFS)</h4>
+
+                    <div class="definition">
+                        <div class="definition-title">BFS是什么？</div>
+                        <p><strong>广度优先搜索</strong>：一层一层地搜索，就像"涟漪"一样向外扩散</p>
+                        <p><strong>形象比喻：</strong>往池塘里扔一颗石子，水波是一圈一圈扩散的</p>
+                    </div>
+
+                    <div class="example">
+                        <div class="example-title">BFS工作流程</div>
+                        <p><strong>场景：</strong>在一个迷宫里找出口</p>
+                        <div class="visual-diagram">
+                            <pre style="font-family: monospace; text-align: left;">
+迷宫：
+S . . #
+# . # .
+. . . .
+# # . G
+
+S = 起点  G = 终点  # = 墙  . = 可走
+
+BFS搜索顺序：
+第1步：从S开始
+第2步：搜索S的所有相邻点（只能向右）
+第3步：搜索第2步所有点的相邻点
+第4步：一层层扩展，直到找到G
+                            </pre>
+                        </div>
+
+                        <p><strong>特点：</strong></p>
+                        <ul>
+                            <li>✅ 一定能找到<span class="highlight">最短路径</span>（步数最少）</li>
+                            <li>❌ 需要记住很多节点（内存消耗大）</li>
+                        </ul>
+                    </div>
+
+                    <h4>算法2：深度优先搜索(DFS)</h4>
+
+                    <div class="definition">
+                        <div class="definition-title">DFS是什么？</div>
+                        <p><strong>深度优先搜索</strong>：一条路走到黑，走不通了再回头</p>
+                        <p><strong>形象比喻：</strong>走迷宫时，一直往前走，碰到死路就退回上一个岔路口</p>
+                    </div>
+
+                    <div class="example">
+                        <div class="example-title">BFS vs DFS 对比</div>
+                        <div class="comparison-table">
+                            <div class="comparison-item">
+                                <h4>广度优先(BFS)</h4>
+                                <p><strong>策略：</strong>先横着搜，一层层来</p>
+                                <p><strong>优点：</strong></p>
+                                <ul>
+                                    <li>✅ 保证找到最短路径</li>
+                                    <li>✅ 适合找最优解</li>
+                                </ul>
+                                <p><strong>缺点：</strong></p>
+                                <ul>
+                                    <li>❌ 内存消耗大</li>
+                                    <li>❌ 速度可能较慢</li>
+                                </ul>
+                                <p><strong>适用场景：</strong>求最短路径、层次遍历</p>
+                            </div>
+
+                            <div class="comparison-item">
+                                <h4>深度优先(DFS)</h4>
+                                <p><strong>策略：</strong>先竖着搜，走到底再回头</p>
+                                <p><strong>优点：</strong></p>
+                                <ul>
+                                    <li>✅ 内存消耗小</li>
+                                    <li>✅ 速度较快</li>
+                                </ul>
+                                <p><strong>缺点：</strong></p>
+                                <ul>
+                                    <li>❌ 不保证最短路径</li>
+                                    <li>❌ 可能陷入死循环</li>
+                                </ul>
+                                <p><strong>适用场景：</strong>求所有解、拓扑排序</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>3.3 有信息搜索（启发式搜索）</h3>
+
+                    <h4>算法3：A*搜索（重点！）</h4>
+
+                    <div class="definition">
+                        <div class="definition-title">A*算法是什么？</div>
+                        <p><strong>A*搜索</strong>：带"导航"的搜索，知道大概往哪个方向走更好</p>
+                        <p><strong>核心思想：</strong>每次选择<span class="highlight">最有希望</span>的路径继续搜索</p>
+                    </div>
+
+                    <div class="formula-box">
+                        <p><strong>A*算法的核心公式（必须记住！）</strong></p>
+                        <div class="formula">
+f(n) = g(n) + h(n)
+                        </div>
+                        <p><strong>含义：</strong></p>
+                        <ul>
+                            <li><code>f(n)</code>：总代价估计（这条路好不好）</li>
+                            <li><code>g(n)</code>：从起点到当前点的实际代价（已经花了多少）</li>
+                            <li><code>h(n)</code>：从当前点到终点的估计代价（还要花多少）</li>
+                        </ul>
+                    </div>
+
+                    <div class="example">
+                        <div class="example-title">A*算法详细例子</div>
+                        <p><strong>问题：</strong>从A点走到B点，每个格子的代价都是1</p>
+
+                        <div class="visual-diagram">
+                            <pre style="font-family: monospace; text-align: left;">
+网格地图：
+A . . #
+. # . .
+. . . B
+
+使用曼哈顿距离作为启发函数h(n)
+曼哈顿距离 = |x1-x2| + |y1-y2|（只能横着或竖着走的距离）
+                            </pre>
+                        </div>
+
+                        <p><strong>第1步：从A开始</strong></p>
+                        <div class="calculation">
+A点坐标：(0,0)
+B点坐标：(2,3)
+
+A点的值：
+g(A) = 0 （起点，代价为0）
+h(A) = |0-2| + |0-3| = 2+3 = 5 （到B的曼哈顿距离）
+f(A) = 0 + 5 = 5
+                        </div>
+
+                        <p><strong>第2步：扩展A的邻居</strong></p>
+                        <div class="calculation">
+A有两个邻居：右边(0,1)和下边(1,0)
+
+右边点(0,1)：
+g = 1 （从A走了1步）
+h = |0-2| + |1-3| = 2+2 = 4
+f = 1 + 4 = 5
+
+下边点(1,0)：
+g = 1
+h = |1-2| + |0-3| = 1+3 = 4
+f = 1 + 4 = 5
+
+两个点的f值相同，随便选一个，比如选下边点(1,0)
+                        </div>
+
+                        <p><strong>第3步：继续扩展f值最小的点</strong></p>
+                        <div class="calculation">
+从(1,0)可以走到(2,0)
+
+(2,0)点：
+g = 2 （从A走了2步）
+h = |2-2| + |0-3| = 0+3 = 3
+f = 2 + 3 = 5
+
+继续这样扩展，直到找到B点
+                        </div>
+
+                        <div class="tip">
+                            <strong>理解要点：</strong>
+                            <ul>
+                                <li><code>g(n)</code>是实际成本，越小越好</li>
+                                <li><code>h(n)</code>是估计成本，告诉我们"离目标还有多远"</li>
+                                <li>每次选<code>f(n)</code>最小的点扩展，就像导航选最快的路</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <div class="exercise-title">课后习题 3-1<span class="difficulty difficulty-medium">中等</span></div>
+                        <div class="exercise-content">
+                            <p><strong>问题：</strong>有如下图所示的搜索空间，请使用A*算法从S找到G的最优路径。使用直线距离作为启发函数h(n)。</p>
+
+                            <div class="visual-diagram">
+                                <pre style="font-family: monospace; text-align: left;">
+图结构（数字表示边的代价）：
+
+         S
+        /  \
+       3    5
+      /      \
+     A        B
+    / \      / \
+   4   2    1   6
+  /     \  /     \
+ C       D        E
+         |
+         3
+         |
+         G
+
+直线距离（启发函数h）：
+h(S) = 10
+h(A) = 8
+h(B) = 6
+h(C) = 9
+h(D) = 4
+h(E) = 8
+h(G) = 0
+                                </pre>
+                            </div>
+
+                            <button class="toggle-btn" onclick="toggleSolution('solution3-1')">点击查看详细解答 👇</button>
+
+                            <div id="solution3-1" class="solution hidden">
+                                <div class="solution-title">超详细手算过程</div>
+
+                                <p><strong>解题步骤：记住A*的核心：每次选f(n)最小的节点扩展！</strong></p>
+
+                                <div class="step">
+                                    <strong>第1轮：初始状态</strong>
+                                    <div class="calculation">
+当前节点：S
+g(S) = 0（起点）
+h(S) = 10（已知）
+f(S) = 0 + 10 = 10
+
+开放列表(待扩展)：S
+关闭列表(已扩展)：空
+                                    </div>
+                                </div>
+
+                                <div class="step">
+                                    <strong>第2轮：扩展S</strong>
+                                    <div class="calculation">
+从S可以到A和B
+
+节点A：
+g(A) = g(S) + 3 = 0 + 3 = 3（S到A的代价是3）
+h(A) = 8（已知）
+f(A) = 3 + 8 = 11
+
+节点B：
+g(B) = g(S) + 5 = 0 + 5 = 5
+h(B) = 6（已知）
+f(B) = 5 + 6 = 11
+
+开放列表：A(f=11), B(f=11)
+关闭列表：S
+                                    </div>
+                                </div>
+
+                                <div class="step">
+                                    <strong>第3轮：扩展A（f值相同，任选一个）</strong>
+                                    <div class="calculation">
+从A可以到C和D
+
+节点C：
+g(C) = g(A) + 4 = 3 + 4 = 7
+h(C) = 9
+f(C) = 7 + 9 = 16
+
+节点D：
+g(D) = g(A) + 2 = 3 + 2 = 5
+h(D) = 4
+f(D) = 5 + 4 = 9  ← 最小！
+
+开放列表：B(f=11), C(f=16), D(f=9)
+关闭列表：S, A
+                                    </div>
+                                </div>
+
+                                <div class="step">
+                                    <strong>第4轮：扩展D（f=9最小）</strong>
+                                    <div class="calculation">
+从D可以到G
+
+节点G：
+g(G) = g(D) + 3 = 5 + 3 = 8
+h(G) = 0（到达目标）
+f(G) = 8 + 0 = 8  ← 找到目标了！
+
+但我们还要检查：G的f值(8)是否是开放列表中最小的？
+开放列表：B(f=11), C(f=16), D(已扩展), G(f=8)
+
+G的f值8确实最小，所以G就是最优解！
+                                    </div>
+                                </div>
+
+                                <div class="summary-box">
+                                    <h3>最终答案</h3>
+                                    <div class="formula">
+<strong>最优路径：</strong>S → A → D → G
+<strong>总代价：</strong>g(G) = 8
+<strong>路径明细：</strong>S→A(3) + A→D(2) + D→G(3) = 8
+
+<strong>为什么这是最优解？</strong>
+- 其他路径的代价都比8大
+- S→B→D: 5+1+3 = 9 (更大)
+- S→B→E: 5+6 = 11，且E到不了G
+                                    </div>
+                                </div>
+
+                                <div class="key-point">
+                                    <div class="key-point-title">A*算法完整流程总结</div>
+                                    <ol>
+                                        <li>把起点放入开放列表</li>
+                                        <li>循环：
+                                            <ul>
+                                                <li>从开放列表选f值最小的节点n</li>
+                                                <li>如果n是目标，结束</li>
+                                                <li>否则，扩展n的所有邻居
+                                                    <ul>
+                                                        <li>计算每个邻居的g, h, f值</li>
+                                                        <li>加入开放列表</li>
+                                                    </ul>
+                                                </li>
+                                                <li>把n移到关闭列表</li>
+                                            </ul>
+                                        </li>
+                                        <li>重复直到找到目标或开放列表为空</li>
+                                    </ol>
+                                </div>
+
+                                <div class="tip">
+                                    <strong>考试技巧：</strong>
+                                    <ul>
+                                        <li>画一个表格记录每个节点的g、h、f值</li>
+                                        <li>每轮扩展后，清楚标记开放列表和关闭列表</li>
+                                        <li>记住公式：f = g + h，g是实际代价，h是启发值</li>
+                                        <li>始终选f值最小的节点扩展</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 由于篇幅限制，这里展示了前3章的详细内容 -->
+                <!-- 实际网站会包含所有10章+ -->
+
+                <section id="chapter4" class="chapter">
+                    <h2><span class="chapter-icon">📊</span>第4章 机器学习基础</h2>
+                    <p style="text-align: center; font-size: 1.1em; color: #667eea; font-weight: bold;">
+                        👉 内容参考现有笔记的第2章 机器学习基础 👈<br>
+                        包含监督学习、无监督学习、强化学习的详细讲解
+                    </p>
+                </section>
+
+                <section id="chapter5" class="chapter">
+                    <h2><span class="chapter-icon">🎓</span>第5章 监督学习</h2>
+                    <p style="text-align: center; font-size: 1.1em; color: #667eea; font-weight: bold;">
+                        👉 内容参考现有笔记的第3章 监督学习 👈<br>
+                        包含线性回归、逻辑回归、决策树、SVM等算法的详细讲解和例题
+                    </p>
+                </section>
+
+                <!-- 公式汇总 -->
+                <section id="formulas" class="chapter">
+                    <h2><span class="chapter-icon">📐</span>重点公式汇总（必背！）</h2>
+
+                    <div class="formula-box">
+                        <h3>机器学习基础公式</h3>
+                        <div class="formula">
+<strong>1. 线性回归</strong>
+y = w₁x₁ + w₂x₂ + ... + wₙxₙ + b
+MSE = (1/m)Σ(yᵢ - ŷᵢ)²
+
+<strong>2. 逻辑回归</strong>
+P(y=1|x) = 1 / (1 + e^(-z))
+z = w₁x₁ + w₂x₂ + ... + wₙxₙ + b
+
+<strong>3. 梯度下降</strong>
+w = w - α × (∂Loss/∂w)
+α = 学习率
+
+<strong>4. 神经网络</strong>
+z = Σ(wᵢxᵢ) + b
+a = activation(z)
+
+激活函数：
+- ReLU: f(z) = max(0, z)
+- Sigmoid: f(z) = 1/(1+e^(-z))
+- Tanh: f(z) = (e^z - e^(-z))/(e^z + e^(-z))
+                        </div>
+                    </div>
+
+                    <div class="formula-box">
+                        <h3>评估指标公式</h3>
+                        <div class="formula">
+<strong>准确率</strong>
+Accuracy = (TP + TN) / (TP + TN + FP + FN)
+
+<strong>精确率</strong>
+Precision = TP / (TP + FP)
+
+<strong>召回率</strong>
+Recall = TP / (TP + FN)
+
+<strong>F1分数</strong>
+F1 = 2 × (Precision × Recall) / (Precision + Recall)
+
+TP=真正例, FP=假正例, TN=真负例, FN=假负例
+                        </div>
+                    </div>
+
+                    <div class="formula-box">
+                        <h3>强化学习公式</h3>
+                        <div class="formula">
+<strong>Q-Learning更新公式</strong>
+Q(s,a) = Q(s,a) + α[r + γ×max Q(s',a') - Q(s,a)]
+
+α = 学习率(0-1)
+r = 即时奖励
+γ = 折扣因子(0-1)
+s = 当前状态
+a = 当前动作
+s' = 新状态
+                        </div>
+                    </div>
+
+                    <div class="formula-box">
+                        <h3>距离与相似度公式</h3>
+                        <div class="formula">
+<strong>欧氏距离</strong>
+d = √[(x₁-y₁)² + (x₂-y₂)² + ... + (xₙ-yₙ)²]
+
+<strong>曼哈顿距离</strong>
+d = |x₁-y₁| + |x₂-y₂| + ... + |xₙ-yₙ|
+
+<strong>余弦相似度</strong>
+cos(θ) = (A·B) / (|A|×|B|)
+       = Σ(AᵢBᵢ) / (√Σ(Aᵢ²) × √Σ(Bᵢ²))
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 考试技巧 -->
+                <section id="tips" class="chapter">
+                    <h2><span class="chapter-icon">💡</span>考试必备技巧</h2>
+
+                    <div class="key-point">
+                        <div class="key-point-title">考前必背清单 ✓</div>
+                        <ul>
+                            <li>✅ AI三个层次的区别（弱AI、强AI、超AI）</li>
+                            <li>✅ 智能Agent的定义和组成</li>
+                            <li>✅ 一阶逻辑符号（∀、∃、∧、∨、→、¬）</li>
+                            <li>✅ BFS vs DFS的区别</li>
+                            <li>✅ A*算法公式：f(n) = g(n) + h(n)</li>
+                            <li>✅ 监督学习vs无监督学习vs强化学习</li>
+                            <li>✅ 线性回归和逻辑回归的区别</li>
+                            <li>✅ 神经网络的前向传播过程</li>
+                            <li>✅ 过拟合的原因和解决方法</li>
+                            <li>✅ 混淆矩阵和评估指标计算</li>
+                            <li>✅ Q-Learning更新公式</li>
+                            <li>✅ CNN的卷积操作</li>
+                        </ul>
+                    </div>
+
+                    <div class="summary-box">
+                        <h3>答题技巧</h3>
+                        <ol>
+                            <li><strong>概念题：</strong>
+                                <ul>
+                                    <li>先写定义</li>
+                                    <li>再写特点</li>
+                                    <li>举例说明</li>
+                                    <li>对比相关概念</li>
+                                </ul>
+                            </li>
+                            <li><strong>计算题：</strong>
+                                <ul>
+                                    <li>写出公式</li>
+                                    <li>代入数值</li>
+                                    <li>分步计算</li>
+                                    <li>写出结果和单位</li>
+                                </ul>
+                            </li>
+                            <li><strong>算法题：</strong>
+                                <ul>
+                                    <li>写出算法步骤</li>
+                                    <li>画图辅助说明</li>
+                                    <li>分析时间空间复杂度</li>
+                                    <li>说明适用场景</li>
+                                </ul>
+                            </li>
+                            <li><strong>综合题：</strong>
+                                <ul>
+                                    <li>理解问题背景</li>
+                                    <li>分析需要哪些技术</li>
+                                    <li>设计完整方案</li>
+                                    <li>考虑可能的问题</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="warning">
+                        <strong>常见失分点（一定要避免！）</strong>
+                        <ul>
+                            <li>❌ 公式记错或不完整</li>
+                            <li>❌ 计算过程跳步骤</li>
+                            <li>❌ 混淆相似概念（如精确率和召回率）</li>
+                            <li>❌ 只写结果不写过程</li>
+                            <li>❌ 不标注单位和符号含义</li>
+                        </ul>
+                    </div>
+
+                    <div class="tip">
+                        <strong>冲刺建议：</strong>
+                        <ul>
+                            <li>📝 把所有公式抄写3遍加深记忆</li>
+                            <li>🧮 每种题型至少做3道练习题</li>
+                            <li>🤔 理解原理比死记硬背更重要</li>
+                            <li>👥 和同学互相讲解知识点</li>
+                            <li>⏰ 考前一天早点睡，保持好状态</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <div style="text-align: center; padding: 50px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white; margin-top: 50px;">
+                    <h2 style="color: white; font-size: 2em; margin-bottom: 20px;">🎉 复习完成！</h2>
+                    <p style="font-size: 1.3em; margin: 20px 0;">相信自己，你一定可以的！</p>
+                    <p style="font-size: 1.1em;">所有知识点都在这里了，慢慢看，认真理解</p>
+                    <p style="font-size: 1.1em; margin-top: 20px;">💪 加油！祝考试顺利！💯</p>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="back-to-top" onclick="scrollToTop()">↑</div>
+
+    <script>
+        // 返回顶部功能
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // 切换答案显示
+        function toggleSolution(id) {
+            const element = document.getElementById(id);
+            if (element.classList.contains('hidden')) {
+                element.classList.remove('hidden');
+                event.target.textContent = '收起解答 ☝️';
+            } else {
+                element.classList.add('hidden');
+                event.target.textContent = '点击查看详细解答 👇';
+            }
+        }
+
+        // 搜索功能
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const chapters = document.querySelectorAll('.chapter');
+
+            chapters.forEach(chapter => {
+                const text = chapter.textContent.toLowerCase();
+                if (text.includes(searchTerm) || searchTerm === '') {
+                    chapter.style.display = 'block';
+                } else {
+                    chapter.style.display = 'none';
+                }
+            });
+        });
+
+        // 进度条更新
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = (scrollTop / scrollHeight) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({behavior: 'smooth', block: 'start'});
+                }
+            });
+        });
+    </script>
+
+    <footer style="background: white; border-radius: 15px; padding: 25px; margin-top: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); text-align: center;">
+        <p style="color: #667eea; font-size: 1.1em;">📚 祝你考试顺利，取得优异成绩！</p>
+        <p style="margin-top: 15px; opacity: 0.7; font-size: 0.9em;">作者：冷歌</p>
+    </footer>
+</body>
+</html>

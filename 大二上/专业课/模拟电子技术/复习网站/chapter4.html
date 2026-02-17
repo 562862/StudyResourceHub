@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第四章：集成运算放大器 - 模拟电子技术</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>📚 第四章：集成运算放大器</h1>
+            <p class="subtitle">学会使用运放构建各种功能电路</p>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="chapter1.html">第一章：半导体器件</a></li>
+                <li><a href="chapter2.html">第二章：基本放大电路</a></li>
+                <li><a href="chapter3.html">第三章：多级放大电路</a></li>
+                <li><a href="chapter4.html" class="active">第四章：集成运放</a></li>
+                <li><a href="chapter5.html">第五章：反馈电路</a></li>
+                <li><a href="chapter6.html">第六章：功率放大</a></li>
+                <li><a href="exercises.html">习题练习</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="content-section">
+            <h2>一、理想运算放大器</h2>
+
+            <div class="knowledge-card">
+                <h4>🔹 理想运放的三个重要特性</h4>
+                <p><strong>1. 开环放大倍数：</strong>A<sub>od</sub> → ∞（趋于无穷大）</p>
+                <p><strong>2. 输入电阻：</strong>R<sub>i</sub> → ∞（趋于无穷大）</p>
+                <p><strong>3. 输出电阻：</strong>R<sub>o</sub> → 0（趋于零）</p>
+            </div>
+
+            <div class="important-note">
+                <h4>⚠️ 理想运放的两个重要结论</h4>
+                <p><strong>虚短：</strong>U<sub>+</sub> = U<sub>-</sub>（同相端和反相端电位相等）</p>
+                <p><strong>虚断：</strong>I<sub>+</sub> = I<sub>-</sub> = 0（输入端无电流）</p>
+                <p><strong>记忆口诀：</strong>"虚短虚断，分析必看"</p>
+            </div>
+
+            <h2>二、基本运放电路</h2>
+
+            <h3>2.1 反相比例放大器</h3>
+            <div class="formula-box">
+                <strong>电压放大倍数：</strong><br>
+                A<sub>u</sub> = -R<sub>f</sub> / R<sub>1</sub><br>
+                <strong>特点：</strong>输出与输入反相
+            </div>
+
+            <h3>2.2 同相比例放大器</h3>
+            <div class="formula-box">
+                <strong>电压放大倍数：</strong><br>
+                A<sub>u</sub> = 1 + R<sub>f</sub> / R<sub>1</sub><br>
+                <strong>特点：</strong>输出与输入同相
+            </div>
+
+            <h3>2.3 运放的理想条件</h3>
+            <div class="knowledge-card">
+                <h4>🔹 下列符合理想运算放大器条件之一的是（）</h4>
+                <p><strong>选项分析：</strong></p>
+                <ul>
+                    <li>A. 开环放大倍数→0 ✗</li>
+                    <li>B. 开环输出电阻→∞ ✗</li>
+                    <li>C. 差模输入电阻→∞ ✓（正确答案）</li>
+                    <li>D. 共模抑制比→0 ✗</li>
+                </ul>
+                <p><strong>解析：</strong>理想运放的输入电阻（差模输入电阻）应趋于无穷大，这样才能满足"虚断"的特性。</p>
+            </div>
+
+            <h2>三、运放工作在线性必须（）</h2>
+            <div class="knowledge-card">
+                <h4>🔹 运放线性工作条件</h4>
+                <ul>
+                    <li>A. 接正反馈 ✗</li>
+                    <li>B. 输入端外接大电阻 ✗</li>
+                    <li>C. 开环 ✗</li>
+                    <li>D. 接负反馈 ✓（正确答案）</li>
+                </ul>
+                <p><strong>重要原理：</strong>运放工作在线性区的<strong>必要条件</strong>是引入负反馈！</p>
+                <p>没有负反馈，运放会工作在非线性区（饱和或截止状态）。</p>
+            </div>
+
+            <h2>四、本章小结</h2>
+            <div class="knowledge-card">
+                <h4>🎯 核心知识点总结</h4>
+                <ul>
+                    <li><strong>理想运放：</strong>虚短、虚断是分析的基础</li>
+                    <li><strong>反相放大：</strong>A<sub>u</sub> = -R<sub>f</sub>/R<sub>1</sub></li>
+                    <li><strong>同相放大：</strong>A<sub>u</sub> = 1 + R<sub>f</sub>/R<sub>1</sub></li>
+                    <li><strong>线性工作：</strong>必须引入负反馈</li>
+                </ul>
+            </div>
+
+            <div class="start-card" style="margin-top: 40px;">
+                <h3>📚 继续学习</h3>
+                <p>掌握了集成运放，让我们学习反馈电路！</p>
+                <a href="chapter5.html" class="btn btn-primary">进入第五章：反馈电路 →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 模拟电子技术复习网站 | 祝你考试顺利！</p>
+            <p style="margin-top: 10px; opacity: 0.7; font-size: 0.9em;">作者：冷歌</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
