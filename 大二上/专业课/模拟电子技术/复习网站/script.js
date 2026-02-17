@@ -1,4 +1,4 @@
-// 模拟电子技术复习网站 - 交互功能
+﻿// 模拟电子技术复习网站 - 交互功能
 
 // 页面加载完成后执行
 document.addEventListener('DOMContentLoaded', function() {

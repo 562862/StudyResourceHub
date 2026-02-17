@@ -1,4 +1,4 @@
-# StudyResourceHub
+﻿# StudyResourceHub
 
 ![Repo Size](https://img.shields.io/github/repo-size/562862/StudyResourceHub?color=success)
 ![Last Commit](https://img.shields.io/github/last-commit/562862/StudyResourceHub)

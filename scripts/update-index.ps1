@@ -44,8 +44,9 @@ $lines.Add('```')
 $lines.Add("")
 
 $content = ($lines -join [Environment]::NewLine) + [Environment]::NewLine
-$utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+# Use UTF-8 with BOM to avoid mojibake when opened by tools that auto-detect encoding via BOM.
+$utf8Bom = New-Object System.Text.UTF8Encoding($true)
 $outputPath = Join-Path $SemesterDir "README.md"
-[System.IO.File]::WriteAllText($outputPath, $content, $utf8NoBom)
+[System.IO.File]::WriteAllText($outputPath, $content, $utf8Bom)
 
 Write-Output "已更新: $outputPath"
