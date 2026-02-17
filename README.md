@@ -53,6 +53,7 @@ StudyResourceHub/
 1. 提交 Issue 说明资料来源和课程信息。
 2. Fork 后提交 Pull Request。
 3. 新增内容请尽量按现有目录规范放置。
+4. 新增课程后可运行 `powershell -ExecutionPolicy Bypass -File ./scripts/update-index.ps1` 自动更新 `大二上/README.md`。
 
 ## 免责声明
 
